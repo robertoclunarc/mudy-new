@@ -1,0 +1,277 @@
+.container-hero {
+    background: #252525;
+    width: 100%;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+h3{
+    position: relative;
+    bottom: 10px;
+}
+
+.box {
+    background-color: #0354beaf;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-family: sans-serif;
+    line-height: 1;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(200px);
+    max-width: 30%;
+    max-height: 50%;
+    padding: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+}
+
+.container2 {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+.btn {
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
+.text-one {
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    top: 35%;
+    left: 20%;
+    z-index: 1;
+    color: white;
+}
+
+img {
+    width: 100%;
+
+}
+
+.info-hero-mobile{
+    display: none;
+}
+
+
+
+
+@media screen and (max-width:950px) {
+    .text-one {
+        position: absolute;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        top: 40%;
+        left: 50%;
+        z-index: 1;
+        color: white;
+    }
+   
+    
+    .container2 {
+      display: none;
+    }
+ 
+
+    .info-hero-mobile{
+        text-align: center;
+        padding: 20px;
+        display: block;
+        color: white;
+        background-color: #004aad;
+        width: 100%;
+        height: 200px;
+    }
+ 
+}
+
+
+@media screen and (max-width:776px) {
+    .text-one {
+        position: absolute;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        top: 30%;
+        left: 50%;
+        z-index: 1;
+        color: white;
+    }
+   
+    
+    .container2 {
+      display: none;
+    }
+ 
+
+    .info-hero-mobile{
+        text-align: center;
+        padding: 20px;
+        display: block;
+        color: white;
+        background-color: #004aad;
+        width: 100%;
+        height: 200px;
+    }
+    
+}
+
+
+@media screen and (max-width:600px) {
+    .text-one {
+        position: absolute;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        top: 25%;
+        left: 50%;
+        z-index: 1;
+        color: white;
+    }
+   
+    
+    .container2 {
+      display: none;
+    }
+ 
+
+    .info-hero-mobile{
+        text-align: center;
+        padding: 20px;
+        display: block;
+        color: white;
+        background-color: #004aad;
+        width: 100%;
+        height: 200px;
+    }
+    
+}
+
+
+@media screen and (max-width:510px) {
+    .text-one {
+        position: absolute;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        top: 20%;
+        left: 50%;
+        z-index: 1;
+        color: white;
+    }
+   
+    
+    .container2 {
+      display: none;
+    }
+ 
+
+    .info-hero-mobile{
+        text-align: center;
+        padding: 20px;
+        display: block;
+        color: white;
+        background-color: #004aad;
+        width: 100%;
+        height: 220px;
+    }
+    
+}
+
+
+@media screen and (max-width:410px) {
+    .text-one {
+        position: absolute;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        top: 17%;
+        left: 50%;
+        z-index: 1;
+        color: white;
+    }
+   
+    
+    .container2 {
+      display: none;
+    }
+ 
+
+    .info-hero-mobile{
+        text-align: center;
+        padding: 20px;
+        display: block;
+        color: white;
+        background-color: #004aad;
+        width: 100%;
+        height: 230px;
+    }
+    
+}
+
+
+
+// @media screen and (max-height:720px) {
+//     .text-one {
+//         position: absolute;
+//         text-align: center;
+//         transform: translate(-50%, -50%);
+//         top: 30%;
+//         left: 20%;
+//         z-index: 1;
+//         color: white;
+//     }   
+      
+// }
+
+// @media screen and (max-height:667px) {
+//     .text-one {
+//         position: absolute;
+//         text-align: center;
+//         transform: translate(-50%, -50%);
+//         top: 25%;
+//         left: 50%;
+//         z-index: 1;
+//         color: white;
+//     }   
+      
+// }
+
+
+
+
+@media screen and (max-width:340px) {
+    .text-one {
+        position: absolute;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        top: 14%;
+        left: 50%;
+        z-index: 1;
+        color: white;
+    }
+   
+    
+    .container2 {
+      display: none;
+    }
+ 
+
+    .info-hero-mobile{
+        text-align: center;
+        padding: 20px;
+        display: block;
+        color: white;
+        background-color: #004aad;
+        width: 100%;
+        height: 240px;
+    }
+    
+}
+

@@ -1,0 +1,32 @@
+<div class="main" (window:resize)="onResize($event)">
+    <h1  class="text-center text-light p-3 pt-4">Nuestros Clientes Hablan por Nosotros</h1>
+
+    <swiper    
+    class="p-swipper"
+    [config]="config"
+    (swiper)="onSwiper($event)"
+    (slideChange)="onSlideChange()"
+  >
+    <ng-template  *ngFor="let item of [1,1,1,1,1]" swiperSlide>
+        <div style="cursor: grab;" class="card p-3">
+            <table>
+                <tr>
+                    <td class="d-flex justify-content-center align-items-center">
+                        <div class="avatar">
+                            <img src="https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock-.jpg" alt="">
+                        </div>
+                    </td>
+                    <td style="text-align: start;">
+                       <h6 class="text-blue">Alberto Diaz G.</h6> 
+                    </td>
+                </tr>                
+            </table>
+
+            <div class="text-center p-3 pt-4">
+                "Todo salió como se planificó. ¡Excelente servicio!"
+            </div>
+        </div>
+    </ng-template>
+    
+  </swiper>
+</div>

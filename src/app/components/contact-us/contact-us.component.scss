@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.ws{
+    font-size: 35px;
+    cursor: pointer;
+}
+.social-icon{
+    padding: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.table-icon{
+    padding: 10px;
+    font-size: 25px;
+   padding-right: 20px;
+}
+
+.container-form{
+    background: white;
+}
+
+.blue-bg{
+    color: white;
+    background-color: #004aad;
+    width: 100%;
+    min-height: 400px;
+}
+
+input{
+    background: #f1f1f1;
+    height: 50px;
+    border-radius: 10px;
+    border: 0;
+    padding-left: 10px;
+}
+
+input:focus{
+    background: #f1f1f1;
+}
+
+textarea{
+    background: #f1f1f1;    
+    border-radius: 10px;
+    border: 0;
+    padding-left: 10px;
+}
+
+textarea:focus{
+    background: #f1f1f1;
+}
+
+.btn{
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 18px;
+}

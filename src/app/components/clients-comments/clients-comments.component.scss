@@ -1,0 +1,46 @@
+.main{
+    background-color: #a4abb3;
+}
+
+.p-swipper{
+  padding: 70px;
+  padding-top: 20px;
+}
+
+.card{
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.avatar{
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    overflow: hidden;    
+    border-radius: 100%;  
+  }
+  
+  .avatar img{
+    width: 100%;
+    height: auto;
+    
+  }
+  @supports(object-fit: cover){
+      .avatar img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+    }
+
+    @media screen and (max-width:471px) {
+      .p-swipper{
+        padding: 70px;
+        padding-left: 10px;
+        padding-top: 20px;
+      }
+
+    }
+    
+    
