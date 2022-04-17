@@ -25,10 +25,7 @@
     color: var(--primary);
 }
 
-.navbar.sticky-top {
-    top: -100px;
-    transition: .5s;
-}
+
 
 @media (max-width: 991.98px) {
     .navbar .navbar-nav .nav-link {
