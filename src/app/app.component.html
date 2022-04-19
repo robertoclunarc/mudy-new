@@ -1,9 +1,12 @@
+<!--====================Botón de WhatsApp====================-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <a href="https://wa.me/+56934995544" class="float" target="_blank">
     <i class="fa fa-whatsapp my-float"></i>
 </a>
+<!--==========================================================-->
 
 
+<!--====================Barra de Navegación====================-->
 <nav class="navbar shadow navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
     <span class="ps-2"><img style="width: 150px;" src="../../../assets/images/logo.png" alt="logo"></span>
      <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -20,18 +23,35 @@
          </div>           
      </div>
  </nav>
+<!--==========================================================-->
 
+
+<!--====================Página de Inicio====================-->
 <div class="animate__animated animate__fadeIn" *ngIf="view == 'home'">
     <app-hero></app-hero>
     <app-best-services id="services"></app-best-services>
     <app-we-are-mudy></app-we-are-mudy>
     <app-interest></app-interest>
     <app-clients-comments></app-clients-comments>
-    <app-contact-us id="contact"></app-contact-us>
- 
+    <app-contact-us id="contact"></app-contact-us> 
 </div>
+<!--==========================================================-->
 
+
+
+
+<!--====================¿Que servicios necesitas?====================-->
 <app-service-type *ngIf="view == 'service'"></app-service-type>
+<!--=================================================================-->
+
+
+
+
+<!--====================Socios====================-->
 <app-partners  *ngIf="view == 'partners'"></app-partners>
+<!--==============================================-->
+
+
+
 <app-footer></app-footer>
 
