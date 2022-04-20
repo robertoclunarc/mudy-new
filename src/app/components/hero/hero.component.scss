@@ -5,19 +5,20 @@
 
 h1 {
     font-weight: 400;
+    font-size: 60px;
 }
 
 h3{
     position: relative;
     bottom: 10px;
+    font-size: 40px;
 }
 
 .box {
     background-color: #0354beaf;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    font-family: sans-serif;
-    line-height: 1;
+    font-family: sans-serif;   
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(200px);
     max-width: 30%;
@@ -75,6 +76,17 @@ img {
         left: 50%;
         z-index: 1;
         color: white;
+    }
+
+    h1 {
+        font-weight: 400;
+        font-size: 40px;
+    }
+    
+    h3{
+        position: relative;
+        bottom: 10px;
+        font-size: 25px;
     }
    
     
@@ -167,6 +179,16 @@ img {
         color: white;
     }
    
+    h1 {
+        font-weight: 400;
+        font-size: 30px;
+    }
+    
+    h3{
+        position: relative;
+        bottom: 10px;
+        font-size: 20px;
+    }
     
     .container2 {
       display: none;
@@ -215,6 +237,18 @@ img {
     
 }
 
+@media screen and (max-width:350px) {
+    h1 {
+        font-weight: 400;
+        font-size: 25px;
+    }
+    
+    h3{
+        position: relative;
+        bottom: 10px;
+        font-size: 17px;
+    }
+}
 
 
 // @media screen and (max-height:720px) {

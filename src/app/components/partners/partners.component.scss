@@ -15,12 +15,12 @@
 .referral {
     width: 299px;
     height: 299px;
-    background: url("../../../assets/images/referral.png");
+    background: url("../../../assets/images/promotor.png");
      background-size: contain;
     transition: 0.4s;
 }
 .referral:hover {
-    background: url("../../../assets/images/referralhover.png");
+    background: url("../../../assets/images/promotorhover.png");
      background-size: contain;
     transition: 0.4s;
     cursor: pointer;
@@ -63,31 +63,14 @@
 @media screen and (max-width:400px) {
     .referral {
         width: 190px;
-        height: 190px;
-        background: url("../../../assets/images/referral.png");
-        background-size: contain;
-        transition: 0.4s;
-    }
-    .referral:hover {
-        background: url("../../../assets/images/referralhover.png");
-        transition: 0.4s;
-        background-size: contain;
-        cursor: pointer;
-    }
+        height: 190px;      
+    }   
     
     .transporter {
         width: 190px;
-        height: 190px;
-        background: url("../../../assets/images/transporter.png");
-        background-size: contain;
-        transition: 0.4s;
+        height: 190px;       
     }
-    .transporter:hover {
-        background: url("../../../assets/images/transporterhover.png");
-        background-size: contain;
-        transition: 0.4s;
-        cursor: pointer;
-    }
+  
 
 }
 

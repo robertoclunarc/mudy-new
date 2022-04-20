@@ -6,8 +6,9 @@
     [config]="config"
     (swiper)="onSwiper($event)"
     (slideChange)="onSlideChange()"
+    
   >
-    <ng-template  *ngFor="let item of [1,1,1,1,1]" swiperSlide>
+    <ng-template  *ngFor="let item of [1,1,1,1,1,1,1,1]" swiperSlide>
         <div style="cursor: grab;" class="card p-3">
             <table>
                 <tr>
@@ -30,3 +31,4 @@
     
   </swiper>
 </div>
+
