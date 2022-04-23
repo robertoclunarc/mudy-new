@@ -1,0 +1,245 @@
+.center-el{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-img{
+    width: 100%;
+    height: 100%;
+}
+
+.col-circle{
+    height: 299px;
+}
+
+
+
+//================Mudanza Clases===================
+
+.p-mudanza{
+    position: relative;
+    top: 45px;
+    left: 45px;
+    width: 200px;
+    text-align: justify;
+    color: #0354be;
+}
+
+.mudanza {  
+    width: 299px;
+    height: 299px;
+    background: url("../../../../assets/images/mudanza.svg");
+    background-size: contain;
+    transition: 0.4s;
+}
+.mudanza:hover {
+    background: url("../../../../assets/images/mudanzahover.svg");
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.mudanzaclick{  
+    position: relative;
+    bottom: 200px; 
+    width: 299px;
+    height: 299px;
+    background: url("../../../../assets/images/mudanzaclick.png");
+    background-size: contain;
+    transition: 0.4s;
+}
+
+.mudanza-detail{ 
+    position: relative;
+    top: 50px;
+    right: 250px;     
+    width: 300px;
+    height: 200px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    background: #c5e0ff;    
+}
+
+.btn-mudanza{
+    position: relative;
+    top: 100px;
+    left: 140px;
+    border-radius: 40px;
+    font-size: 20px;
+    color: #0354be;
+    font-weight: bold;
+}
+
+//===============================================
+
+
+
+//================Flete Clases===================
+
+.p-flete{
+    position: relative;
+    top: 45px;
+    left: 50px;
+    width: 220px;
+    text-align: start;
+    color: #0354be;
+}
+
+.flete {
+    width: 299px;
+    height: 299px;
+    background: url("../../../../assets/images/flete.svg");
+    background-size: contain;
+    transition: 0.4s;
+}
+
+.flete:hover {
+    background: url("../../../../assets/images/fletehover.svg");
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.fleteclick{
+    position: relative;
+    bottom: 200px; 
+    width: 299px;
+    height: 299px;
+    background: url("../../../../assets/images/fleteclick.png");
+    background-size: contain;
+    transition: 0.4s;
+}
+
+.flete-detail{ 
+    position: relative;
+    top: 50px;
+    left: 250px;     
+    width: 300px;
+    height: 200px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background: #c5e0ff;    
+}
+
+.btn-flete{
+    position: relative;
+    top: 100px;    
+    border-radius: 40px;
+    font-size: 20px;
+    color: #0354be;
+    font-weight: bold;
+}
+
+//===============================================
+
+
+.square{
+    width: 100%;
+    height: 800px;
+    background: transparent;
+    overflow: hidden;      
+  }
+  
+  .square img{
+    width: 100%;
+    height: auto;
+    
+  }
+  @supports(object-fit: cover){
+      .square img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+    }
+
+
+
+//===================Responsive==========================
+
+@media screen and (max-width:991px) {
+
+    .p-mudanza{
+        position: relative;
+        top: 80px;
+        left: 15px;
+        width: 200px;
+        text-align: justify;
+        color: #0354be;
+    }
+
+    .mudanzaclick{  
+        position: relative;
+        bottom: 300px;       
+    }
+
+    .mudanza-detail{ 
+        position: relative;
+        top: 220px;
+        right: 0; 
+        left: 35px;    
+        width: 230px;
+        height: 300px;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 100px;
+        border-bottom-left-radius: 100px;
+        background: #c5e0ff; 
+        backdrop-filter: black;      
+    }
+    
+    .btn-mudanza{
+        position: relative;
+        top: 100px;
+        left: 60px;
+        border-radius: 40px;
+        font-size: 20px;
+        color: #0354be;
+        font-weight: bold;
+    }
+    
+
+    .p-flete{
+        position: relative;
+        top: 80px;
+        left: 15px;
+        width: 200px;
+        text-align: justify;
+        color: #0354be;
+    }
+
+    .fleteclick{  
+        position: relative;
+        bottom: 300px;       
+    }
+
+    .flete-detail{ 
+        position: relative;
+        top: 220px;
+        right: 0; 
+        left: 35px;    
+        width: 230px;
+        height: 300px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 100px;
+        border-bottom-left-radius: 100px;
+        background: #c5e0ff; 
+        backdrop-filter: black;       
+    }
+    
+    .btn-flete{
+        position: relative;
+        top: 100px;
+        left: 60px;
+        border-radius: 40px;
+        font-size: 20px;
+        color: #0354be;
+        font-weight: bold;
+    }
+
+}
+
+
+
+
+

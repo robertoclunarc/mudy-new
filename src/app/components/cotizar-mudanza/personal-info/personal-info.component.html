@@ -1,0 +1,64 @@
+<div class="card-form shadow">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <h1>Cotización de Mudanza</h1>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-end">
+            <h5 class="text-blue pt-3">Información Personal</h5>
+        </div>
+    </div>
+    <hr style="color: rgb(173, 173, 173);">
+
+<div class="row">
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control ps-2 mudy-input" placeholder="Pedro">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Apellido</label>
+            <input type="text" class="form-control ps-2 mudy-input" placeholder="Perez">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Rut</label>
+            <input type="text" class="form-control ps-2 mudy-input" placeholder="0932039209">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control ps-2 mudy-input" placeholder="cliente@gmail.com">
+        </div>
+
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input type="text" class="form-control ps-2 mudy-input" placeholder="+56 9 4564 4565">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">WhatsApp</label>
+            <input type="text" class="form-control ps-2 mudy-input" placeholder="+56 9 4564 4565">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Código de Referido</label>
+            <input type="text" class="form-control ps-2 mudy-input" placeholder="Código">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Fecha y Hora</label>
+            <input type="date"class="form-control ps-2 mudy-input-outline">
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row py-3">
+    <div class="col-6 text-end">
+        <button (click)="cancel()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Cancelar</span></button>
+    </div>
+    <div class="col-6">
+        <button (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
+    </div>
+</div>
+</div>

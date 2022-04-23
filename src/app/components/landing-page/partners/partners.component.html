@@ -1,0 +1,32 @@
+<div class="animate__animated animate__fadeIn">
+
+    <div (click)="showButtonContent('')" class="square">
+        <img src="../../../assets/images/joinus.png" alt="">
+    </div>
+
+
+        <div class="center-el">
+            <h1>¡Se parte de <strong>MUDY.CL</strong> <br> y trabaja con nosotros!</h1>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 col-circle">
+                    <div class="backdrop" *ngIf="partnerType == 'transportista'"></div>
+                    <div *ngIf="partnerType == 'transportista'" class="transportista-detail">
+                        <p class="p-transportista">Únete a nosotros como transportista y lleva felicidad a nuestros clientes de la mejor manera</p>
+                        <button class="btn btn-light btn-transportista">REGISTRO</button>
+                    </div>
+                    <div (click)="showButtonContent('transportista')"
+                        [ngClass]="[ partnerType == 'transportista' ? 'transportistaclick' : 'transportista']">
+                    </div>
+                </div>
+                <div  class="col-lg-6 col-md-12 col-sm-12 col-12 col-circle">
+                    <div *ngIf="partnerType == 'promotor'" class="promotor-detail">
+                        <p class="p-promotor">Únete a nosotros como promotor y lleva felicidad a nuestros clientes de la mejor manera</p>
+                        <button class="btn btn-light btn-promotor">REGISTRO</button>
+                    </div>
+                    <div (click)="showButtonContent('promotor')"
+                        [ngClass]="[ partnerType == 'promotor' ? 'promotorclick' : 'promotor']"></div>
+                </div>
+            </div>
+        </div>
+  
+</div>
