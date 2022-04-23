@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilsService } from 'src/app/services/utils.service';
 import { MovingMainComponent } from '../moving-main/moving-main.component';
 
 @Component({
@@ -9,10 +10,13 @@ import { MovingMainComponent } from '../moving-main/moving-main.component';
 export class InventoryComponent implements OnInit {
 
   rooms = ['Cocina', 'Logia', 'Sala', 'Sala', 'Terraza', 'Otro']
+  roomModalOpened = false;
 
-  constructor(public main: MovingMainComponent) { }
+  constructor(public main: MovingMainComponent,
+             public utilsService: UtilsService) { }
 
   ngOnInit(): void {
+    this.utilsService.$roomModal.subscribe((value)=>{this.roomModalOpened = value})
   }
 
   next(){
@@ -21,6 +25,12 @@ export class InventoryComponent implements OnInit {
   
   back(){
     this.main.step3_ToAddress();
+  }
+
+  openRoomModal(){
+    console.log(this.roomModalOpened);
+    
+    this.roomModalOpened = true;
   }
 
 }

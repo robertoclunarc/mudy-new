@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService {
+
+  $roomModal = new EventEmitter<any>(); // Observable booleano que indica si la modal está abierta o cerrada
 
   constructor(public router: Router) { }
 

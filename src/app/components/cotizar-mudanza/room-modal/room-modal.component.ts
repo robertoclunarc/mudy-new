@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-room-modal',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomModalComponent implements OnInit {
 
-  constructor() { }
+  sizes = ['Grande', 'Mediano', 'Pequeño']
+  elements = ['Elemento 1','Elemento 2','Elemento 3',]
+  constructor(public utilsService: UtilsService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
   }
 
+  closeModal(){
+    this.utilsService.$roomModal.emit(false);
+  }
 }

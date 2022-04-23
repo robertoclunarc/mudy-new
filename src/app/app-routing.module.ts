@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FleteMainComponent } from './components/cotizar-flete/flete-main/flete-main.component';
 import { MovingMainComponent } from './components/cotizar-mudanza/moving-main/moving-main.component';
 import { HomeMainComponent } from './components/landing-page/home-main/home-main.component';
 import { PartnersComponent } from './components/landing-page/partners/partners.component';
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {path: 'moving',
    component: MovingMainComponent
+  },
+  {path: 'flete',
+   component: FleteMainComponent
   }
 ];
 

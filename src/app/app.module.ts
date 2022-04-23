@@ -21,6 +21,11 @@ import { RoomModalComponent } from './components/cotizar-mudanza/room-modal/room
 import { PaymentComponent } from './components/cotizar-mudanza/payment/payment.component';
 import { MovingMainComponent } from './components/cotizar-mudanza/moving-main/moving-main.component';
 import { HomeMainComponent } from './components/landing-page/home-main/home-main.component';
+import { FleteMainComponent } from './components/cotizar-flete/flete-main/flete-main.component';
+import { PersonalInfoFleteComponent } from './components/cotizar-flete/personal-info-flete/personal-info-flete.component';
+import { OriginAddressFleteComponent } from './components/cotizar-flete/origin-address-flete/origin-address-flete.component';
+import { ToAddressFleteComponent } from './components/cotizar-flete/to-address-flete/to-address-flete.component';
+import { InventoryFleteComponent } from './components/cotizar-flete/inventory-flete/inventory-flete.component';
 @NgModule({
   declarations: [
     AppComponent,    
@@ -40,7 +45,12 @@ import { HomeMainComponent } from './components/landing-page/home-main/home-main
     RoomModalComponent,
     PaymentComponent,
     MovingMainComponent,
-    HomeMainComponent
+    HomeMainComponent,
+    FleteMainComponent,
+    PersonalInfoFleteComponent,
+    OriginAddressFleteComponent,
+    ToAddressFleteComponent,
+    InventoryFleteComponent
   ],
   imports: [
     BrowserModule,
