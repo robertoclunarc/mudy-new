@@ -12,7 +12,7 @@
                     <div class="backdrop" *ngIf="partnerType == 'transportista'"></div>
                     <div *ngIf="partnerType == 'transportista'" class="transportista-detail">
                         <p class="p-transportista">Únete a nosotros como transportista y lleva felicidad a nuestros clientes de la mejor manera</p>
-                        <button class="btn btn-light btn-transportista">REGISTRO</button>
+                        <button (click)="goTo('/transportista')" class="btn btn-light btn-transportista">REGISTRO</button>
                     </div>
                     <div (click)="showButtonContent('transportista')"
                         [ngClass]="[ partnerType == 'transportista' ? 'transportistaclick' : 'transportista']">
@@ -21,7 +21,7 @@
                 <div  class="col-lg-6 col-md-12 col-sm-12 col-12 col-circle">
                     <div *ngIf="partnerType == 'promotor'" class="promotor-detail">
                         <p class="p-promotor">Únete a nosotros como promotor y lleva felicidad a nuestros clientes de la mejor manera</p>
-                        <button class="btn btn-light btn-promotor">REGISTRO</button>
+                        <button (click)="goTo('/promotor')" class="btn btn-light btn-promotor">REGISTRO</button>
                     </div>
                     <div (click)="showButtonContent('promotor')"
                         [ngClass]="[ partnerType == 'promotor' ? 'promotorclick' : 'promotor']"></div>

@@ -29,10 +29,19 @@ export class ServiceMainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.step1_PersonalInfo();
+    this.step4_Inventory();
   }
 
+/**
+ *  Con variables booleanas se valida en que paso de la cotización va el usuario.
+ *  step: valida que el usuario está en ese paso.
+ *  step_checked: valida que el usuario completó ese paso.  
+ */
 
+
+ /**
+ * Paso 1: Información personal.
+ */
   step1_PersonalInfo() {
     this.step1 = true;
     this.step1_check = false;
@@ -44,6 +53,10 @@ export class ServiceMainComponent implements OnInit {
     this.step4_check = false;
   }
 
+
+ /**
+ * Paso 2: Dirección de Origen.
+ */
   step2_OriginAddress() {
     this.step1 = true;
     this.step1_check = true;
@@ -55,6 +68,10 @@ export class ServiceMainComponent implements OnInit {
     this.step4_check = false;
   }
 
+
+ /**
+ * Paso 3: Dirección de destino.
+ */
   step3_ToAddress() {
     this.step1 = true;
     this.step1_check = true;
@@ -66,6 +83,9 @@ export class ServiceMainComponent implements OnInit {
     this.step4_check = false;
   }
 
+ /**
+ * Paso 4: Inventario.
+ */
   step4_Inventory() {
     this.step1 = true;
     this.step1_check = true;

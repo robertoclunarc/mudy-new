@@ -1,0 +1,9 @@
+<div class="main-container">
+
+    <app-company-info *ngIf="step1 && !step1_check"></app-company-info>
+    <app-owner-info *ngIf="step2 && !step2_check"></app-owner-info>
+    <app-vehicle-info *ngIf="step3 && !step3_check"></app-vehicle-info>
+    <app-vehicle-documents *ngIf="step4 && !step4_check"></app-vehicle-documents>
+    <app-resume *ngIf="step5 && !step5_check"></app-resume>
+
+</div>

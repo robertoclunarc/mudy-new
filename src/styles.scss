@@ -4,26 +4,26 @@
 @import 'swiper/css/bundle';
 @import 'animate.css';
 
-body{
+body {
     background: #f1f1f1;
 }
 
-.text-blue{
-  color: #004aad;  
+.text-blue {
+    color: #004aad;
 }
 
-.title{
-  color: #5e5e5e;
+.title {
+    color: #5e5e5e;
 }
 
-.mudy-input-outline{
+.mudy-input-outline {
     background: white;
     height: 50px;
-    border-radius: 10px;    
+    border-radius: 10px;
     padding-left: 10px;
 }
 
-.mudy-input{
+.mudy-input {
     background: #f1f1f1;
     height: 50px;
     border-radius: 10px;
@@ -31,55 +31,133 @@ body{
     padding-left: 10px;
 }
 
-.mudy-input:focus{
+.mudy-select {
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.mudy-input:focus {
     background: #f1f1f1;
 }
 
-.mudy-textarea{
-    background: #f1f1f1;    
+.mudy-textarea {
+    background: #f1f1f1;
     border-radius: 10px;
     border: 0;
     padding-left: 10px;
 }
 
-.mudy-textarea:focus{
+.mudy-textarea:focus {
     background: #f1f1f1;
 }
 
-.mudy-btn{
+.mudy-btn {
     padding: 10px;
     border-radius: 30px;
     font-size: 18px;
 }
 
-.card-form{ 
+.card-form {
     min-height: 600px;
     border: 0;
     border-radius: 20px;
     background: white;
-    padding: 40px 50px 20px 50px;     
+    padding: 40px 50px 20px 50px;
 }
 
-.btn-blue{
+.btn-blue {
     background: #004aad;
-    color: white;  
+    color: white;
 }
 
-.btn-blue:hover{
+.btn-blue:hover {
     background: #035dd4;
-    color: white;  
+    color: white;
 }
 
-.card-form h1{
-color: #004aad;
+.card-form h1 {
+    color: #004aad;
 }
 
-.map{
+.map {
     width: 100%;
     height: 400px;
 }
 
 
-.click{
+.click {
     cursor: pointer;
+}
+
+.main-container {
+    background: #e7f3ff;
+    padding: 50px 160px 50px 160px;
+}
+
+.sm-shadow{
+    -webkit-box-shadow: 1px 1px 5px -3px rgba(0,0,0,0.7); 
+    box-shadow: 1px 1px 5px -3px rgba(0,0,0,0.7);
+}
+
+.container-file {
+    width: 100%;
+    height: 50px;
+    border-width: 1;
+    border-radius: 10px;
+    padding: 10px;
+    -webkit-box-shadow: 1px 1px 5px -3px rgba(0,0,0,0.7); 
+    box-shadow: 1px 1px 5px -3px rgba(0,0,0,0.7);
+}
+
+.custom-input-file {
+    background-color: #004aad;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto 0;
+    height: 30px;
+    overflow: hidden;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    text-align: center;
+    width: 30px;
+    border-radius: 100%;
+}
+
+.custom-input-file .input-file {
+    border: 10000px solid transparent;
+    cursor: pointer;
+    font-size: 10000px;
+    margin: 0;
+    opacity: 0;
+    outline: 0 none;
+    padding: 0;
+    position: absolute;
+    right: -1000px;
+    top: -1000px;
+}
+
+
+
+@media screen and (max-width:1189px) {
+    .main-container {
+        padding: 50px 100px 50px 100px;
+    }
+
+}
+
+@media screen and (max-width:700px) {
+    .main-container {
+        padding: 50px 50px 50px 50px;
+    }
+
+}
+
+@media screen and (max-width:500px) {
+    .main-container {
+        padding: 50px 10px 50px 10px;
+    }
+
 }

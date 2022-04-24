@@ -1,0 +1,54 @@
+<div class="card-form shadow animate__animated animate__fadeIn">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <h1>Registro de Empresa</h1>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-end">
+            <h5 class="text-blue pt-3">Datos de Empresa</h5>
+        </div>
+    </div>
+    <hr style="color: rgb(173, 173, 173);">
+
+<div class="row">
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="mb-3">
+            <label class="form-label">Nombre de la empresa</label>
+            <input type="text" class="form-control ps-2 mudy-input" placeholder="Nombre">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" class="form-control ps-2 mudy-input" placeholder="+56 9 4564 4565">
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="mb-3">
+            <label class="form-label">Rut de la empresa</label>
+            <input type="tel" class="form-control ps-2 mudy-input" placeholder="25203405-7">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="text" class="form-control ps-2 mudy-input" placeholder="empresa@gmail.com">
+        </div>      
+    </div>
+
+    <div class="col-12">
+        <div class="mb-3">
+            <label class="form-label">Dirección</label>
+            <input type="text" class="form-control ps-2 mudy-input" placeholder="Santiago, Los Caobos 3454">
+        </div>            
+    </div>
+
+</div>
+
+
+<div class="row py-3">
+    <div class="col-6 text-end">
+        <button (click)="cancel()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Cancelar</span></button>
+    </div>
+    <div class="col-6">
+        <button (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
+    </div>
+</div>
+</div>

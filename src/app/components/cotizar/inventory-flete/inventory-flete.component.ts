@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Vehicles } from 'src/app/services/dummy';
+import SwiperCore, { SwiperOptions, Autoplay } from 'swiper';
 import { ServiceMainComponent } from '../service-main/service-main.component';
 
 
@@ -9,15 +11,15 @@ import { ServiceMainComponent } from '../service-main/service-main.component';
 })
 export class InventoryFleteComponent implements OnInit {
 
- 
-  vehicles = [
-    { name: 'Moto', img: 'https://media.zigcdn.com/media/model/2019/Sep/650nk-right-side-view_360x240.jpg' },
-    { name: 'Camioneta Pickup', img: 'https://www.elcarrocolombiano.com/wp-content/uploads/2020/01/20200115-VOLKSWAGEN-TAREK-PICK-UP-2021-REGISTROS-03.jpg' },
-    { name: 'Furgon', img: 'https://www.ecured.cu/images/f/fd/Nv200.jpg' },
-    { name: 'Mini Camión Cerrado', img: 'https://autoline.ng/img/s/truck-box-truck-HYUNDAI-HD78---1542566263506607756_big--18111820371972388000.jpg' },
-  ]
 
+  vehicles = Vehicles;
   selectedVehicle: string = '';
+  config: SwiperOptions = {
+    slidesPerView: 3.5,
+    spaceBetween: 20,
+    autoplay: { delay: 2000 },
+    navigation: false
+  };
 
   constructor(public main: ServiceMainComponent,
   ) { }
@@ -38,5 +40,11 @@ export class InventoryFleteComponent implements OnInit {
     this.main.step3_ToAddress();
   }
 
+  onSwiper(swiper: any) {
+
+  }
+  onSlideChange() {
+
+  }
 
 }

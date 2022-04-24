@@ -8,7 +8,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class ServiceTypeComponent implements OnInit {
 
-  serviceType: string = ''; //Indica si se ha hecho click en algún tipo de servicio
+  serviceType: string = ''; 
 
   constructor(public utilsService: UtilsService) { }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-partners',
@@ -7,26 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartnersComponent implements OnInit {
 
-  partnerType: string = ''; //Indica si se ha hecho click en algún tipo de servicio
-  constructor() { }
+  partnerType: string = ''; 
+
+  constructor(public utilsService: UtilsService) { }
 
   ngOnInit(): void {
   }
 
+
+  goTo(route:string){
+    this.utilsService.goTo(route);
+  }
+
 /**
  * Mostrar contenido del botón de servicio según el valor del paramentro
- * @param service 
+ * @param partner 
  */
-  showButtonContent(service: string){   
-   if(service == 'transportista'){
+  showButtonContent(partner: string){   
+   if(partner == 'transportista'){
      this.partnerType = 'transportista'
    }
    
-   if(service == 'promotor'){
+   if(partner == 'promotor'){
     this.partnerType = 'promotor'
    }
 
-   if(service == ''){
+   if(partner == ''){
     this.partnerType = ''
    }
   }
