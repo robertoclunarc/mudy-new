@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FleteMainComponent } from '../flete-main/flete-main.component';
+import { ServiceMainComponent } from '../service-main/service-main.component';
+
 
 @Component({
   selector: 'app-inventory-flete',
@@ -8,6 +9,7 @@ import { FleteMainComponent } from '../flete-main/flete-main.component';
 })
 export class InventoryFleteComponent implements OnInit {
 
+ 
   vehicles = [
     { name: 'Moto', img: 'https://media.zigcdn.com/media/model/2019/Sep/650nk-right-side-view_360x240.jpg' },
     { name: 'Camioneta Pickup', img: 'https://www.elcarrocolombiano.com/wp-content/uploads/2020/01/20200115-VOLKSWAGEN-TAREK-PICK-UP-2021-REGISTROS-03.jpg' },
@@ -17,7 +19,7 @@ export class InventoryFleteComponent implements OnInit {
 
   selectedVehicle: string = '';
 
-  constructor(public main: FleteMainComponent,
+  constructor(public main: ServiceMainComponent,
   ) { }
 
   ngOnInit(): void {

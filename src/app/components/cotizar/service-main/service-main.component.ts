@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
-  selector: 'app-flete-main',
-  templateUrl: './flete-main.component.html',
-  styleUrls: ['./flete-main.component.scss']
+  selector: 'app-service-main',
+  templateUrl: './service-main.component.html',
+  styleUrls: ['./service-main.component.scss']
 })
-export class FleteMainComponent implements OnInit {
+export class ServiceMainComponent implements OnInit {
 
   step1: boolean = false;
   step1_check: boolean = false;
@@ -17,14 +18,22 @@ export class FleteMainComponent implements OnInit {
   step4: boolean = false;
   step4_check: boolean = false;
 
-  constructor(public utilsService: UtilsService) { }
+  serviceType: string | null;
+
+  constructor(
+    public utilsService: UtilsService,
+    public actRoute: ActivatedRoute
+    ) {
+
+    this.serviceType = this.actRoute.snapshot.paramMap.get('serviceType'); //Tipo de servicio (Mudanza o Flete)
+  }
 
   ngOnInit(): void {
     this.step1_PersonalInfo();
   }
 
-   
-  step1_PersonalInfo(){
+
+  step1_PersonalInfo() {
     this.step1 = true;
     this.step1_check = false;
     this.step2 = false;
@@ -35,7 +44,7 @@ export class FleteMainComponent implements OnInit {
     this.step4_check = false;
   }
 
-  step2_OriginAddress(){
+  step2_OriginAddress() {
     this.step1 = true;
     this.step1_check = true;
     this.step2 = true;
@@ -46,7 +55,7 @@ export class FleteMainComponent implements OnInit {
     this.step4_check = false;
   }
 
-  step3_ToAddress(){
+  step3_ToAddress() {
     this.step1 = true;
     this.step1_check = true;
     this.step2 = true;
@@ -57,7 +66,7 @@ export class FleteMainComponent implements OnInit {
     this.step4_check = false;
   }
 
-  step4_Inventory(){
+  step4_Inventory() {
     this.step1 = true;
     this.step1_check = true;
     this.step2 = true;

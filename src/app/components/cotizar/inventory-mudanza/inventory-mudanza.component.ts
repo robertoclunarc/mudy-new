@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilsService } from 'src/app/services/utils.service';
-import { MovingMainComponent } from '../moving-main/moving-main.component';
+import { ServiceMainComponent } from '../service-main/service-main.component';
 
 @Component({
-  selector: 'app-inventory',
-  templateUrl: './inventory.component.html',
-  styleUrls: ['./inventory.component.scss']
+  selector: 'app-inventory-mudanza',
+  templateUrl: './inventory-mudanza.component.html',
+  styleUrls: ['./inventory-mudanza.component.scss']
 })
-export class InventoryComponent implements OnInit {
+export class InventoryMudanzaComponent implements OnInit {
 
   rooms = ['Cocina', 'Logia', 'Sala', 'Sala', 'Terraza', 'Otro']
   roomModalOpened = false;
 
-  constructor(public main: MovingMainComponent,
+  constructor(public main: ServiceMainComponent,
              public utilsService: UtilsService) { }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UtilsService } from 'src/app/services/utils.service';
-import { MovingMainComponent } from '../moving-main/moving-main.component';
+import { ServiceMainComponent } from '../service-main/service-main.component';
 
 @Component({
   selector: 'app-personal-info',
@@ -9,7 +9,9 @@ import { MovingMainComponent } from '../moving-main/moving-main.component';
 })
 export class PersonalInfoComponent implements OnInit {
 
-  constructor(public main: MovingMainComponent,
+  @Input() serviceType: string | null = '';
+  
+  constructor(public main: ServiceMainComponent,
               public utilsService: UtilsService) { }
 
   ngOnInit(): void {

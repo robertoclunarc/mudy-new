@@ -1,0 +1,10 @@
+<div class="main-container">
+
+
+    <app-personal-info [serviceType]="serviceType" *ngIf="step1 && !step1_check"></app-personal-info>   
+    <app-origin-address [serviceType]="serviceType" *ngIf="step2 && !step2_check"></app-origin-address>
+    <app-to-address [serviceType]="serviceType" *ngIf="step3 && !step3_check"></app-to-address>
+    <app-inventory-flete *ngIf="step4 && !step4_check && serviceType == 'flete'"></app-inventory-flete>
+    <app-inventory-mudanza *ngIf="step4 && !step4_check && serviceType == 'mudanza'"></app-inventory-mudanza>
+
+</div>

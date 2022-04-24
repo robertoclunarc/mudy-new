@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FleteMainComponent } from './flete-main.component';
+import { InventoryMudanzaComponent } from './inventory-mudanza.component';
 
-describe('FleteMainComponent', () => {
-  let component: FleteMainComponent;
-  let fixture: ComponentFixture<FleteMainComponent>;
+describe('InventoryMudanzaComponent', () => {
+  let component: InventoryMudanzaComponent;
+  let fixture: ComponentFixture<InventoryMudanzaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FleteMainComponent ]
+      declarations: [ InventoryMudanzaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FleteMainComponent);
+    fixture = TestBed.createComponent(InventoryMudanzaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

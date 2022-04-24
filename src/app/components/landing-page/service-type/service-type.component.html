@@ -11,7 +11,7 @@
                     <div class="backdrop" *ngIf="serviceType == 'mudanza'"></div>
                     <div *ngIf="serviceType == 'mudanza'" class="mudanza-detail">
                         <p class="p-mudanza">Necesito trasladar todos los enceres de mi casa o departamento, dentro o fuera de mi región.</p>
-                        <button (click)="goTo('/moving')" class="btn btn-light btn-mudanza">COTIZAR</button>
+                        <button (click)="goTo('/service/mudanza')" class="btn btn-light btn-mudanza">COTIZAR</button>
                     </div>
                     <div (click)="showButtonContent('mudanza')"
                         [ngClass]="[ serviceType == 'mudanza' ? 'mudanzaclick' : 'mudanza']">
@@ -21,7 +21,7 @@
                     <div *ngIf="serviceType == 'flete'" class="flete-detail">
                         <p class="p-flete">Necesito trasladar solounos muebles (hasta 5), materiales o bultos,
                             transporte de cargar rápida.</p>
-                        <button (click)="goTo('/flete')" class="btn btn-light btn-flete">COTIZAR</button>
+                        <button (click)="goTo('/service/flete')" class="btn btn-light btn-flete">COTIZAR</button>
                     </div>
                     <div (click)="showButtonContent('flete')"
                         [ngClass]="[ serviceType == 'flete' ? 'fleteclick' : 'flete']"></div>

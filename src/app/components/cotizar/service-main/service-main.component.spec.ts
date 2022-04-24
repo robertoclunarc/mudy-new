@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OriginAddressFleteComponent } from './origin-address-flete.component';
+import { ServiceMainComponent } from './service-main.component';
 
-describe('OriginAddressFleteComponent', () => {
-  let component: OriginAddressFleteComponent;
-  let fixture: ComponentFixture<OriginAddressFleteComponent>;
+describe('ServiceMainComponent', () => {
+  let component: ServiceMainComponent;
+  let fixture: ComponentFixture<ServiceMainComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OriginAddressFleteComponent ]
+      declarations: [ ServiceMainComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OriginAddressFleteComponent);
+    fixture = TestBed.createComponent(ServiceMainComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

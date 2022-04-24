@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MovingMainComponent } from '../moving-main/moving-main.component';
+import { ServiceMainComponent } from '../service-main/service-main.component';
 
 @Component({
-  selector: 'app-origin-address',
-  templateUrl: './origin-address.component.html',
-  styleUrls: ['./origin-address.component.scss']
+  selector: 'app-to-address',
+  templateUrl: './to-address.component.html',
+  styleUrls: ['./to-address.component.scss']
 })
-export class OriginAddressComponent implements OnInit {
-
-  address: any = '';
+export class ToAddressComponent implements OnInit {
+   
+   @Input() serviceType: string | null = '';
+   address: any = '';
 
   constructor(private sanitizer: DomSanitizer,
-              public main: MovingMainComponent) {
+              public main: ServiceMainComponent) {
 
     this.address = this.sanitizer.bypassSecurityTrustResourceUrl('https://maps.google.com/maps?q=chile,santiago&t=&z=13&ie=UTF8&iwloc=&output=embed');
 
@@ -29,11 +30,10 @@ export class OriginAddressComponent implements OnInit {
 
 
 next(){
-  this.main.step3_ToAddress()
+  this.main.step4_Inventory()
 }
 
 back(){
-  this.main.step1_PersonalInfo();
+  this.main.step2_OriginAddress();
 }
-
 }
