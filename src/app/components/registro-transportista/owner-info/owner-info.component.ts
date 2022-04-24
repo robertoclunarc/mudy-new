@@ -20,6 +20,6 @@ back(){
 }
 
 next(){
-this.main.step2_OwnerInfo();
+this.main.step3_VehicleInfo();
 }
 }
