@@ -29,7 +29,7 @@ export class ServiceMainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.step4_Inventory();
+    this.step1_PersonalInfo();
   }
 
 /**
