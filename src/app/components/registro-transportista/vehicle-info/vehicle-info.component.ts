@@ -10,6 +10,9 @@ import { TransportistaMainComponent } from '../transportista-main/transportista-
 export class VehicleInfoComponent implements OnInit {
 
   vehicles = Vehicles;
+  largo = 0;
+  ancho = 0;
+  alto = 0;
 
   constructor(
     public main: TransportistaMainComponent,

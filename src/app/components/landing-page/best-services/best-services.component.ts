@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-best-services',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BestServicesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public utilsService: UtilsService) { }
 
   ngOnInit(): void {
   }
 
+
+  goTo(route: string){
+    this.utilsService.goTo(route)
+   }
 }

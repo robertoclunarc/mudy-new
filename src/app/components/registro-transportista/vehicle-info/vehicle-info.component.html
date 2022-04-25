@@ -42,35 +42,39 @@
             <label class="form-label">Elevador Hidráulico</label>
             <select class="form-select mudy-select" aria-label="Default select example">
                 <option selected>Selecciona</option>
-                <option value="1">Uno</option>
-                <option value="2">Dos</option>
-                <option value="3">Tres</option>
+                <option value="si">Si</option>
+                <option value="no">No</option>               
             </select>
         </div>
     </div>
 
     <label class="form-label pt-3"> Medidas de la caja (mts)</label>
     <div class="row pt-2">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Largo</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Ingresa">
+                <input type="number" min="1" class="form-control ps-2 mudy-input" placeholder="Ingresa">
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Ancho</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Ingresa">
+                <input type="number" min="1" class="form-control ps-2 mudy-input" placeholder="Ingresa">
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+        <div class="col-lg-4 col-md-3 col-sm-12 col-12">
             <div class="mb-3">
-                <label class="form-label">Alto</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Ingresa">
+                <label class="form-label">Alto <span style="font-size: 13px;">(Tope máximo que puede trasladar)</span></label>
+                <input type="number" min="1" class="form-control ps-2 mudy-input" placeholder="Ingresa">
             </div>
         </div>
-    </div>
-
+        <div class="col-lg-2 col-md-3 col-sm-12 col-12">
+            <div class="mb-3">
+                <label class="form-label">Metros Cúbicos</label>
+                <input disabled type="number" min="1" class="form-control ps-2 mudy-input" placeholder="0">
+            </div>
+        </div>
+    </div>    
 
     <div class="row py-3">
         <div class="col-6 text-end">

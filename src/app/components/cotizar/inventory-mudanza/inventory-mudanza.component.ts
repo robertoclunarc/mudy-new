@@ -9,9 +9,9 @@ import { ServiceMainComponent } from '../service-main/service-main.component';
 })
 export class InventoryMudanzaComponent implements OnInit {
 
-  rooms = ['Cocina', 'Logia', 'Sala', 'Sala', 'Terraza', 'Otro']
+  rooms = ['Cocina', 'Logia', 'Sala','Terraza', 'Otro']
   roomModalOpened = false;
-
+  
   constructor(public main: ServiceMainComponent,
              public utilsService: UtilsService) { }
 

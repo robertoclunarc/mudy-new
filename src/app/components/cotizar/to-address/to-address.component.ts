@@ -11,7 +11,7 @@ export class ToAddressComponent implements OnInit {
    
    @Input() serviceType: string | null = '';
    address: any = '';
-
+vivenda = '';
   constructor(private sanitizer: DomSanitizer,
               public main: ServiceMainComponent) {
 
@@ -36,4 +36,8 @@ next(){
 back(){
   this.main.step2_OriginAddress();
 }
+
+  changeVivienda(event: any){
+   this.vivenda = event.target.value
+  }
 }

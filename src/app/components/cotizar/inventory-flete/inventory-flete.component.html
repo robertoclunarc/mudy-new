@@ -15,37 +15,21 @@
 
         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
 
-            <swiper    
-            class="p-swipper"
-            [config]="config"
-            (swiper)="onSwiper($event)"
-            (slideChange)="onSlideChange()"
-            
-          >
-            <ng-template *ngFor="let v of vehicles" swiperSlide>
-                <div (click)="selectVehicle(v.name)" [ngClass]="[ selectedVehicle == v.name ? 'bg-blue' : '']"
-                    class="card vehicle-card sm-shadow">
-                    <div class="square">
-                        <img [src]="v.img" alt="">
-                    </div>
-                    <p class="pt-3">{{v.name}}</p>
-                </div>
-            </ng-template>
-</swiper>
-
-            <div class="row">
-
-                <!-- <div *ngFor="let v of vehicles" class="col-lg-3 col-md-3 col-sm-6 col-6 pb-2">
+            <swiper class="p-swipper" [config]="config" (swiper)="onSwiper($event)" (slideChange)="onSlideChange()">
+                <ng-template *ngFor="let v of vehicles" swiperSlide>
                     <div (click)="selectVehicle(v.name)" [ngClass]="[ selectedVehicle == v.name ? 'bg-blue' : '']"
-                        class="card vehicle-card shadow">
+                        class="card vehicle-card sm-shadow">
                         <div class="square">
                             <img [src]="v.img" alt="">
                         </div>
                         <p class="pt-3">{{v.name}}</p>
                     </div>
-                </div> -->
+                </ng-template>
+            </swiper>
 
-                <div class="col-12 pt-5">
+            <div class="row">
+
+                   <div class="col-12 pt-3">
                     <p>¿El traslado es ida y vuelta?</p>
                     <div class="row">
                         <div class="col-2">
@@ -60,6 +44,28 @@
                         <div class="col-2">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="pt-4">¿Requiere ayudante?</p>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefaul"
+                                    id="flexRadioDefault1" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Si
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefaul"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     No
@@ -93,7 +99,7 @@
                         </div>
                         <div class="col-3">
                             <div class="custom-input-file">
-                                <input type="file" class="input-file">
+                                <input type="file" accept="image/png,image/jpeg" class="input-file">
                                 +
                             </div>
                         </div>
