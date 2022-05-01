@@ -6,10 +6,8 @@ import { Router } from '@angular/router';
 })
 export class UtilsService {
 
-  $roomModal = new EventEmitter<any>(); // Observable booleano que indica si la modal está abierta o cerrada
 
   constructor(public router: Router) { }
-
 
   /**
    * Cambia la vista del sitio web según la ruta.

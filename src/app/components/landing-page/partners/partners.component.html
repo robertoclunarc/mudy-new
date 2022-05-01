@@ -11,7 +11,8 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12 col-circle">
                     <div class="backdrop" *ngIf="partnerType == 'transportista'"></div>
                     <div *ngIf="partnerType == 'transportista'" class="transportista-detail">
-                        <p class="p-transportista">Únete a nosotros como transportista y lleva felicidad a nuestros clientes de la mejor manera</p>
+                        <p class="p-transportista">Tengo un vehículo de carga y quiero aumentar mis ingresos con Mudy.</p>
+                        <div>ㅤ</div>
                         <button (click)="goTo('/transportista')" class="btn btn-light btn-transportista">REGISTRO</button>
                     </div>
                     <div (click)="showButtonContent('transportista')"
@@ -20,7 +21,8 @@
                 </div>
                 <div  class="col-lg-6 col-md-12 col-sm-12 col-12 col-circle">
                     <div *ngIf="partnerType == 'promotor'" class="promotor-detail">
-                        <p class="p-promotor">Únete a nosotros como promotor y lleva felicidad a nuestros clientes de la mejor manera</p>
+                        <p class="p-promotor">Quiero generar ingresos recomendando a Mudy con mis conocidos.</p>
+                        <div>ㅤ</div>
                         <button (click)="goTo('/promotor')" class="btn btn-light btn-promotor">REGISTRO</button>
                     </div>
                     <div (click)="showButtonContent('promotor')"

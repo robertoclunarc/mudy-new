@@ -37,12 +37,13 @@ import { OwnerInfoComponent } from './components/registro-transportista/owner-in
 import { VehicleInfoComponent } from './components/registro-transportista/vehicle-info/vehicle-info.component';
 import { VehicleDocumentsComponent } from './components/registro-transportista/vehicle-documents/vehicle-documents.component';
 import { ResumeComponent } from './components/registro-transportista/resume/resume.component';
+import { TransportistaBankDataComponent } from './components/registro-transportista/transportista-bank-data/transportista-bank-data.component';
+
 
 //==============Registro de Promotor======================
 import { PromotorMainComponent } from './components/registro-promotor/promotor-main/promotor-main.component';
 import { PromotorInfoComponent } from './components/registro-promotor/promotor-info/promotor-info.component';
 import { PromotorBankDataComponent } from './components/registro-promotor/promotor-bank-data/promotor-bank-data.component';
-
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { PromotorBankDataComponent } from './components/registro-promotor/promot
     TransportistaMainComponent,
     PromotorMainComponent,
     PromotorInfoComponent,
-    PromotorBankDataComponent
+    PromotorBankDataComponent,
+    TransportistaBankDataComponent,    
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@
             <h1>Cotización de <span style="text-transform: capitalize;">{{serviceType}}</span></h1>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-end">
-            <h5 class="text-blue pt-3">Dirección de Origen</h5>
+            <h5 class="text-blue pt-3">Dirección de Destino</h5>
         </div>
     </div>
     <hr style="color: rgb(173, 173, 173);">
@@ -13,7 +13,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
-                <label class="form-label">Introduce la dirección de origen</label>
+                <label class="form-label">Introduce la dirección de destino</label>
                 <input (change)="changeAddress($event)" type="text" class="form-control ps-2 mudy-input"
                     placeholder="Avenida o calle, comuna, ciudad">
             </div>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="mb-3">
-                        <label class="form-label">Urb / Edif</label>
+                        <label class="form-label">Urb / Condominio</label>
                         <input type="text" class="form-control ps-2 mudy-input" placeholder="Las Guamas">
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         <input type="text" class="form-control ps-2 mudy-input" placeholder="3045">
                     </div>
                 </div>
-                <div *ngIf="vivenda == 'apto'" class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div *ngIf="vivenda == 'apto' || vivenda == 'bodega'" class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <label class="form-label">Ascensor Disponible</label>
                     <select class="form-select mudy-select" aria-label="Default select example">
                         <option selected>Selecciona</option>

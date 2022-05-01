@@ -16,7 +16,7 @@ export class ResumeComponent implements OnInit {
   }
 
   back() {
-    this.main.step4_VehicleDocuments();
+    this.main.step5_VehicleDocuments;
   }
 
   submit() {

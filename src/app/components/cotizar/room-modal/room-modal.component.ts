@@ -15,7 +15,4 @@ export class RoomModalComponent implements OnInit {
   ngOnInit(): void {    
   }
 
-  closeModal(){
-    this.utilsService.$roomModal.emit(false);
-  }
 }

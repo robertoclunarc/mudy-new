@@ -18,7 +18,8 @@ export class TransportistaMainComponent implements OnInit {
   step4_check: boolean = false;
   step5: boolean = false;
   step5_check: boolean = false;
-
+  step6: boolean = false;
+  step6_check: boolean = false;
 
   constructor(
     public utilsService: UtilsService
@@ -26,7 +27,7 @@ export class TransportistaMainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.step1_CompanyInfo();
+    this.step6_Resume();
   }
 
   /**
@@ -50,6 +51,8 @@ export class TransportistaMainComponent implements OnInit {
     this.step4_check = false;
     this.step5 = false;
     this.step5_check = false;
+    this.step6 = false;
+    this.step6_check = false;
   }
 
 
@@ -67,13 +70,14 @@ export class TransportistaMainComponent implements OnInit {
     this.step4_check = false;
     this.step5 = false;
     this.step5_check = false;
+    this.step6 = false;
+    this.step6_check = false;
   }
 
-
   /**
-  * Paso 3: Datos del vehículo.
+  * Paso 3: Información de banco.
   */
-  step3_VehicleInfo() {
+  step3_BankData() {
     this.step1 = true;
     this.step1_check = true;
     this.step2 = true;
@@ -84,12 +88,15 @@ export class TransportistaMainComponent implements OnInit {
     this.step4_check = false;
     this.step5 = false;
     this.step5_check = false;
+    this.step6 = false;
+    this.step6_check = false;
   }
 
+
   /**
-  * Paso 4: Papeles del vehículo.
+  * Paso 4: Datos del vehículo.
   */
-  step4_VehicleDocuments() {
+  step4_VehicleInfo() {
     this.step1 = true;
     this.step1_check = true;
     this.step2 = true;
@@ -100,12 +107,14 @@ export class TransportistaMainComponent implements OnInit {
     this.step4_check = false;
     this.step5 = false;
     this.step5_check = false;
+    this.step6 = false;
+    this.step6_check = false;
   }
 
   /**
-* Paso 5: Resumen del Registro.
-*/
-  step5_Resume() {
+  * Paso 5: Papeles del vehículo.
+  */
+  step5_VehicleDocuments() {
     this.step1 = true;
     this.step1_check = true;
     this.step2 = true;
@@ -115,15 +124,35 @@ export class TransportistaMainComponent implements OnInit {
     this.step4 = true;
     this.step4_check = true;
     this.step5 = true;
-    this.step5_check = false;
+    this.step5_check = true;
+    this.step6 = true;
+    this.step6_check = false;
   }
 
-    /**
+  /**
+* Paso 6: Resumen del Registro.
+*/
+  step6_Resume() {
+    this.step1 = true;
+    this.step1_check = true;
+    this.step2 = true;
+    this.step2_check = true;
+    this.step3 = true;
+    this.step3_check = true;
+    this.step4 = true;
+    this.step4_check = true;
+    this.step5 = true;
+    this.step5_check = true;
+    this.step6 = true;
+    this.step6_check = false;
+  }
+
+  /**
 * Enviar registro
 */
-submit() {
-  this.step1_CompanyInfo()
-  this.utilsService.goTo('/')
-}
+  submit() {
+    this.step1_CompanyInfo()
+    this.utilsService.goTo('/')
+  }
 
 }

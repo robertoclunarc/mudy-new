@@ -17,6 +17,13 @@ export class ClientsCommentsComponent implements OnInit {
  };
   
 
+  comments = [
+    {img:'https://engineering.unl.edu/images/staff/Kayla-Person.jpg', name:'Lorena P.', comment: 'Excelente servicio, se pasaron… Son Mis Favoritos!'},
+    {img:'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/120376/s960_Universities_Minister_Michelle_Donelan.jpeg', name:'Alejandra D.', comment: 'Muy buena atención y mejor servicio, los felicito'},
+    {img:'https://architecture.ou.edu/wp-content/uploads/2018/07/ANGELAPERSON-1447-300x300.jpg', name:'Valeria S.', comment: 'En verdad muchas gracias; recomendados al 100%'},
+    {img:'https://media.vanityfair.fr/photos/60d37b54e6816f0c4978e56b/16:9/w_2560%2Cc_limit/pierre_person_cover_vf_4178.jpeg', name:'Andres S.', comment: 'Los tendre muy presentes y los recomendare!'},
+    {img:'https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half-caption/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=0hb44OrI', name:'Zully P.', comment: 'Agradezco en especial el trato, queda poca gente amable, Sigan asi!'}
+  ]
 
   screenx = window.screen.width
   constructor() {

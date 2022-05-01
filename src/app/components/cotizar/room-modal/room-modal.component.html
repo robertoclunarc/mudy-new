@@ -1,12 +1,5 @@
-<div class="card  shadow animate__animated animate__fadeIn">
-    <div class="p-4">
-        <button (click)="closeModal()" class="btn btn-secondary close-btn">X</button>
-    </div>
-
-<div class="content">
-  
-    <div class="row">
-
+ 
+    <div class="row p-2">
         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
             <h1 class="text-blue">Cotización de Mudanza</h1>
             <hr style="color: rgb(173, 173, 173);">
@@ -19,9 +12,6 @@
                     <div>{{s}}</div>
                 </div>
             </div>
-
-
-
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="padding-top: 14px;">
             <h3 class="text-blue">Elementos</h3>
@@ -32,25 +22,10 @@
                  {{e}}
                   <span class="badge badge-primary badge-pill"><i class="bi bi-trash-fill text-blue trash-icon"></i></span>
                 </li>                
-              </ul>
-           
-
-        </div>
-
-    </div>
-
-    
-    <div class="row p-btns">
-        <div class="col-6 text-end">
-            <button (click)="closeModal()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Cancelar</span></button>
-        </div>
-        <div class="col-6">
-            <button (click)="closeModal()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Guardar</span></button>
+              </ul> 
         </div>
     </div>
+  
 
-</div>
+
  
-
-</div>
-<div (click)="closeModal()" class="backdrop"></div>

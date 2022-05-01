@@ -20,6 +20,6 @@ back(){
 }
 
 next(){
-this.main.step3_VehicleInfo();
+this.main.step3_BankData();
 }
 }

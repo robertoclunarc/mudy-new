@@ -16,10 +16,10 @@ export class VehicleDocumentsComponent implements OnInit {
   }
 
   back() {
-    this.main.step3_VehicleInfo();
+    this.main.step4_VehicleInfo();
   }
 
   next() {
-    this.main.step5_Resume();
+    this.main.step6_Resume();
   }
 }

@@ -14,6 +14,6 @@ export class HomeMainComponent implements OnInit {
 
   }
 
- 
+
 
 }

@@ -22,10 +22,10 @@ export class VehicleInfoComponent implements OnInit {
   }
 
   back() {
-    this.main.step2_OwnerInfo();
+    this.main.step3_BankData();
   }
 
   next() {
-    this.main.step4_VehicleDocuments();
+    this.main.step5_VehicleDocuments();
   }
 }
