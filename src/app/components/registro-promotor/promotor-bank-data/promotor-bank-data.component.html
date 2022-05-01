@@ -40,7 +40,31 @@
         <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
     </div>
     <div class="col-6">
-        <button (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Registrar</span></button>
+        <button data-bs-toggle="modal" data-bs-target="#dataSaved" class="btn btn-blue mudy-btn p-2"><span class="px-4">Registrar</span></button>
     </div>
 </div>
+</div>
+
+
+<div class="modal fade" id="dataSaved" tabindex="-1" aria-labelledby="dataSavedLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title text-blue">Registro Exitoso</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            <div class="modal-body">        
+
+                <p> Hemos recibido tus datos, agradecemos tu interés por ser nuestro promotor.</p>
+                <p>Cada vez que nos recomiendes, debes darle tu código de referido, asi la plataforma te asignara un incentivo en dinero si ese cliente contrata y concreta los servicios de Mudy
+                    Tu código de promotor es: XXXXX</p>
+                <p>Te hemos enviado un correo con este código y con un par de imágenes para que puedas subir a tus redes sociales.
+                    Un abrazo, bienvenido a Mudy.cl</p>
+            </div>
+            <div class="modal-footer d-flex justify-content-center align-items-center">
+                <button type="button"  data-bs-dismiss="modal" aria-label="Close" class="btn btn-blue round-bt">Entendido</button>
+            </div>
+        </div>
+    </div>
 </div>

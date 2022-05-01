@@ -27,7 +27,7 @@ export class TransportistaMainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.step6_Resume();
+    this.step1_CompanyInfo();
   }
 
   /**
