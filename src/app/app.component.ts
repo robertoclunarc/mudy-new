@@ -15,6 +15,13 @@ export class AppComponent  {
  
  }
 
+ onActivate(event:any) {
+  window.scroll({ 
+          top: 0, 
+          left: 0,           
+   });
+}
+
  goTo(route: string){
   this.router.navigateByUrl(route)  
  }

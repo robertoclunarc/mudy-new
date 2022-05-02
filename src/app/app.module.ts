@@ -44,6 +44,9 @@ import { TransportistaBankDataComponent } from './components/registro-transporti
 import { PromotorMainComponent } from './components/registro-promotor/promotor-main/promotor-main.component';
 import { PromotorInfoComponent } from './components/registro-promotor/promotor-info/promotor-info.component';
 import { PromotorBankDataComponent } from './components/registro-promotor/promotor-bank-data/promotor-bank-data.component';
+import { PoliciesAndPrivacyComponent } from './components/landing-page/policies-and-privacy/policies-and-privacy.component';
+import { RegisterSuccessComponent } from './components/registro-transportista/register-success/register-success.component';
+import { TransportistTermsConditionsComponent } from './components/registro-transportista/transportist-terms-conditions/transportist-terms-conditions.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +78,10 @@ import { PromotorBankDataComponent } from './components/registro-promotor/promot
     PromotorMainComponent,
     PromotorInfoComponent,
     PromotorBankDataComponent,
-    TransportistaBankDataComponent,    
+    TransportistaBankDataComponent,
+    PoliciesAndPrivacyComponent,
+    RegisterSuccessComponent,
+    TransportistTermsConditionsComponent,    
   ],
   imports: [
     BrowserModule,

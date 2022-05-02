@@ -30,12 +30,12 @@
 .mudanza {  
     width: 299px;
     height: 299px;
-    background: url("../../../../assets/images/mudanza.svg");
+    background: url("../../../../assets/images/mudanza.png");
     background-size: contain;
     transition: 0.4s;
 }
 .mudanza:hover {
-    background: url("../../../../assets/images/mudanzahover.svg");
+    background: url("../../../../assets/images/mudanzahover.png");
     transition: 0.4s;
     cursor: pointer;
 }
@@ -89,13 +89,13 @@
 .flete {
     width: 299px;
     height: 299px;
-    background: url("../../../../assets/images/flete.svg");
+    background: url("../../../../assets/images/flete.png");
     background-size: contain;
     transition: 0.4s;
 }
 
 .flete:hover {
-    background: url("../../../../assets/images/fletehover.svg");
+    background: url("../../../../assets/images/fletehover.png");
     transition: 0.4s;
     cursor: pointer;
 }
