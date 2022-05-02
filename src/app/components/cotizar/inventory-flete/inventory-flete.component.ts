@@ -25,7 +25,47 @@ export class InventoryFleteComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    let size = window.screen.width
 
+    if (size > 979) {
+      this.config = {
+        slidesPerView: 3.5,
+        spaceBetween: 20,
+        autoplay: {delay:2000}
+      }
+    }
+
+    if (size < 979) {
+      this.config = {
+        slidesPerView: 2.7,
+        spaceBetween: 20,
+        autoplay: {delay:2000}
+      }
+    }
+
+    if (size < 734) {
+      this.config = {
+        slidesPerView: 2.3,
+        spaceBetween: 20,
+        autoplay: {delay:2000}
+      }
+    }
+
+    if (size < 670) {
+      this.config = {
+        slidesPerView: 1.5,
+        spaceBetween: 20,
+        autoplay: {delay:2000}
+      }
+    }
+
+    if (size < 471) {
+      this.config = {
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        autoplay: {delay:2000}
+      }
+    }
   }
 
   selectVehicle(vehicle: string) {
@@ -44,6 +84,52 @@ export class InventoryFleteComponent implements OnInit {
 
   }
   onSlideChange() {
+
+  }
+
+  onResize(event: any) {
+
+    let size = event.target.innerWidth
+
+    if (size > 979) {
+      this.config = {
+        slidesPerView: 3.5,
+        spaceBetween: 20,
+        autoplay: {delay:2000}
+      }
+    }
+
+    if (size < 979) {
+      this.config = {
+        slidesPerView: 2.7,
+        spaceBetween: 20,
+        autoplay: {delay:2000}
+      }
+    }
+
+    if (size < 734) {
+      this.config = {
+        slidesPerView: 2.3,
+        spaceBetween: 20,
+        autoplay: {delay:2000}
+      }
+    }
+
+    if (size < 670) {
+      this.config = {
+        slidesPerView: 1.5,
+        spaceBetween: 20,
+        autoplay: {delay:2000}
+      }
+    }
+
+    if (size < 471) {
+      this.config = {
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        autoplay: {delay:2000}
+      }
+    }
 
   }
 
