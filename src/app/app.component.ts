@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import * as bootstrap from 'bootstrap'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +14,11 @@ export class AppComponent  {
  console.log(this.router.url);
  
  }
+
+
+closeNavbar(){
+  let navbar = new bootstrap.Collapse(document.getElementById('navbar') as any)
+}
 
  onActivate(event:any) {
   window.scroll({ 
