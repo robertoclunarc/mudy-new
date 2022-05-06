@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehicles } from 'src/app/services/dummy';
+import { SelectsService } from 'src/app/services/selects.service';
 import SwiperCore, { SwiperOptions, Autoplay } from 'swiper';
 import { ServiceMainComponent } from '../service-main/service-main.component';
 
@@ -12,7 +13,7 @@ import { ServiceMainComponent } from '../service-main/service-main.component';
 export class InventoryFleteComponent implements OnInit {
 
 
-  vehicles = Vehicles;
+  vehicleTypes: any[] = [];
   selectedVehicle: string = '';
   config: SwiperOptions = {
     slidesPerView: 3.5,
@@ -21,10 +22,15 @@ export class InventoryFleteComponent implements OnInit {
     navigation: false
   };
 
-  constructor(public main: ServiceMainComponent,
+  constructor(
+    public main: ServiceMainComponent,
+    public selectService: SelectsService
   ) { }
 
   ngOnInit(): void {
+
+    this.getVehicleTypes();
+
     let size = window.screen.width
 
     if (size > 979) {
@@ -66,6 +72,13 @@ export class InventoryFleteComponent implements OnInit {
         autoplay: {delay:2000}
       }
     }
+  }
+
+ 
+  getVehicleTypes() {
+    this.selectService.getVehicleTypes().subscribe((res: any) => {
+      this.vehicleTypes = res.data;           
+    })
   }
 
   selectVehicle(vehicle: string) {

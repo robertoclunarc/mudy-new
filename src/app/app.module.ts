@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 //=============Libreria para Sliders=============
 import { SwiperModule } from 'swiper/angular';
 
@@ -86,7 +88,8 @@ import { TransportistTermsConditionsComponent } from './components/registro-tran
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SwiperModule
+    SwiperModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

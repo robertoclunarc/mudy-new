@@ -16,11 +16,11 @@
         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
 
             <swiper class="p-swipper" [config]="config" (swiper)="onSwiper($event)" (slideChange)="onSlideChange()">
-                <ng-template *ngFor="let v of vehicles" swiperSlide>
+                <ng-template *ngFor="let v of vehicleTypes" swiperSlide>
                     <div (click)="selectVehicle(v.name)" [ngClass]="[ selectedVehicle == v.name ? 'bg-blue' : '']"
                         class="card vehicle-card sm-shadow">
                         <div class="square">
-                            <img [src]="v.img" alt="">
+                            <img [src]="v.file_path" alt="">
                         </div>
                         <p class="pt-3">{{v.name}}</p>
                     </div>

@@ -124,8 +124,8 @@ export class TransportistaMainComponent implements OnInit {
     this.step4 = true;
     this.step4_check = true;
     this.step5 = true;
-    this.step5_check = true;
-    this.step6 = true;
+    this.step5_check = false;
+    this.step6 = false;
     this.step6_check = false;
   }
 

@@ -28,8 +28,11 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Banco</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Banco de Chile">
-            </div>    
+                <select class="form-select mudy-select">
+                    <option selected>Selecciona</option>
+                    <option *ngFor="let b of banks" [value]="b.id">{{b.name}}</option>                 
+                </select>
+            </div> 
         </div>
     
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">

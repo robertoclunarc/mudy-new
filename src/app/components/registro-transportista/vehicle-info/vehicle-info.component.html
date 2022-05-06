@@ -11,7 +11,7 @@
 
     <label class="form-label pb-2">Tipo de Vehículo</label>
     <div class="row pb-2">
-        <div *ngFor="let v of vehicles" class="col-lg-3 col-md-3 col-sm-6 col-6">
+        <div *ngFor="let v of vehicleTypes" class="col-lg-3 col-md-3 col-sm-6 col-6">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
                 <label class="form-check-label" for="flexRadioDefault1">
@@ -24,8 +24,11 @@
     <div class="row pt-3">
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
-                <label class="form-label">Marca</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Ingresa">
+            <label class="form-label">Marca</label>
+            <select class="form-select mudy-select" aria-label="Default select example">
+                <option selected>Selecciona</option>
+                <option *ngFor="let b of brands" [value]="b.id">{{b.name}}</option>                             
+            </select>
             </div>
             <div class="mb-3">
                 <label class="form-label">Patente</label>

@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+
+  baseUrl: 'http://137.184.8.13/api',
+
+ //==============GET====================
+  vehicle_types: '/vehicle-types',
+  vehicle_brands: '/vehicle-brands', 
+  banks: '/banks',
+
+  //============POST=====================  
+  carrier: '/applications/carrier'
 };
 
 /*
