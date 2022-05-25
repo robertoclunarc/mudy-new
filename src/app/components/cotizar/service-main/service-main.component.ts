@@ -13,7 +13,7 @@ import { Location } from 'src/app/models/location.model';
 })
 export class ServiceMainComponent implements OnInit {
 
-  step$ = new BehaviorSubject(4);
+  step$ = new BehaviorSubject(1);
   serviceType: string | null;
   mudanza = {} as Moving;
   flete = {} as Freight;
