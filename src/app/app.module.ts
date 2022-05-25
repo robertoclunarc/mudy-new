@@ -49,6 +49,15 @@ import { PromotorBankDataComponent } from './components/registro-promotor/promot
 import { PoliciesAndPrivacyComponent } from './components/landing-page/policies-and-privacy/policies-and-privacy.component';
 import { RegisterSuccessComponent } from './components/registro-transportista/register-success/register-success.component';
 import { TransportistTermsConditionsComponent } from './components/registro-transportista/transportist-terms-conditions/transportist-terms-conditions.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+const maskConfig: Partial<IConfig> = {
+  validation: false  
+};
 
 @NgModule({
   declarations: [
@@ -89,7 +98,11 @@ import { TransportistTermsConditionsComponent } from './components/registro-tran
     BrowserModule,
     AppRoutingModule,
     SwiperModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule,
+    NgxMaskModule.forRoot(maskConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

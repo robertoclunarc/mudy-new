@@ -8,159 +8,199 @@
         </div>
     </div>
     <hr style="color: rgb(173, 173, 173);">
-
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">Revisión Técnica</label>
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="mb-3">
-                    <div class="container-file">
-                        <div class="row">
-                            <div class="col-9">
-                                <label class="form-label light-gray-text">Ingrese el documento</label>
-                            </div>
-                            <div class="col-3">
-                                <div class="custom-input-file">
-                                    <input type="file" accept="image/png,image/jpeg" class="input-file">
-                                    +
+                    <label class="form-label">Revisión Técnica</label>
+                    <div class="mb-3">
+                        <div class="container-file">
+                            <div class="row">
+                                <div class="col-9">
+                                    <label *ngIf="!technical_review.value" class="form-label light-gray-text">Ingrese el
+                                        documento</label>
+                                    <div *ngIf="technical_review.value" class="square">
+                                        <img [src]="base64.technical_review" alt="technical_review">
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="custom-input-file">
+                                        <input type="file" (change)="_technical_review($event)"
+                                            accept="image/png,image/jpeg" class="input-file">
+                                        +
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">Fecha de vencimiento</label>
-                <input type="date" class="form-control ps-2 mudy-input-outline">
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">Revisión de Gases</label>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="mb-3">
-                    <div class="container-file">
-                        <div class="row">
-                            <div class="col-9">
-                                <label class="form-label light-gray-text">Ingrese el documento</label>
-                            </div>
-                            <div class="col-3">
-                                <div class="custom-input-file">
-                                    <input type="file" accept="image/png,image/jpeg" class="input-file">
-                                    +
+                    <label class="form-label">Fecha de vencimiento</label>
+                    <input type="date" formControlName="date_technical_review"
+                        class="form-control ps-2 mudy-input-outline">
+                    <div *ngIf="date_technical_review.touched" class="pt-2 text-danger">
+                        <div *ngIf="date_technical_review.errors?.['required']">
+                            La fecha de la revisión técnica es requerida.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="mb-3">
+                    <label class="form-label">Revisión de Gases</label>
+                    <div class="mb-3">
+                        <div class="container-file">
+                            <div class="row">
+                                <div class="col-9">
+                                    <label *ngIf="!gas_review.value" class="form-label light-gray-text">Ingrese el
+                                        documento</label>
+                                        <div *ngIf="gas_review.value" class="square">
+                                            <img [src]="base64.gas_review" alt="gas_review">
+                                        </div>                                   
+                                </div>
+                                <div class="col-3">
+                                    <div class="custom-input-file">
+                                        <input type="file" (change)="_gas_review($event)" accept="image/png,image/jpeg"
+                                            class="input-file">
+                                        +
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">Fecha de vencimiento</label>
-                <input type="date" class="form-control ps-2 mudy-input-outline">
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">Permiso de circulación</label>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="mb-3">
-                    <div class="container-file">
-                        <div class="row">
-                            <div class="col-9">
-                                <label class="form-label light-gray-text">Ingrese el documento</label>
-                            </div>
-                            <div class="col-3">
-                                <div class="custom-input-file">
-                                    <input type="file" accept="image/png,image/jpeg" class="input-file">
-                                    +
+                    <label class="form-label">Fecha de vencimiento</label>
+                    <input type="date" formControlName="date_gas_review"
+                        class="form-control ps-2 mudy-input-outline">
+                    <div *ngIf="date_gas_review.touched" class="pt-2 text-danger">
+                        <div *ngIf="date_gas_review.errors?.['required']">
+                            La fecha de la revisión de gases es requerida.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="mb-3">
+                    <label class="form-label">Permiso de circulación</label>
+                    <div class="mb-3">
+                        <div class="container-file">
+                            <div class="row">
+                                <div class="col-9">
+                                    <label *ngIf="!circulation_permit.value" class="form-label light-gray-text">Ingrese el
+                                        documento</label>
+                                        <div *ngIf="circulation_permit.value" class="square">
+                                            <img [src]="base64.circulation_permit" alt="circulation_permit">
+                                        </div>                                   
+                                </div>
+                                <div class="col-3">
+                                    <div class="custom-input-file">
+                                        <input type="file" (change)="_circulation_permit($event)" accept="image/png,image/jpeg"
+                                            class="input-file">
+                                        +
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">Fecha de vencimiento</label>
-                <input type="date" class="form-control ps-2 mudy-input-outline">
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">SOAP</label>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="mb-3">
-                    <div class="container-file">
-                        <div class="row">
-                            <div class="col-9">
-                                <label class="form-label light-gray-text">Ingrese el documento</label>
-                            </div>
-                            <div class="col-3">
-                                <div class="custom-input-file">
-                                    <input type="file" accept="image/png,image/jpeg" class="input-file">
-                                    +
+                    <label class="form-label">Fecha de vencimiento</label>
+                    <input type="date" formControlName="date_circulation_permit"
+                        class="form-control ps-2 mudy-input-outline">
+                    <div *ngIf="date_circulation_permit.touched" class="pt-2 text-danger">
+                        <div *ngIf="date_circulation_permit.errors?.['required']">
+                            La fecha del permiso de circulación es requerida.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="mb-3">
+                    <label class="form-label">SOAP</label>
+                    <div class="mb-3">
+                        <div class="container-file">
+                            <div class="row">
+                                <div class="col-9">
+                                    <label class="form-label light-gray-text">Ingrese el documento</label>
+                                </div>
+                                <div class="col-3">
+                                    <div class="custom-input-file">
+                                        <input type="file" accept="image/png,image/jpeg" class="input-file">
+                                        +
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">Fecha de vencimiento</label>
-                <input type="date" class="form-control ps-2 mudy-input-outline">
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">Padrón</label>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="mb-3">
-                    <div class="container-file">
-                        <div class="row">
-                            <div class="col-9">
-                                <label class="form-label light-gray-text">Ingrese el documento</label>
-                            </div>
-                            <div class="col-3">
-                                <div class="custom-input-file">
-                                    <input type="file" accept="image/png,image/jpeg" class="input-file">
-                                    +
+                    <label class="form-label">Fecha de vencimiento</label>
+                    <input type="date" class="form-control ps-2 mudy-input-outline">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="mb-3">
+                    <label class="form-label">Padrón</label>
+                    <div class="mb-3">
+                        <div class="container-file">
+                            <div class="row">
+                                <div class="col-9">
+                                    <label *ngIf="!circulation_permit.value" class="form-label light-gray-text">Ingrese el
+                                        documento</label>
+                                        <div *ngIf="padron.value" class="square">
+                                            <img [src]="base64.padron" alt="padron">
+                                        </div>                                   
+                                </div>
+                                <div class="col-3">
+                                    <div class="custom-input-file">
+                                        <input type="file" (change)="_padron($event)" accept="image/png,image/jpeg"
+                                            class="input-file">
+                                        +
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
-       
-    </div>
 
-    <div class="row py-3">
-        <div class="col-6 text-end">
-            <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
+        <div class="row py-3">
+            <div class="col-6 text-end">
+                <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
+            </div>
+            <div class="col-6">
+                <button (click)="next()" [disabled]="form.invalid" class="btn btn-blue mudy-btn p-2"><span
+                        class="px-4">Siguiente</span></button>
+            </div>
         </div>
-        <div class="col-6">
-            <button (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
-        </div>
-    </div>
+    </form>
 </div>

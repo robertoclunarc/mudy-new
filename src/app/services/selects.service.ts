@@ -10,7 +10,6 @@ export class SelectsService {
   constructor(private http: HttpClient) { }
 
 
-
   getVehicleTypes() {
     return this.http.get<any>(environment.baseUrl + environment.vehicle_types);
   }
@@ -21,6 +20,22 @@ export class SelectsService {
 
   getBanks() {
     return this.http.get<any>(environment.baseUrl + environment.banks);
+  }
+
+  getBuildings() {
+    return this.http.get<any>(environment.baseUrl + environment.buildings);
+  }
+
+  getCategories() {
+    return this.http.get<any>(environment.baseUrl + environment.categories);
+  }
+
+  getArticles() {
+    return this.http.get<any>(environment.baseUrl + environment.articles);
+  }
+
+  getPlaces() {
+    return this.http.get<any>(environment.baseUrl + environment.places);
   }
 
 }

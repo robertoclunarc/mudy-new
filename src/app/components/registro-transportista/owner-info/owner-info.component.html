@@ -8,50 +8,93 @@
         </div>
     </div>
     <hr style="color: rgb(173, 173, 173);">
+    <form (ngSubmit)="next()" [formGroup]="form">
+        <div class="row">
 
-    <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">                
+                <div class="mb-3">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" maxlength="100" class="form-control ps-2 mudy-input"
+                        formControlName="legal_first_name" placeholder="Nombre">
 
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">Nombre</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Pedro">
+                    <div *ngIf="legal_first_name.touched" class="pt-2 text-danger">
+                        <div *ngIf="legal_first_name.errors?.['required']">
+                            Ingresa el nombre del representante legal.
+                        </div>
+                        <div *ngIf="legal_first_name.errors?.['minlength']">
+                            El nombre debe contener al menos 4 caracteres
+                        </div>
+                    </div>
+                </div>
+
+
+             <div class="mb-3">
+                    <label class="form-label">Apellido</label>
+                    <input type="text" maxlength="100" class="form-control ps-2 mudy-input"
+                        formControlName="legal_last_name" placeholder="Apellido">
+
+                    <div *ngIf="legal_last_name.touched" class="pt-2 text-danger">
+                        <div *ngIf="legal_last_name.errors?.['required']">
+                            Ingresa el apellido del representante legal.
+                        </div>
+                        <div *ngIf="legal_last_name.errors?.['minlength']">
+                            El apellido debe contener al menos 4 caracteres
+                        </div>
+                    </div>
+                </div>
+
+
+               <div class="mb-3">
+                    <label class="form-label">Rut del representante legal</label>
+                    <input type="tel" formControlName="legal_rut" class="form-control ps-2 mudy-input"
+                        placeholder="25203405-7">
+                    <div *ngIf="legal_rut.touched" class="pt-2 text-danger">
+                        <div *ngIf="legal_rut.errors?.['required']">
+                            Ingresa el rut del representante legal.
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Apellido</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Perez">
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="mb-3">
+                    <label class="form-label">Teléfono</label>
+                    <input type="tel" formControlName="legal_phone" class="form-control ps-2 mudy-input"
+                        placeholder="+56 9 4564 4565">
+                    <div *ngIf="legal_phone.touched" class="pt-2 text-danger">
+                        <div *ngIf="legal_phone.errors?.['required']">
+                            Ingresa el teléfono del representante legal.
+                        </div>
+                    </div>
+                </div>                
+                <div class="mb-3">
+                    <label class="form-label">WhatsApp</label>
+                    <input type="text" class="form-control ps-2 mudy-input" placeholder="+56 9 4564 4565">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" formControlName="legal_email" class="form-control ps-2 mudy-input"
+                        placeholder="representante@gmail.com">
+                    <div *ngIf="legal_email.touched" class="pt-2 text-danger">
+                        <div *ngIf="legal_email.errors?.['required']">
+                            Ingresa el email del representante legal.
+                        </div>
+                        <div *ngIf="legal_email.errors?.['email']">
+                            Ingresa un email válido. Ejm: empresa@gmail.com
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Rut</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="0932039209">
-            </div>
-            
-    
+
         </div>
-    
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">Teléfono</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="+56 9 4564 4565">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">WhatsApp</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="+56 9 4564 4565">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-control ps-2 mudy-input" placeholder="cliente@gmail.com">
-            </div>
+    </form>
+
+    <div class="row py-3">
+        <div class="col-6 text-end">
+            <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
         </div>
-    
+        <div class="col-6">
+            <button [disabled]="form.invalid" (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
+        </div>
     </div>
-
-
-<div class="row py-3">
-    <div class="col-6 text-end">
-        <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
-    </div>
-    <div class="col-6">
-        <button (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
-    </div>
-</div>
 </div>

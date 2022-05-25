@@ -9,62 +9,94 @@
     </div>
     <hr style="color: rgb(173, 173, 173);">
 
+    <form [formGroup]="form">
     <div class="row">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">           
+            <div class="mb-3">
+                <label class="form-label">Nombre del Titular</label>
+                <input type="text" maxlength="100" class="form-control ps-2 mudy-input"
+                    formControlName="account_holder" placeholder="Nombre">
+
+                <div *ngIf="account_holder.touched" class="pt-2 text-danger">
+                    <div *ngIf="account_holder.errors?.['required']">
+                        Ingresa el nombre del titular.
+                    </div>
+                    <div *ngIf="account_holder.errors?.['minlength']">
+                        El nombre debe contener al menos 4 caracteres
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
-                <label class="form-label">Nombre del Titular</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Rodolfo Borges">
-            </div>    
-        </div>
-    
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
                 <label class="form-label">Rut del Titular</label>
-                <input type="tel" class="form-control ps-2 mudy-input" placeholder="25342354-7">
-            </div>           
+                <input type="tel" formControlName="account_rut" class="form-control ps-2 mudy-input"
+                    placeholder="25203405-7">
+                <div *ngIf="account_rut.touched" class="pt-2 text-danger">
+                    <div *ngIf="account_rut.errors?.['required']">
+                        Ingresa el rut del titular.
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Banco</label>
-                <select class="form-select mudy-select">
-                    <option selected>Selecciona</option>
-                    <option *ngFor="let b of banks" [value]="b.id">{{b.name}}</option>                 
+                <select formControlName="bank_id" placeholder="Selecciona" class="form-select mudy-select">                  
+                    <option *ngFor="let b of banks" [value]="b.id">{{b.name}}</option>
                 </select>
-            </div> 
+                <div *ngIf="bank_id.touched" class="pt-2 text-danger">
+                    <div *ngIf="bank_id.errors?.['required']">
+                        Selecciona un banco.
+                    </div>
+                </div>
+            </div>
         </div>
-    
+
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Tipo de Cuenta</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Corriente">
-            </div>           
+                <input formControlName="account_type" type="text" class="form-control ps-2 mudy-input" placeholder="Tipo de cuenta">
+                <div *ngIf="account_type.touched" class="pt-2 text-danger">
+                    <div *ngIf="account_type.errors?.['required']">
+                        Ingresa el tipo de cuenta.
+                    </div>                   
+                </div>
+            </div>
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Número de Cuenta</label>
-                <input type="number" class="form-control ps-2 mudy-input" placeholder="0000 0000 0000 0000">
-            </div>           
+                <input formControlName="account_number"  type="number" min="0" class="form-control ps-2 mudy-input" placeholder="0000 0000 0000 0000">
+                <div *ngIf="account_number.touched" class="pt-2 text-danger">
+                    <div *ngIf="account_number.errors?.['required']">
+                        Ingresa el tipo de cuenta.
+                    </div>                   
+                </div>
+            </div>
         </div>
-        
-    
+
+
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Email</label>
                 <input type="email" class="form-control ps-2 mudy-input" placeholder="representantelegal@gmail.com">
-            </div>           
+            </div>
         </div>
     </div>
-
+   
+</form>
 
 <div class="row py-3">
     <div class="col-6 text-end">
         <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
     </div>
     <div class="col-6">
-        <button (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
+        <button [disabled]="form.invalid" (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
     </div>
 </div>
 </div>

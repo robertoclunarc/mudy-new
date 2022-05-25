@@ -90,7 +90,7 @@ export class InventoryFleteComponent implements OnInit {
   }
 
   back() {
-    this.main.step3_ToAddress();
+    this.main.step$.next(3);
   }
 
   onSwiper(swiper: any) {

@@ -5,16 +5,24 @@
 export const environment = {
   production: false,
 
-
+  //===========Url Base==================
   baseUrl: 'http://137.184.8.13/api',
 
- //==============GET====================
+ //==============GET=====================
   vehicle_types: '/vehicle-types',
   vehicle_brands: '/vehicle-brands', 
   banks: '/banks',
+  buildings: '/buildings',
+  categories: '/categories',
+  articles: '/articles',
+  places: '/places',
 
   //============POST=====================  
-  carrier: '/applications/carrier'
+  carrier: '/applications/carrier',
+  promoter: '/applications/promoter',
+  freight: '/quotations/freights',
+  movings: '/quotations/movings',
+  calcule_volume: '/quotations/calculate-volume'
 };
 
 /*

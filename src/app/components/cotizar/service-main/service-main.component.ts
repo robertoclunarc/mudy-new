@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { Moving } from 'src/app/models/moving.model';
+import { Freight } from 'src/app/models/freight.model';
 import { UtilsService } from 'src/app/services/utils.service';
+import { Location } from 'src/app/models/location.model';
 
 @Component({
   selector: 'app-service-main',
@@ -9,16 +13,12 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class ServiceMainComponent implements OnInit {
 
-  step1: boolean = false;
-  step1_check: boolean = false;
-  step2: boolean = false;
-  step2_check: boolean = false;
-  step3: boolean = false;
-  step3_check: boolean = false;
-  step4: boolean = false;
-  step4_check: boolean = false;
-
+  step$ = new BehaviorSubject(4);
   serviceType: string | null;
+  mudanza = {} as Moving;
+  flete = {} as Freight;
+  origin = {} as Location
+  destination = {} as Location;
 
   constructor(
     public utilsService: UtilsService,
@@ -28,73 +28,8 @@ export class ServiceMainComponent implements OnInit {
     this.serviceType = this.actRoute.snapshot.paramMap.get('serviceType'); //Tipo de servicio (Mudanza o Flete)
   }
 
-  ngOnInit(): void {
-    this.step1_PersonalInfo();
+  ngOnInit(): void {  
   }
 
-/**
- *  Con variables booleanas se valida en que paso de la cotización va el usuario.
- *  step: valida que el usuario está en ese paso.
- *  step_checked: valida que el usuario completó ese paso.  
- */
-
-
- /**
- * Paso 1: Información personal.
- */
-  step1_PersonalInfo() {
-    this.step1 = true;
-    this.step1_check = false;
-    this.step2 = false;
-    this.step2_check = false;
-    this.step3 = false;
-    this.step3_check = false;
-    this.step4 = false;
-    this.step4_check = false;
-  }
-
-
- /**
- * Paso 2: Dirección de Origen.
- */
-  step2_OriginAddress() {
-    this.step1 = true;
-    this.step1_check = true;
-    this.step2 = true;
-    this.step2_check = false;
-    this.step3 = false;
-    this.step3_check = false;
-    this.step4 = false;
-    this.step4_check = false;
-  }
-
-
- /**
- * Paso 3: Dirección de destino.
- */
-  step3_ToAddress() {
-    this.step1 = true;
-    this.step1_check = true;
-    this.step2 = true;
-    this.step2_check = true;
-    this.step3 = true;
-    this.step3_check = false;
-    this.step4 = false;
-    this.step4_check = false;
-  }
-
- /**
- * Paso 4: Inventario.
- */
-  step4_Inventory() {
-    this.step1 = true;
-    this.step1_check = true;
-    this.step2 = true;
-    this.step2_check = true;
-    this.step3 = true;
-    this.step3_check = true;
-    this.step4 = true;
-    this.step4_check = false;
-  }
 
 }

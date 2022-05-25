@@ -1,7 +1,8 @@
 <div class="card-form shadow animate__animated animate__fadeIn">
+
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <h1>Cotización de <span style="text-transform: capitalize;">{{serviceType}}</span></h1>
+            <h1>Cotización de <span style="text-transform: capitalize;">{{main.serviceType}}</span></h1>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-end">
             <h5 class="text-blue pt-3">Dirección de Destino</h5>
@@ -9,75 +10,137 @@
     </div>
     <hr style="color: rgb(173, 173, 173);">
 
-    <div class="row">
 
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mb-3">
-                <label class="form-label">Introduce la dirección de destino</label>
-                <input (change)="changeAddress($event)" type="text" class="form-control ps-2 mudy-input"
-                    placeholder="Avenida o calle, comuna, ciudad">
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="mb-3">
-                        <label class="form-label">Tipo de vivienda</label>
-                        <select (change)="changeVivienda($event)" class="form-select mudy-select" aria-label="Default select example">
-                            <option selected>Selecciona</option>
-                            <option value="casa">Casa</option>
-                            <option value="apto">Departamento / Oficina</option>
-                            <option value="bodega">Bodega</option>
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="mb-3">
+                            <label class="form-label">Ciudad</label>
+                            <input type="text" formControlName="city" class="form-control ps-2 mudy-input"
+                                placeholder="Ingresa">
+                            <div *ngIf="city.touched" class="pt-2 text-danger">
+                                <div *ngIf="city.errors?.['required']">
+                                    Ingresa la ciudad de destino.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="mb-3">
+                            <label class="form-label">Comuna</label>
+                            <input type="text" formControlName="comuna" class="form-control ps-2 mudy-input"
+                                placeholder="Ingresa">
+                            <div *ngIf="comuna.touched" class="pt-2 text-danger">
+                                <div *ngIf="comuna.errors?.['required']">
+                                    Ingresa la comuna de destino.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="mb-3">
+                            <label class="form-label">Calle</label>
+                            <input type="text" formControlName="address" class="form-control ps-2 mudy-input"
+                                placeholder="Ingresa">
+                            <div *ngIf="address.touched" class="pt-2 text-danger">
+                                <div *ngIf="address.errors?.['required']">
+                                    Ingresa la calle de destino.
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="mb-3">
+                            <label class="form-label">Urb / Condominio</label>
+                            <input type="text" formControlName="condominium" class="form-control ps-2 mudy-input"
+                                placeholder="Ingresa">
+                            <div *ngIf="condominium.touched" class="pt-2 text-danger">
+                                <div *ngIf="condominium.errors?.['required']">
+                                    Ingresa la urbanización o condominio de destino.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="mb-3">
+                            <label class="form-label">Casa / Oficina</label>
+                            <input type="text" formControlName="house" class="form-control ps-2 mudy-input"
+                                placeholder="Ingresa">
+                            <div *ngIf="house.touched" class="pt-2 text-danger">
+                                <div *ngIf="house.errors?.['required']">
+                                    Ingresa el número de casa u oficina de destino.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de vivienda</label>
+                            <select (change)="changeElevatorAvailable()" formControlName="building_id" class="form-select mudy-select"
+                                aria-label="Selecciona">                                
+                                <option *ngFor="let b of buildings" [value]="b.id">{{b.name}}</option>                                
+                            </select>
+                            <div *ngIf="building_id.touched" class="pt-2 text-danger">
+                                <div *ngIf="building_id.errors?.['required']">
+                                    Selecciona el tipo de vivienda.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="building_id.value !== '1'" class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <label class="form-label">Ascensor Disponible</label>
+                        <select (change)="changeElevatorAvailable()" formControlName="elevator_available" class="form-select mudy-select"
+                            aria-label="Selecciona">
+                            <option [value]=true>Si</option>
+                            <option [value]=false>No</option>  
                         </select>
+                        <div *ngIf="elevator_available.touched" class="pt-2 text-danger">
+                            <div *ngIf="elevator_available.errors?.['required']">
+                                Indica si hay ascensor disponible.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                        <label class="form-label">Estacionamiento Disponible</label>
+                        <select (change)="changeParkingAvailable()" formControlName="parking_available" class="form-select mudy-select"
+                            aria-label="Selecciona">                           
+                            <option [value]=true>Si</option>
+                            <option [value]=false>No</option>  
+                        </select>
+                        <div *ngIf="parking_available.touched" class="pt-2 text-danger">
+                            <div *ngIf="parking_available.errors?.['required']">
+                                Indica si hay estacionamiento disponible.
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="mb-3">
-                        <label class="form-label">Urb / Condominio</label>
-                        <input type="text" class="form-control ps-2 mudy-input" placeholder="Las Guamas">
+
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe class="map" id="gmap_canvas" [src]="map()" frameborder="0" scrolling="no"
+                            marginheight="0" marginwidth="0"></iframe>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="mb-3">
-                        <label class="form-label">Casa / Oficina</label>
-                        <input type="text" class="form-control ps-2 mudy-input" placeholder="3045">
-                    </div>
-                </div>
-                <div *ngIf="vivenda == 'apto' || vivenda == 'bodega'" class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <label class="form-label">Ascensor Disponible</label>
-                    <select class="form-select mudy-select" aria-label="Default select example">
-                        <option selected>Selecciona</option>
-                        <option value="si">Si</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <label class="form-label">Estacionamiento Disponible</label>
-                    <select class="form-select mudy-select" aria-label="Default select example">
-                        <option selected>Selecciona</option>
-                        <option value="si">Si</option>
-                        <option value="no">No</option>
-                    </select>
                 </div>
             </div>
 
         </div>
 
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="mapouter">
-                <div class="gmap_canvas"><iframe class="map" id="gmap_canvas" [src]="address" frameborder="0"
-                        scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+
+        <div class="row py-3">
+            <div class="col-6 text-end">
+                <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
+            </div>
+            <div class="col-6">
+                <button (click)="next()" [disabled]="form.invalid" class="btn btn-blue mudy-btn p-2"><span
+                        class="px-4">Siguiente</span></button>
             </div>
         </div>
-
-    </div>
-
-
-    <div class="row py-3">
-        <div class="col-6 text-end">
-            <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
-        </div>
-        <div class="col-6">
-            <button (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
-        </div>
-    </div>
+    </form>
 </div>

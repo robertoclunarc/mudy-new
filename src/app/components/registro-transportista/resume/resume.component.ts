@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransportistaMainComponent } from '../transportista-main/transportista-main.component';
 import { Modal } from "bootstrap";
 import * as bootstrap from 'bootstrap'
+import { PostRequestService } from 'src/app/services/post-request.service';
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
@@ -9,17 +10,20 @@ import * as bootstrap from 'bootstrap'
 })
 export class ResumeComponent implements OnInit {
 
-
+  carrier;
 
   constructor(
-    public main: TransportistaMainComponent  
-  ) { }
+    public main: TransportistaMainComponent,
+    private postService: PostRequestService  
+  ) { 
+    this.carrier = this.main.carrier;
+  }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
   }
 
   back() {
-    this.main.step5_VehicleDocuments();
+    this.main.step$.next(5);
   }
 
   openSubmitedModal(){
@@ -37,6 +41,9 @@ export class ResumeComponent implements OnInit {
   }
 
   submit() {
-    alert('Registro en revisión')
+    this.postService.saveCarrierData(this.carrier).subscribe((res: any) => {
+      console.log(res);
+      this.openSubmitedModal();
+    })
   }
 }

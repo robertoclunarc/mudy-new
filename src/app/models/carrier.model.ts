@@ -18,3 +18,4 @@ export interface Carrier {
     account_number: number;
     vehicles: Vehicle[]
 }
+

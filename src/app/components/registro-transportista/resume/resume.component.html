@@ -16,13 +16,13 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Nombre de la Empresa</li>
-                <li class="list-group-item sm-text-gray">Texto de Ejemplo</li>
+                <li class="list-group-item sm-text-gray">{{carrier.company_name}}</li>
             </ul>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Rut de la Empresa</li>
-                <li class="list-group-item sm-text-gray">Texto de Ejemplo</li>
+                <li class="list-group-item sm-text-gray">{{carrier.company_rut}}</li>
             </ul>
         </div>
     </div>
@@ -33,25 +33,25 @@
         <div class="col-lg-3 col-md-6 col-sm-12 col-12">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Nombre</li>
-                <li class="list-group-item sm-text-gray">Texto de Ejemplo</li>
+                <li class="list-group-item sm-text-gray">{{carrier.legal_first_name}}</li>
             </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 col-12">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Apellido</li>
-                <li class="list-group-item sm-text-gray">Texto de Ejemplo</li>
+                <li class="list-group-item sm-text-gray">{{carrier.legal_last_name}}</li>
             </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 col-12">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Rut</li>
-                <li class="list-group-item sm-text-gray">Texto de Ejemplo</li>
+                <li class="list-group-item sm-text-gray">{{carrier.legal_rut}}</li>
             </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 col-12">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Teléfono</li>
-                <li class="list-group-item sm-text-gray">Texto de Ejemplo</li>
+                <li class="list-group-item sm-text-gray">{{carrier.legal_phone}}</li>
             </ul>
         </div>
     </div>
@@ -61,49 +61,51 @@
         Vehículo(s)
     </h5>
 
-    <div class="row">
-        <div class="col-lg-2 col-md-6 col-sm-12 col-12">
+    <div *ngFor="let v of carrier.vehicles" class="row">
+        <div class="col-lg-2 col-md-6 col-sm-6 col-12">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item vehicle-type">Tipo de Vehículo</li>
-                <li class="list-group-item sm-text-gray">Texto de Ejemplo</li>
+                <li class="list-group-item sm-text-gray">{{v.vehicle_type_id}}</li>
             </ul>
         </div>
-        <div class="col-lg-2 col-md-6 col-sm-12 col-12">
+        <div class="col-lg-2 col-md-6 col-sm-6 col-6">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Marca</li>
-                <li class="list-group-item sm-text-gray">Texto de Ejemplo</li>
+                <li class="list-group-item sm-text-gray">{{v.vehicle_brand_id}}</li>
             </ul>
         </div>
-        <div class="col-lg-2 col-md-6 col-sm-12 col-12">
+        <div class="col-lg-2 col-md-6 col-sm-6 col-6">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Modelo</li>
-                <li class="list-group-item sm-text-gray">Texto de Ejemplo</li>
+                <li class="list-group-item sm-text-gray">{{v.model}}</li>
             </ul>
         </div>
-        <div class="col-lg-2 col-md-6 col-sm-12 col-12">
+        <div class="col-lg-2 col-md-6 col-sm-6 col-6">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Patente</li>
-                <li class="list-group-item sm-text-gray">Texto de Ejemplo</li>
+                <li class="list-group-item sm-text-gray">{{v.patente}}</li>
             </ul>
         </div>
-        <div class="col-lg-2 col-md-6 col-sm-12 col-12">
+        <div class="col-lg-2 col-md-6 col-sm-6 col-6">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">mst³</li>
-                <li class="list-group-item sm-text-gray">0000</li>
+                <li class="list-group-item sm-text-gray">{{v.high*v.long*v.width}}</li>
             </ul>
         </div>
-        <div class="col-lg-1 col-md-6 col-sm-12 col-12">
+        <div class="col-lg-1 col-md-6 col-sm-6 col-6">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Editar</li>
                 <li class="list-group-item sm-text-gray"><i class="bi bi-pencil-fill text-blue icon-write"></i>
             </ul>
         </div>
-        <div class="col-lg-1 col-md-6 col-sm-12 col-12">
+        <div class="col-lg-1 col-md-6 col-sm-6 col-6">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Eliminar</li>
                 <li class="list-group-item sm-text-gray"><i class="bi bi-trash-fill text-blue icon-write"></i></li>
             </ul>
         </div>
+
+        <hr style="background: rgb(209, 209, 209);" *ngIf="carrier.vehicles.length > 0">
     </div>
 
     <div class="row py-3">
@@ -130,7 +132,7 @@
             </div>
             <div class="modal-footer d-flex justify-content-center align-items-center">
                 <button type="button" class="btn btn-secondary round-bt" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-blue round-bt" data-bs-dismiss="modal" (click)="openSubmitedModal()">Acepto</button>
+                <button type="button" class="btn btn-blue round-bt" data-bs-dismiss="modal" (click)="submit()">Acepto</button>
             </div>
         </div>
     </div>
