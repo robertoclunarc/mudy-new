@@ -15,6 +15,7 @@ export class TransportistaMainComponent implements OnInit {
   step$ = new BehaviorSubject(1);
   carrier = {} as Carrier;
   vehicle = {} as Vehicle;
+  editableVehicle = {} as Vehicle;
   
   constructor(
     public utilsService: UtilsService   

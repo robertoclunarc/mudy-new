@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TransportistaMainComponent } from '../transportista-main/transportista-main.component';
-import { Modal } from "bootstrap";
 import * as bootstrap from 'bootstrap'
 import { PostRequestService } from 'src/app/services/post-request.service';
 @Component({

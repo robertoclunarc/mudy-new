@@ -32,13 +32,21 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Rut del Titular</label>
-                <input type="tel" formControlName="account_rut" class="form-control ps-2 mudy-input"
-                    placeholder="25203405-7">
-                <div *ngIf="account_rut.touched" class="pt-2 text-danger">
-                    <div *ngIf="account_rut.errors?.['required']">
-                        Ingresa el rut del titular.
-                    </div>
+                <input type="text" formControlName="account_rut" (change)="validateRut()"
+                [ngClass]="isValidRut == 'valid' ? 'form-control ps-2 mudy-input is-valid' : 'form-control ps-2 mudy-input'"
+                maxlength="11" [dropSpecialCharacters]="true" mask="00.000.000-A" placeholder="25.203.405-7">
+
+            <div *ngIf="account_rut.touched" class="pt-2 text-danger">
+                <div *ngIf="account_rut.errors?.['required']">
+                    Ingresa tu rut.
                 </div>
+                <div *ngIf="account_rut.errors?.['minlength']">
+                    Ingresa un rut válido.
+                </div>
+                <div *ngIf="isValidRut == 'invalid'">
+                    Ingresa un rut válido.
+                </div>
+            </div>
             </div>
         </div>
 
@@ -59,13 +67,17 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Tipo de Cuenta</label>
-                <input formControlName="account_type" type="text" class="form-control ps-2 mudy-input" placeholder="Tipo de cuenta">
+                <select formControlName="account_type" placeholder="Selecciona" class="form-select mudy-select">                  
+                    <option value="SAVING">SAVING</option>
+                    <option value="CHEKING">CHEKING</option>
+                    <option value="OTHERS">OTHERS</option>
+                </select>
                 <div *ngIf="account_type.touched" class="pt-2 text-danger">
                     <div *ngIf="account_type.errors?.['required']">
                         Ingresa el tipo de cuenta.
                     </div>                   
                 </div>
-            </div>
+            </div>          
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
@@ -74,7 +86,7 @@
                 <input formControlName="account_number"  type="number" min="0" class="form-control ps-2 mudy-input" placeholder="0000 0000 0000 0000">
                 <div *ngIf="account_number.touched" class="pt-2 text-danger">
                     <div *ngIf="account_number.errors?.['required']">
-                        Ingresa el tipo de cuenta.
+                        Ingresa el número de cuenta.
                     </div>                   
                 </div>
             </div>

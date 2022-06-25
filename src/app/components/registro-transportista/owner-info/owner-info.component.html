@@ -46,13 +46,21 @@
 
                <div class="mb-3">
                     <label class="form-label">Rut del representante legal</label>
-                    <input type="tel" formControlName="legal_rut" class="form-control ps-2 mudy-input"
-                        placeholder="25203405-7">
-                    <div *ngIf="legal_rut.touched" class="pt-2 text-danger">
-                        <div *ngIf="legal_rut.errors?.['required']">
-                            Ingresa el rut del representante legal.
-                        </div>
+                    <input type="text" formControlName="legal_rut" (change)="validateRut()"
+                    [ngClass]="isValidRut == 'valid' ? 'form-control ps-2 mudy-input is-valid' : 'form-control ps-2 mudy-input'"
+                    maxlength="11" [dropSpecialCharacters]="true" mask="00.000.000-A" placeholder="25.203.405-7">
+
+                <div *ngIf="legal_rut.touched" class="pt-2 text-danger">
+                    <div *ngIf="legal_rut.errors?.['required']">
+                        Ingresa tu rut.
                     </div>
+                    <div *ngIf="legal_rut.errors?.['minlength']">
+                        Ingresa un rut válido.
+                    </div>
+                    <div *ngIf="isValidRut == 'invalid'">
+                        Ingresa un rut válido.
+                    </div>
+                </div>
                 </div>
             </div>
 

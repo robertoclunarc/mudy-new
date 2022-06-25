@@ -2,6 +2,83 @@
     height: 200px;
     border-radius: 20px;
     background: #e7f3ff;
-    border-color: #004aad;   
+    border-color: #004aad; 
+    border-bottom: 0;  
 }
+
+.roomCounter{
+    border: solid 1px gray;
+    border-radius: 10px;
+}
+
+.empty-room-card{
+    height: 200px;
+    border-radius: 20px;
+    background: #feffff;
+    border-color: #004aad; 
+    border-style: dashed;  
+}
+
+.room-card .card-footer{
+    background: #004aad;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.room-card .card-header{
+    background: transparent;
+    border: 0;
+}
+
+.icon{
+    position: relative;
+    top: 2px;
+    font-size: 23px;
+    padding-right: 10px;
+    color: #004aad; 
+    cursor: pointer;
+}
+
+.icon2{
+    position: relative;
+    top: 2px;
+    font-size: 23px;
+    padding-right: 10px;
+    color: white; 
+    cursor: pointer;
+}
+
+.icon:hover{
+    color: #1c70dd; 
+}
+
+
+
+.article-card{
+    width: 100%;
+    height: 230px;
+    border-radius: 20px;
+    background: #e7f3ff;    
+}
+
+.article-name{
+    font-size: 13px;
+}
+
+.article-card img{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.trash-icon{
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.p-btns{
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+
 

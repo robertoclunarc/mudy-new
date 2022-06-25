@@ -17,4 +17,5 @@ export interface Freight{
     need_helper: boolean;
     whatsApp_communication: boolean;
     cargo_description: string;
+    file_path: string;
 }

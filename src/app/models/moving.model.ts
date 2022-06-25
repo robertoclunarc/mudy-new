@@ -1,10 +1,5 @@
 import { Location } from "./location.model";
 
-interface Item {
-    place_id: number;
-    article_id: number;
-}
-
 export interface Moving {
     first_name: string;
     last_name: string;
@@ -17,5 +12,9 @@ export interface Moving {
     hour: string;
     origin: Location;
     destination: Location;
-    items: Item[];
+    inventory: {
+        place_id: number;
+        items: any
+    }
+
 }    

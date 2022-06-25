@@ -22,7 +22,9 @@ export const environment = {
   promoter: '/applications/promoter',
   freight: '/quotations/freights',
   movings: '/quotations/movings',
-  calcule_volume: '/quotations/calculate-volume'
+  calcule_volume: '/quotations/calculate-volume',
+
+  googleApiKey: 'AIzaSyA7lwfqRatEpjjXlIQOKHyrz0QtFMVp338'
 };
 
 /*

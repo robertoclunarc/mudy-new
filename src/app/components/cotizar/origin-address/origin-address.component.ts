@@ -4,7 +4,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SelectsService } from 'src/app/services/selects.service';
 import { ServiceMainComponent } from '../service-main/service-main.component';
 
-
 @Component({
   selector: 'app-origin-address',
   templateUrl: './origin-address.component.html',
@@ -14,7 +13,15 @@ export class OriginAddressComponent implements OnInit {
 
   form: FormGroup = this.formBuilder.group({});  
   buildings: any = [];
+  position = {
+    lat: -33.4632207,
+    lng: -70.6801927,   
+  }
 
+  label = {
+    color:'red',
+    text: 'marker'
+  }
   constructor(
     private sanitizer: DomSanitizer,
     private formBuilder: FormBuilder,
@@ -23,6 +30,7 @@ export class OriginAddressComponent implements OnInit {
   ) {
    
   }
+  
 
   ngOnInit(): void {
     this.main.origin.latitude = -33.4632207;

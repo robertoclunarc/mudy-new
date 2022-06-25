@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UtilsService } from 'src/app/services/utils.service';
+import { Rut, UtilsService } from 'src/app/services/utils.service';
 import { TransportistaMainComponent } from '../transportista-main/transportista-main.component';
 
 @Component({
@@ -9,7 +9,7 @@ import { TransportistaMainComponent } from '../transportista-main/transportista-
   styleUrls: ['./owner-info.component.scss']
 })
 export class OwnerInfoComponent implements OnInit {
-
+  isValidRut: Rut = Rut.incomplete;
   form: FormGroup;
 
   constructor(
@@ -21,7 +21,7 @@ export class OwnerInfoComponent implements OnInit {
     this.form = this.formBuilder.group({
       legal_first_name: [this.main.carrier.legal_first_name, [Validators.required, Validators.minLength(4)]],
       legal_last_name: [this.main.carrier.legal_last_name, [Validators.required, Validators.minLength(4)]],
-      legal_rut: [this.main.carrier.legal_rut, [Validators.required]],
+      legal_rut: [this.main.carrier.legal_rut, [Validators.required, Validators.minLength(9)]],
       legal_email: [this.main.carrier.legal_email, [Validators.required, Validators.email]],
       legal_phone: [this.main.carrier.legal_phone, [Validators.required]],
     });
@@ -42,6 +42,28 @@ export class OwnerInfoComponent implements OnInit {
     this.main.carrier.legal_email = this.legal_email?.value;
     this.main.carrier.legal_phone = this.legal_phone?.value;    
     this.main.step$.next(3);
+  }
+
+  /**
+  * It checks if the rut is valid by comparing the last digit of the rut with the result of the
+  * function validarRut() from the UtilsService
+  */
+   validateRut() {
+    if (this.legal_rut?.value && this.legal_rut?.value.length == 9) {
+
+      let rutSinDigitoVerificador = this.legal_rut.value.slice(0, -1)
+      let digitoVerificador = this.legal_rut.value[this.legal_rut.value.length - 1];
+      let checkedDigitoVerificador = this.utilsService.validarRut(rutSinDigitoVerificador);
+
+      if (digitoVerificador == checkedDigitoVerificador) {
+        this.isValidRut = Rut.valid;
+      } else {
+        this.isValidRut = Rut.invalid;
+      }
+
+    } else {
+      this.isValidRut = Rut.incomplete;
+    }
   }
 
 

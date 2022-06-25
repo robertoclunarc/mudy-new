@@ -36,32 +36,36 @@ export class VehicleDocumentsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  _technical_review(event: any) {
-    const file = event.target.files[0];
+  _technical_review(event: any) {    
+    const file = event.target.files[0]; 
+
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.base64.technical_review = reader.result as any;
-    };
-    this.technical_review?.setValue(event.target.files[0]);
+      this.technical_review?.setValue(reader.result);      
+    };    
   }
+ 
   _gas_review(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.base64.gas_review = reader.result as any;
-    };
-    this.gas_review?.setValue(event.target.files[0]);
+      this.gas_review?.setValue(reader.result);
+    };    
   }
+
   _circulation_permit(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.base64.circulation_permit = reader.result as any;
+      this.circulation_permit?.setValue(reader.result);
     };
-    this.circulation_permit?.setValue(event.target.files[0]);
+
   }
 
   _padron(event: any) {
@@ -70,8 +74,8 @@ export class VehicleDocumentsComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.base64.padron = reader.result as any;
-    };
-    this.padron?.setValue(event.target.files[0]);
+      this.padron?.setValue(reader.result);
+    };    
   }
 
   back() {

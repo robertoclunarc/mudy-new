@@ -26,7 +26,6 @@ import { ServiceMainComponent } from './components/cotizar/service-main/service-
 import { PersonalInfoComponent } from './components/cotizar/personal-info/personal-info.component';
 import { OriginAddressComponent } from './components/cotizar/origin-address/origin-address.component';
 import { ToAddressComponent } from './components/cotizar/to-address/to-address.component';
-import { RoomModalComponent } from './components/cotizar/room-modal/room-modal.component';
 import { PaymentComponent } from './components/cotizar/payment/payment.component';
 import { InventoryMudanzaComponent } from './components/cotizar/inventory-mudanza/inventory-mudanza.component';
 import { InventoryFleteComponent } from './components/cotizar/inventory-flete/inventory-flete.component';
@@ -52,8 +51,9 @@ import { TransportistTermsConditionsComponent } from './components/registro-tran
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-
 import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+
 
 const maskConfig: Partial<IConfig> = {
   validation: false  
@@ -75,7 +75,6 @@ const maskConfig: Partial<IConfig> = {
     PersonalInfoComponent,
     OriginAddressComponent,
     ToAddressComponent,  
-    RoomModalComponent,
     PaymentComponent,  
     ServiceMainComponent,
     InventoryMudanzaComponent,
@@ -92,7 +91,7 @@ const maskConfig: Partial<IConfig> = {
     TransportistaBankDataComponent,
     PoliciesAndPrivacyComponent,
     RegisterSuccessComponent,
-    TransportistTermsConditionsComponent,    
+    TransportistTermsConditionsComponent,  
   ],
   imports: [
     BrowserModule,
@@ -102,7 +101,7 @@ const maskConfig: Partial<IConfig> = {
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
-    NgxMaskModule.forRoot(maskConfig)
+    NgxMaskModule.forRoot(maskConfig)   
   ],
   providers: [],
   bootstrap: [AppComponent]
