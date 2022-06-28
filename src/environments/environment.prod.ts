@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   //===========Url Base==================
-  baseUrl: 'https://137.184.8.13/api',
+  baseUrl: 'http://137.184.8.13/api',
 
  //==============GET=====================
   vehicle_types: '/vehicle-types',
