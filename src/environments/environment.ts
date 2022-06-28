@@ -16,6 +16,7 @@ export const environment = {
   categories: '/categories',
   articles: '/articles',
   places: '/places',
+  confirm: '/payments/confirmation/172',
 
   //============POST=====================  
   carrier: '/applications/carrier',
@@ -23,6 +24,7 @@ export const environment = {
   freight: '/quotations/freights',
   movings: '/quotations/movings',
   calcule_volume: '/quotations/calculate-volume',
+  payment: '/payments/start/172',
 
   googleApiKey: 'AIzaSyA7lwfqRatEpjjXlIQOKHyrz0QtFMVp338'
 };

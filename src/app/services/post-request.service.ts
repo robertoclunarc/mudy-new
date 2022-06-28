@@ -64,5 +64,27 @@ export class PostRequestService {
         }
       });
   }
+
+  paymentConfirmation() {        
+    return this.http.get<any>(
+      environment.baseUrl + environment.confirm,
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'       
+        }
+      });
+  }
+
+  payment() {        
+    return this.http.post<any>(
+      environment.baseUrl + environment.payment, {},
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'       
+        }
+      });
+  }
  
 }
