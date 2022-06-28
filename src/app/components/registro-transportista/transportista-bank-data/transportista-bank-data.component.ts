@@ -35,12 +35,10 @@ export class TransportistaBankDataComponent implements OnInit {
     this.getBanks();
   }
 
-  getBanks() {
-    setTimeout(() => {
+  getBanks() {   
       this.selectService.getBanks().subscribe((res: any) => {
       this.banks = res.data;
-    })
-    }, 1000);    
+    })    
   }
 
   back() {
