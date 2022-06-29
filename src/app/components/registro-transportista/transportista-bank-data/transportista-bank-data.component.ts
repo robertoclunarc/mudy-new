@@ -35,10 +35,10 @@ export class TransportistaBankDataComponent implements OnInit {
     this.getBanks();
   }
 
-  getBanks() {   
-      this.selectService.getBanks().subscribe((res: any) => {
+  getBanks() {
+    this.selectService.getBanks().subscribe((res: any) => {
       this.banks = res.data;
-    })    
+    })
   }
 
   back() {
@@ -54,27 +54,27 @@ export class TransportistaBankDataComponent implements OnInit {
     this.main.step$.next(4);
   }
 
-   /**
-  * It checks if the rut is valid by comparing the last digit of the rut with the result of the
-  * function validarRut() from the UtilsService
-  */
-    validateRut() {
-      if (this.account_rut?.value && this.account_rut?.value.length == 9) {
-  
-        let rutSinDigitoVerificador = this.account_rut.value.slice(0, -1)
-        let digitoVerificador = this.account_rut.value[this.account_rut.value.length - 1];
-        let checkedDigitoVerificador = this.utilsService.validarRut(rutSinDigitoVerificador);
-  
-        if (digitoVerificador == checkedDigitoVerificador) {
-          this.isValidRut = Rut.valid;
-        } else {
-          this.isValidRut = Rut.invalid;
-        }
-  
+  /**
+ * It checks if the rut is valid by comparing the last digit of the rut with the result of the
+ * function validarRut() from the UtilsService
+ */
+  validateRut() {
+    if (this.account_rut?.value && this.account_rut?.value.length == 9) {
+
+      let rutSinDigitoVerificador = this.account_rut.value.slice(0, -1)
+      let digitoVerificador = this.account_rut.value[this.account_rut.value.length - 1];
+      let checkedDigitoVerificador = this.utilsService.validarRut(rutSinDigitoVerificador);
+
+      if (digitoVerificador == checkedDigitoVerificador) {
+        this.isValidRut = Rut.valid;
       } else {
-        this.isValidRut = Rut.incomplete;
+        this.isValidRut = Rut.invalid;
       }
+
+    } else {
+      this.isValidRut = Rut.incomplete;
     }
+  }
 
   get account_holder() {
     return this.form.get('account_holder');

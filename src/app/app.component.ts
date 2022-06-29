@@ -16,7 +16,7 @@ export class AppComponent {
 
 
   closeNavbar() {
-    let navbar = new bootstrap.Collapse(document.getElementById('navbar') as any)
+    new bootstrap.Collapse(document.getElementById('navbar') as any)
   }
 
   onActivate(event: any) {
