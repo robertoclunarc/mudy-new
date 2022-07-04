@@ -25,30 +25,31 @@ export class VehicleInfoComponent implements OnInit {
       vehicle_brand_id: ['', [Validators.required]],
       model: ['', [Validators.required]],
       patente: ['', [Validators.required]],
-      hidraulic_elevator: [null, [Validators.required]],
+      hidraulic_elevator: [true],
       long: [1, [Validators.required]],
       width: [1, [Validators.required]],
-      high: [1, [Validators.required]]      
+      high: [1, [Validators.required]]
     });
   }
 
   ngOnInit(): void {
     this.getVehicleBrands();
     this.getVehicleTypes();
+    this.changeVehicleType();
   }
 
 
-  metrosCubicos(){
+  metrosCubicos() {
     let metrosCubicos = this.long?.value * this.width?.value * this.high?.value;
     return metrosCubicos;
   }
 
-  changeVehicleType(){
+  changeVehicleType() {
     this.vehicle_type_id?.setValue(this.vehicleType);   
   }
-  
-  changeHidraulic(){
-    this.hidraulic_elevator?.setValue(JSON.parse(this.hidraulic_elevator.value))     
+
+  changeHidraulic() {
+    this.hidraulic_elevator?.setValue(JSON.parse(this.hidraulic_elevator.value))
   }
 
   getVehicleBrands() {
@@ -79,6 +80,10 @@ export class VehicleInfoComponent implements OnInit {
     this.main.step$.next(5);
   }
 
+  resumen() {
+    this.main.step$.next(6)
+  }
+
 
   get vehicle_type_id() {
     return this.form.get('vehicle_type_id');
@@ -103,5 +108,5 @@ export class VehicleInfoComponent implements OnInit {
   }
   get high() {
     return this.form.get('high');
-  }  
+  }
 }

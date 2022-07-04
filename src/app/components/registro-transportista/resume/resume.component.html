@@ -3,7 +3,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <h1>Registro de Empresa</h1>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-end">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 subtitle">
             <h5 class="text-blue pt-3">Resumen</h5>
         </div>
     </div>
@@ -57,11 +57,19 @@
     </div>
 
 
-    <h5 class="text-blue">
-        Vehículo(s)
-    </h5>
+    <div class="row">
+        <div class="col-6">
+            <h5 class="text-blue">
+                Vehículo(s)
+            </h5>
+        </div>
+        <div class="col-6 subtitle">
+            <button type="button" class="btn btn-blue round-bt" data-bs-dismiss="modal" (click)="newVehicle()">Agregar <i class="bi bi-plus-circle text-light ps-1"></i></button>  
+        </div>
+    </div>
+  
 
-    <div *ngFor="let v of carrier.vehicles" class="row">
+    <div *ngFor="let v of carrier.vehicles; index as i" class="row">
         <div class="col-lg-2 col-md-6 col-sm-6 col-12">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item vehicle-type">Tipo de Vehículo</li>
@@ -99,7 +107,7 @@
             </ul>
         </div>
         <div class="col-lg-1 col-md-6 col-sm-6 col-6">
-            <ul class="list-group list-group-flush">
+            <ul (click)="removeVehicle(i)" class="list-group list-group-flush">
                 <li class="list-group-item">Eliminar</li>
                 <li class="list-group-item sm-text-gray"><i class="bi bi-trash-fill text-blue icon-write"></i></li>
             </ul>
@@ -113,7 +121,7 @@
             <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
         </div>
         <div class="col-6">
-            <button (click)="openTermsAndConditionsModal()" class="btn btn-blue mudy-btn p-2"><span
+            <button [disabled]="main.carrier.vehicles.length == 0" (click)="openTermsAndConditionsModal()" class="btn btn-blue mudy-btn p-2"><span
                     class="px-4">Registrar</span>
             </button>
         </div>

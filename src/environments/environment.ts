@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   //===========Url Base==================
-  baseUrl: 'http://137.184.8.13/api',
+  baseUrl: 'https://api-dev.mudy.itsirius.com/api',
 
  //==============GET=====================
   vehicle_types: '/vehicle-types',

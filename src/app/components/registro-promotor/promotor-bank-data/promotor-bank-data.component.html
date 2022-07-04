@@ -1,4 +1,5 @@
 <div class="card-form shadow animate__animated animate__fadeIn">
+    <form [formGroup]="form">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <h1>Registro de Promotor</h1>
@@ -14,39 +15,60 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Banco</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Banco de Chile">
-            </div>    
+                <select formControlName="bank_id" placeholder="Selecciona" class="form-select mudy-select">                  
+                    <option *ngFor="let b of banks" [value]="b.id">{{b.name}}</option>
+                </select>
+                <div *ngIf="bank_id.touched" class="pt-2 text-danger">
+                    <div *ngIf="bank_id.errors?.['required']">
+                        Selecciona un banco.
+                    </div>
+                </div>
+            </div>
         </div>
     
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Tipo de Cuenta</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Corriente">
-            </div>           
+                <select formControlName="account_type" placeholder="Selecciona" class="form-select mudy-select">                  
+                    <option value="SAVING">SAVING</option>
+                    <option value="CHEKING">CHEKING</option>
+                    <option value="OTHERS">OTHERS</option>
+                </select>
+                <div *ngIf="account_type.touched" class="pt-2 text-danger">
+                    <div *ngIf="account_type.errors?.['required']">
+                        Ingresa el tipo de cuenta.
+                    </div>                   
+                </div>
+            </div>          
         </div>
 
         <div class="col-12">
             <div class="mb-3">
                 <label class="form-label">Número de Cuenta</label>
-                <input type="number" class="form-control ps-2 mudy-input" placeholder="0000 0000 0000 0000">
-            </div>           
+                <input formControlName="account_number"  type="number" min="0" class="form-control ps-2 mudy-input" placeholder="0000 0000 0000 0000">
+                <div *ngIf="account_number.touched" class="pt-2 text-danger">
+                    <div *ngIf="account_number.errors?.['required']">
+                        Ingresa el número de cuenta.
+                    </div>                   
+                </div>
+            </div>          
         </div>
     
     </div>
 
-
+</form>
 <div class="row py-3">
     <div class="col-6 text-end">
         <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
     </div>
     <div class="col-6">
-        <button data-bs-toggle="modal" data-bs-target="#dataSaved" class="btn btn-blue mudy-btn p-2"><span class="px-4">Registrar</span></button>
+        <button (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Registrar</span></button>
     </div>
 </div>
 </div>
 
 
-<div class="modal fade" id="dataSaved" tabindex="-1" aria-labelledby="dataSavedLabel" aria-hidden="true">
+<div class="modal fade" id="dataSaved" #dataSaved tabindex="-1">
     <div class="modal-dialog">
         
         <div class="modal-content">

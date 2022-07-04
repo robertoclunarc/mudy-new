@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehicles } from 'src/app/services/dummy';
+import { PostRequestService } from 'src/app/services/post-request.service';
 import { SelectsService } from 'src/app/services/selects.service';
 import SwiperCore, { SwiperOptions, Autoplay } from 'swiper';
 import { ServiceMainComponent } from '../service-main/service-main.component';
+
 
 
 @Component({
@@ -14,7 +16,15 @@ export class InventoryFleteComponent implements OnInit {
 
 
   vehicleTypes: any[] = [];
-  selectedVehicle: string = '';
+
+
+  selectedVehicle: any;
+  round_trip: string = 'Si';
+  need_helper: string = 'Si';
+  whatsApp_communication: boolean = true;
+  cargo_description: string = '';
+  file_path: string = '';
+
   config: SwiperOptions = {
     slidesPerView: 3.5,
     spaceBetween: 20,
@@ -24,7 +34,8 @@ export class InventoryFleteComponent implements OnInit {
 
   constructor(
     public main: ServiceMainComponent,
-    public selectService: SelectsService
+    public selectService: SelectsService,
+    public postService: PostRequestService
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +48,7 @@ export class InventoryFleteComponent implements OnInit {
       this.config = {
         slidesPerView: 3.5,
         spaceBetween: 20,
-        autoplay: {delay:2000}
+        autoplay: { delay: 2000 }
       }
     }
 
@@ -45,7 +56,7 @@ export class InventoryFleteComponent implements OnInit {
       this.config = {
         slidesPerView: 2.7,
         spaceBetween: 20,
-        autoplay: {delay:2000}
+        autoplay: { delay: 2000 }
       }
     }
 
@@ -53,7 +64,7 @@ export class InventoryFleteComponent implements OnInit {
       this.config = {
         slidesPerView: 2.3,
         spaceBetween: 20,
-        autoplay: {delay:2000}
+        autoplay: { delay: 2000 }
       }
     }
 
@@ -61,7 +72,7 @@ export class InventoryFleteComponent implements OnInit {
       this.config = {
         slidesPerView: 1.5,
         spaceBetween: 20,
-        autoplay: {delay:2000}
+        autoplay: { delay: 2000 }
       }
     }
 
@@ -69,28 +80,71 @@ export class InventoryFleteComponent implements OnInit {
       this.config = {
         slidesPerView: 1.2,
         spaceBetween: 20,
-        autoplay: {delay:2000}
+        autoplay: { delay: 2000 }
       }
     }
   }
 
- 
+  _file_path(event: any) {
+    const file = event.target.files[0];
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.file_path = reader.result as any;
+    };
+  }
+
   getVehicleTypes() {
     this.selectService.getVehicleTypes().subscribe((res: any) => {
-      this.vehicleTypes = res.data;           
+      this.vehicleTypes = res.data;
     })
   }
 
-  selectVehicle(vehicle: string) {
+  selectVehicle(vehicle: number) {
     this.selectedVehicle = vehicle;
   }
 
   next() {
-    alert('Método de pago')
+    this.main.flete.vehicle_type_id = this.selectedVehicle;
+    this.main.flete.file_path = this.file_path;
+    this.main.flete.whatsApp_communication = this.whatsApp_communication;
+    this.main.flete.origin = this.main.origin;
+    this.main.flete.destination = this.main.destination;
+    this.main.flete.cargo_description = this.cargo_description;
+    if (this.need_helper == 'Si') {
+      this.main.flete.need_helper = true;
+    } else {
+      this.main.flete.need_helper = false;
+    }
+    if (this.round_trip == 'Si') {
+      this.main.flete.round_trip = true;
+    } else {
+      this.main.flete.round_trip = false;
+    }
+
+    this.postService.saveFreightData(this.main.flete).subscribe({
+      next: (v) => {console.log(v)},
+      error: (e) => {console.error(e)}
+    })
   }
 
   back() {
     this.main.step$.next(3);
+  }
+
+  validator() {
+    if (!this.selectedVehicle) {
+      return false;
+    }
+    if (!this.cargo_description) {
+      return false;
+    }
+    if (!this.file_path) {
+      return false;
+    }
+
+    return true;
   }
 
   onSwiper(swiper: any) {
@@ -108,7 +162,7 @@ export class InventoryFleteComponent implements OnInit {
       this.config = {
         slidesPerView: 3.5,
         spaceBetween: 20,
-        autoplay: {delay:2000}
+        autoplay: { delay: 2000 }
       }
     }
 
@@ -116,7 +170,7 @@ export class InventoryFleteComponent implements OnInit {
       this.config = {
         slidesPerView: 2.7,
         spaceBetween: 20,
-        autoplay: {delay:2000}
+        autoplay: { delay: 2000 }
       }
     }
 
@@ -124,7 +178,7 @@ export class InventoryFleteComponent implements OnInit {
       this.config = {
         slidesPerView: 2.3,
         spaceBetween: 20,
-        autoplay: {delay:2000}
+        autoplay: { delay: 2000 }
       }
     }
 
@@ -132,7 +186,7 @@ export class InventoryFleteComponent implements OnInit {
       this.config = {
         slidesPerView: 1.5,
         spaceBetween: 20,
-        autoplay: {delay:2000}
+        autoplay: { delay: 2000 }
       }
     }
 
@@ -140,7 +194,7 @@ export class InventoryFleteComponent implements OnInit {
       this.config = {
         slidesPerView: 1.2,
         spaceBetween: 20,
-        autoplay: {delay:2000}
+        autoplay: { delay: 2000 }
       }
     }
 

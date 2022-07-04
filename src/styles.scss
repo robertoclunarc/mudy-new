@@ -151,7 +151,9 @@ body {
     top: -1000px;
 }
 
-
+.subtitle{
+    text-align: end;
+}
 
 @media screen and (max-width:1189px) {
     .main-container {
@@ -160,11 +162,13 @@ body {
 
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:768px) {
     .main-container {
         padding: 50px 50px 50px 50px;
     }
-
+    .subtitle{
+        text-align: start;
+    }
 }
 
 @media screen and (max-width:500px) {

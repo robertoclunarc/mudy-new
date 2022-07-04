@@ -3,7 +3,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <h1>Registro de Empresa</h1>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-end">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 subtitle">
             <h5 class="text-blue pt-3">Papeles del Vehículo</h5>
         </div>
     </div>
@@ -60,9 +60,9 @@
                                 <div class="col-9">
                                     <label *ngIf="!gas_review.value" class="form-label light-gray-text">Ingrese el
                                         documento</label>
-                                        <div *ngIf="gas_review.value" class="square">
-                                            <img [src]="base64.gas_review" alt="gas_review">
-                                        </div>                                   
+                                    <div *ngIf="gas_review.value" class="square">
+                                        <img [src]="base64.gas_review" alt="gas_review">
+                                    </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="custom-input-file">
@@ -80,8 +80,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="mb-3">
                     <label class="form-label">Fecha de vencimiento</label>
-                    <input type="date" formControlName="date_gas_review"
-                        class="form-control ps-2 mudy-input-outline">
+                    <input type="date" formControlName="date_gas_review" class="form-control ps-2 mudy-input-outline">
                     <div *ngIf="date_gas_review.touched" class="pt-2 text-danger">
                         <div *ngIf="date_gas_review.errors?.['required']">
                             La fecha de la revisión de gases es requerida.
@@ -100,16 +99,17 @@
                         <div class="container-file">
                             <div class="row">
                                 <div class="col-9">
-                                    <label *ngIf="!circulation_permit.value" class="form-label light-gray-text">Ingrese el
+                                    <label *ngIf="!circulation_permit.value" class="form-label light-gray-text">Ingrese
+                                        el
                                         documento</label>
-                                        <div *ngIf="circulation_permit.value" class="square">
-                                            <img [src]="base64.circulation_permit" alt="circulation_permit">
-                                        </div>                                   
+                                    <div *ngIf="circulation_permit.value" class="square">
+                                        <img [src]="base64.circulation_permit" alt="circulation_permit">
+                                    </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="custom-input-file">
-                                        <input type="file" (change)="_circulation_permit($event)" accept="image/png,image/jpeg"
-                                            class="input-file">
+                                        <input type="file" (change)="_circulation_permit($event)"
+                                            accept="image/png,image/jpeg" class="input-file">
                                         +
                                     </div>
                                 </div>
@@ -141,11 +141,15 @@
                         <div class="container-file">
                             <div class="row">
                                 <div class="col-9">
-                                    <label class="form-label light-gray-text">Ingrese el documento</label>
+                                    <label *ngIf="!soap.value" class="form-label light-gray-text">Ingrese el
+                                        documento</label>
+                                    <div *ngIf="soap.value" class="square">
+                                        <img [src]="base64.soap" alt="padron">
+                                    </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="custom-input-file">
-                                        <input type="file" accept="image/png,image/jpeg" class="input-file">
+                                        <input type="file" (change)="_soap($event)" accept="image/png,image/jpeg" class="input-file">
                                         +
                                     </div>
                                 </div>
@@ -153,12 +157,16 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="mb-3">
                     <label class="form-label">Fecha de vencimiento</label>
-                    <input type="date" class="form-control ps-2 mudy-input-outline">
+                    <input formControlName="date_soap" type="date" class="form-control ps-2 mudy-input-outline">
+                    <div *ngIf="date_soap.touched" class="pt-2 text-danger">
+                        <div *ngIf="date_soap.errors?.['required']">
+                            La fecha del soap es requerida.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -171,11 +179,11 @@
                         <div class="container-file">
                             <div class="row">
                                 <div class="col-9">
-                                    <label *ngIf="!circulation_permit.value" class="form-label light-gray-text">Ingrese el
+                                    <label *ngIf="!padron.value" class="form-label light-gray-text">Ingrese el
                                         documento</label>
-                                        <div *ngIf="padron.value" class="square">
-                                            <img [src]="base64.padron" alt="padron">
-                                        </div>                                   
+                                    <div *ngIf="padron.value" class="square">
+                                        <img [src]="base64.padron" alt="padron">
+                                    </div>
                                 </div>
                                 <div class="col-3">
                                     <div class="custom-input-file">

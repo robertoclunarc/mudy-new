@@ -15,7 +15,8 @@ export class VehicleDocumentsComponent implements OnInit {
     technical_review: '',
     gas_review: '',
     circulation_permit: '',
-    padron: ''
+    padron: '',
+    soap: ''
   }
 
   constructor(
@@ -29,7 +30,9 @@ export class VehicleDocumentsComponent implements OnInit {
       date_gas_review: ['', [Validators.required]],
       circulation_permit: ['', [Validators.required]],
       date_circulation_permit: ['', [Validators.required]],
-      padron: ['', [Validators.required]]
+      padron: ['', [Validators.required]],
+      soap:[''],
+      date_soap:['']
     });
   }
 
@@ -78,6 +81,16 @@ export class VehicleDocumentsComponent implements OnInit {
     };    
   }
 
+  _soap(event: any) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.base64.soap = reader.result as any;
+      this.soap?.setValue(reader.result);
+    };    
+  }
+
   back() {
     this.main.step$.next(4);
   }
@@ -115,5 +128,11 @@ export class VehicleDocumentsComponent implements OnInit {
   }
   get padron() {
     return this.form.get('padron');
+  }
+  get soap() {
+    return this.form.get('soap');
+  }
+  get date_soap() {
+    return this.form.get('date_soap');
   }
 }

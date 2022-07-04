@@ -8,21 +8,55 @@
         </div>
     </div>
     <hr style="color: rgb(173, 173, 173);">
-
+<form [formGroup]="form">
     <div class="row">
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Nombre</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Pedro">
+                <input type="text" maxlength="15" class="form-control ps-2 mudy-input" formControlName="first_name"
+                    placeholder="Pedro">
+
+                <div *ngIf="first_name.touched" class="pt-2 text-danger">
+                    <div *ngIf="first_name.errors?.['required']">
+                        Ingresa tu nombre.
+                    </div>
+                    <div *ngIf="first_name.errors?.['minlength']">
+                        El nombre debe contener al menos 4 caracteres
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Apellido</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="Perez">
+                <input type="text" maxlength="15" class="form-control ps-2 mudy-input" formControlName="last_name"
+                    placeholder="Perez">
+
+                <div *ngIf="last_name.touched" class="pt-2 text-danger">
+                    <div *ngIf="last_name.errors?.['required']">
+                        Ingresa tu apellido.
+                    </div>
+                    <div *ngIf="last_name.errors?.['minlength']">
+                        El nombre debe contener al menos 4 caracteres
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Rut</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="25203405-7">
+                <input type="text" formControlName="rut" (change)="validateRut()"
+                    [ngClass]="isValidRut == 'valid' ? 'form-control ps-2 mudy-input is-valid' : 'form-control ps-2 mudy-input'"
+                    maxlength="11" [dropSpecialCharacters]="true" mask="00.000.000-A" placeholder="25.203.405-7">
+
+                <div *ngIf="rut.touched" class="pt-2 text-danger">
+                    <div *ngIf="rut.errors?.['required']">
+                        Ingresa tu rut.
+                    </div>
+                    <div *ngIf="rut.errors?.['minlength']">
+                        Ingresa un rut válido.
+                    </div>
+                    <div *ngIf="isValidRut == 'invalid'">
+                        Ingresa un rut válido.
+                    </div>
+                </div>
             </div>
            
     
@@ -31,7 +65,13 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Teléfono</label>
-                <input type="text" class="form-control ps-2 mudy-input" placeholder="+56 9 4564 4565">
+                <input type="tel" formControlName="phone" class="form-control ps-2 mudy-input"
+                    placeholder="9 4564 4565">
+                <div *ngIf="phone.touched" class="pt-2 text-danger">
+                    <div *ngIf="phone.errors?.['required']">
+                        Ingresa tu número de teléfono.
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label">WhatsApp</label>
@@ -39,19 +79,28 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-control ps-2 mudy-input" placeholder="cliente@gmail.com">
+                <input type="email" formControlName="email" class="form-control ps-2 mudy-input"
+                    placeholder="persona@gmail.com">
+                <div *ngIf="email.touched" class="pt-2 text-danger">
+                    <div *ngIf="email.errors?.['required']">
+                        Ingresa tu email.
+                    </div>
+                    <div *ngIf="email.errors?.['email']">
+                        Ingresa un email válido. Ejm: persona@gmail.com
+                    </div>
+                </div>
             </div>
         </div>
     
     </div>
-
+</form>
 
 <div class="row py-3">
     <div class="col-6 text-end">
         <button (click)="cancel()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Cancelar</span></button>
     </div>
     <div class="col-6">
-        <button (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
+        <button (click)="next()" [disabled]="form.invalid || (isValidRut == 'invalid' || isValidRut == 'incomplete')" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
     </div>
 </div>
 </div>

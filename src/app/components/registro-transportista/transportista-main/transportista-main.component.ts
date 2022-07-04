@@ -15,20 +15,15 @@ export class TransportistaMainComponent implements OnInit {
   step$ = new BehaviorSubject(1);
   carrier = {} as Carrier;
   vehicle = {} as Vehicle;
-  editableVehicle = {} as Vehicle;
+  editableVehicleIndex:any;
   
   constructor(
     public utilsService: UtilsService   
   ) {
     this.carrier.vehicles = [];
-
   }
 
-  ngOnInit(): void {
-
-  }
-
- 
+  ngOnInit(): void {}
 
 
 }

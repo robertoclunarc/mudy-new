@@ -1,6 +1,4 @@
 <div class="main-container">
-
-
-    <app-promotor-info *ngIf="step1 && !step1_check"></app-promotor-info>
-    <app-promotor-bank-data *ngIf="step2 && !step2_check"></app-promotor-bank-data>
+    <app-promotor-info *ngIf="step$.value == 1"></app-promotor-info>
+    <app-promotor-bank-data *ngIf="step$.value == 2"></app-promotor-bank-data>
 </div>

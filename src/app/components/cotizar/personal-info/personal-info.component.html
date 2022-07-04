@@ -107,7 +107,7 @@
                     <div class="col-6">
                         <div class="mb-3">
                             <label class="form-label">Fecha</label>
-                            <input type="date" formControlName="date" class="form-control ps-2 mudy-input-outline">
+                            <input type="date" [min]="currentDate" formControlName="date" class="form-control ps-2 mudy-input-outline">
                             <div *ngIf="date.touched" class="pt-2 text-danger">
                                 <div *ngIf="date.errors?.['required']">
                                     Seleccionar la fecha.

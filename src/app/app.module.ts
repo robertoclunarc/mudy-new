@@ -49,9 +49,11 @@ import { PoliciesAndPrivacyComponent } from './components/landing-page/policies-
 import { RegisterSuccessComponent } from './components/registro-transportista/register-success/register-success.component';
 import { TransportistTermsConditionsComponent } from './components/registro-transportista/transportist-terms-conditions/transportist-terms-conditions.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { UpdateVehicleInfoComponent } from './components/registro-transportista/update-vehicle-info/update-vehicle-info.component';
+import { UpdateVehicleDocumentsComponent } from './components/registro-transportista/update-vehicle-documents/update-vehicle-documents.component'
 
 
 
@@ -91,7 +93,9 @@ const maskConfig: Partial<IConfig> = {
     TransportistaBankDataComponent,
     PoliciesAndPrivacyComponent,
     RegisterSuccessComponent,
-    TransportistTermsConditionsComponent,  
+    TransportistTermsConditionsComponent,
+    UpdateVehicleInfoComponent,
+    UpdateVehicleDocumentsComponent,  
   ],
   imports: [
     BrowserModule,
@@ -101,9 +105,9 @@ const maskConfig: Partial<IConfig> = {
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
-    NgxMaskModule.forRoot(maskConfig)   
+    NgxMaskModule.forRoot(maskConfig)     
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

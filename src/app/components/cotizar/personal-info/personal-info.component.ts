@@ -4,6 +4,7 @@ import { UtilsService, Rut } from 'src/app/services/utils.service';
 import { ServiceMainComponent } from '../service-main/service-main.component';
 import { Moving } from 'src/app/models/moving.model';
 import { Freight } from 'src/app/models/freight.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-personal-info',
@@ -14,13 +15,15 @@ export class PersonalInfoComponent implements OnInit {
 
   isValidRut: Rut = Rut.incomplete;
   form: FormGroup = this.formBuilder.group({});
-
+  currentDate:any;
   constructor(
     private formBuilder: FormBuilder,
     public main: ServiceMainComponent,
-    public utilsService: UtilsService
+    public utilsService: UtilsService,
+    private datePipe: DatePipe
     ) {     
 
+      this.currentDate = this.datePipe.transform(Date.now(), 'yyyy-MM-dd')
   }
 
   ngOnInit(): void {

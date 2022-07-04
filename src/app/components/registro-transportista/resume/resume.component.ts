@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransportistaMainComponent } from '../transportista-main/transportista-main.component';
 import * as bootstrap from 'bootstrap'
 import { PostRequestService } from 'src/app/services/post-request.service';
+import { Vehicle } from 'src/app/models/vehicle.model';
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
@@ -19,6 +20,20 @@ export class ResumeComponent implements OnInit {
   }
 
   ngOnInit(): void {    
+  }
+
+  newVehicle() {
+    this.main.step$.next(4);
+  }
+
+  updateVehicle(vehicle:Vehicle, index:number){
+   this.main.vehicle = vehicle;
+   this.main.editableVehicleIndex = index;
+   this.main.step$.next(4);
+  }
+
+  removeVehicle(index:any){
+    this.main.carrier.vehicles.splice(index, 1);
   }
 
   back() {

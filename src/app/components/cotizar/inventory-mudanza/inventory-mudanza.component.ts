@@ -80,6 +80,8 @@ export class InventoryMudanzaComponent implements OnInit {
   getArticles() {
     this.selectService.getArticles().subscribe((res: any) => {
       this.articles = res.data;
+      console.log(res.data);
+      
     })
   }
 

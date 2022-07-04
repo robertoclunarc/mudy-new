@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Promoter } from 'src/app/models/promoter.model';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
@@ -7,59 +9,18 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./promotor-main.component.scss']
 })
 export class PromotorMainComponent implements OnInit {
-
-  step1: boolean = false;
-  step1_check: boolean = false;
-  step2: boolean = false;
-  step2_check: boolean = false;
   
-
+  step$ = new BehaviorSubject(1);
+  promoter = {} as Promoter;
   constructor(
     public utilsService: UtilsService
   ) {
   }
 
-  ngOnInit(): void {
-    this.step1_PromotorInfo();
+  ngOnInit(): void {  
   }
-
-  /**
-   *  Con variables booleanas se valida en que paso del registro va el usuario.
-   *  step: valida que el usuario está en ese paso.
-   *  step_checked: valida que el usuario completó ese paso.  
-   */
-
-
-  /**
-  * Paso 1: Datos Personales del Promotor.
-  */
-  step1_PromotorInfo() {
-    this.step1 = true;
-    this.step1_check = false;
-    this.step2 = false;
-    this.step2_check = false;
-  
-  }
-
-
-  /**
-  * Paso 2: Datos bancarios del promotor.
-  */
-  step2_BankData() {
-    this.step1 = true;
-    this.step1_check = true;
-    this.step2 = true;
-    this.step2_check = false;    
-  }
-
 
     
-    /**
-* Enviar registro
-*/
-submit() {
-  this.step1_PromotorInfo()
-  this.utilsService.goTo('/')
-}
+
 
 }

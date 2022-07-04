@@ -17,7 +17,7 @@
 
             <swiper class="p-swipper" [config]="config" (swiper)="onSwiper($event)" (slideChange)="onSlideChange()">
                 <ng-template *ngFor="let v of vehicleTypes" swiperSlide>
-                    <div (click)="selectVehicle(v.name)" [ngClass]="[ selectedVehicle == v.name ? 'bg-blue' : '']"
+                    <div (click)="selectVehicle(v.id)" [ngClass]="[ selectedVehicle == v.id ? 'bg-blue' : '']"
                         class="card vehicle-card sm-shadow">
                         <div class="square">
                             <img [src]="v.file_path" alt="">
@@ -34,7 +34,7 @@
                     <div class="row">
                         <div class="col-2">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                <input class="form-check-input" value="Si" [(ngModel)]="round_trip" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault1" checked>
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Si
@@ -43,7 +43,7 @@
                         </div>
                         <div class="col-2">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                <input class="form-check-input" value="No" [(ngModel)]="round_trip" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     No
@@ -56,7 +56,7 @@
                     <div class="row">
                         <div class="col-2">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefaul"
+                                <input class="form-check-input" value="Si" [(ngModel)]="need_helper"  type="radio" name="flexRadioDefaul"
                                     id="flexRadioDefault1" checked>
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Si
@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-2">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefaul"
+                                <input class="form-check-input" value="No" [(ngModel)]="need_helper"  type="radio" name="flexRadioDefaul"
                                     id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     No
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="form-check pt-4">
-                        <input class="form-check-input" type="checkbox" value="" checked>
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="whatsApp_communication">
                         <label class="form-check-label">
                             Acepta recibir comunicación por WhatsApp
                         </label>
@@ -88,18 +88,21 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-12">
             <div class="mb-3">
                 <label class="form-label">Descripción de Carga</label>
-                <textarea placeholder="Ingresa una descripción" class="form-control ps-2 mudy-textarea"
+                <textarea [(ngModel)]="cargo_description" placeholder="Ingresa una descripción" class="form-control ps-2 mudy-textarea"
                     rows="7"></textarea>
             </div>
             <div class="mb-3">
                 <div class="container-file">
                     <div class="row">
                         <div class="col-9">
-                            <label class="form-label">Foto de la carga</label>
+                            <label *ngIf="!file_path" class="form-label">Foto de la carga</label>
+                            <div *ngIf="file_path" class="square">
+                                <img [src]="file_path" alt="file_path">
+                            </div>
                         </div>
                         <div class="col-3">
                             <div class="custom-input-file">
-                                <input type="file" accept="image/png,image/jpeg" class="input-file">
+                                <input type="file" (change)="_file_path($event)" accept="image/png,image/jpeg" class="input-file">
                                 +
                             </div>
                         </div>
@@ -115,7 +118,7 @@
             <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
         </div>
         <div class="col-6">
-            <button (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
+            <button (click)="next()" [disabled]="!validator()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
         </div>
     </div>
 </div>
