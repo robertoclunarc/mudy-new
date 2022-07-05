@@ -101,7 +101,7 @@
                     class="px-4">Cancelar</span></button>
         </div>
         <div class="col-6">
-            <button [disabled]="form.invalid" (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
+            <button [disabled]="form.invalid || isValidRut == 'invalid'" (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
         </div>
     </div>
 </div>

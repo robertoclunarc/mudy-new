@@ -32,7 +32,12 @@ export class TransportistaBankDataComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getBanks();
+    this.getBanks();    
+    
+    this.account_holder?.setValue(this.main.carrier.legal_first_name);
+    this.account_rut ?.setValue(this.main.carrier.legal_rut);
+    
+
   }
 
   getBanks() {
