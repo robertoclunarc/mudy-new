@@ -20,7 +20,7 @@ export class CompanyInfoComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       company_name: [this.main.carrier.company_name, [Validators.required, Validators.minLength(4)]],
-      company_rut: [this.main.carrier.company_rut, [Validators.required, Validators.minLength(9)]],
+      company_rut: [this.main.carrier.company_rut, [Validators.required, Validators.minLength(9) ]],
       company_phone: [this.main.carrier.company_phone, [Validators.required]],
       company_email: [this.main.carrier.company_email, [Validators.required, Validators.email]],
       company_address: [this.main.carrier.company_address, [Validators.required]],
@@ -60,6 +60,7 @@ export class CompanyInfoComponent implements OnInit {
         this.isValidRut = Rut.valid;
       } else {
         this.isValidRut = Rut.invalid;
+        
       }
 
     } else {

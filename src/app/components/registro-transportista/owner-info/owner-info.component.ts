@@ -29,6 +29,21 @@ export class OwnerInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let firstName: string;
+    let lastName: string;
+    
+    if (this.main.carrier.company_name.indexOf(' ')>=0)
+      firstName=this.main.carrier.company_name.substring(0, this.main.carrier.company_name.indexOf(' '));
+    else
+      firstName=this.main.carrier.company_name= this.main.carrier.company_name;
+    lastName=this.main.carrier.company_name.substring(this.main.carrier.company_name.indexOf(' ')+1, this.main.carrier.company_name.length);
+    this.legal_first_name?.setValue(firstName);
+    this.legal_last_name?.setValue(lastName);
+    this.legal_rut?.setValue(this.main.carrier.company_rut);
+    this.legal_email?.setValue(this.main.carrier.company_email);
+    this.legal_phone ?.setValue(this.main.carrier.company_phone);
+
+    
   }
 
   back() {
