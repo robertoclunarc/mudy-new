@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Vehicle } from 'src/app/models/vehicle.model';
+import {  UtilsService } from 'src/app/services/utils.service';
 import { TransportistaMainComponent } from '../transportista-main/transportista-main.component';
 
 @Component({
@@ -17,11 +18,22 @@ export class VehicleDocumentsComponent implements OnInit {
     circulation_permit: '',
     padron: '',
     soap: ''
-  }
+  };
+
+  invalidDate = {
+    technical_review: false,
+    gas_review: false,
+    circulation_permit: false,    
+    soap: false
+  };
+  
+  isValidDate: boolean=false;
+  
 
   constructor(
     private formBuilder: FormBuilder,
     public main: TransportistaMainComponent,
+    public utilsService: UtilsService
   ) {
     this.form = this.formBuilder.group({
       technical_review: ['', [Validators.required]],
@@ -106,6 +118,24 @@ export class VehicleDocumentsComponent implements OnInit {
     this.main.carrier.vehicles.push(this.main.vehicle);
     this.main.step$.next(6);
     this.main.vehicle = {} as Vehicle;       
+  }
+
+  validDate(date: any, event: string){
+    console.log(event)
+    if (event=='date_technical_review')
+      this.invalidDate.technical_review = this.utilsService.validDate(date);
+    if (event=='date_gas_review')
+      this.invalidDate.gas_review = this.utilsService.validDate(date);
+    if (event=='date_circulation_permit')
+      this.invalidDate.circulation_permit = this.utilsService.validDate(date); 
+    if (event=='date_soap')
+      this.invalidDate.soap = this.utilsService.validDate(date);   
+    if (this.invalidDate.technical_review || this.invalidDate.gas_review || this.invalidDate.circulation_permit || this.invalidDate.soap)
+      this.isValidDate=false;
+    else
+      this.isValidDate=true;
+    console.log(this.invalidDate);
+    console.log(this.isValidDate);
   }
 
   get technical_review() {

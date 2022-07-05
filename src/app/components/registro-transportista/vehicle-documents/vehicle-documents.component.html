@@ -39,11 +39,14 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="mb-3">
                     <label class="form-label">Fecha de vencimiento</label>
-                    <input type="date" formControlName="date_technical_review"
+                    <input type="date" formControlName="date_technical_review" (change)="validDate(date_technical_review.value, 'date_technical_review')"
                         class="form-control ps-2 mudy-input-outline">
                     <div *ngIf="date_technical_review.touched" class="pt-2 text-danger">
                         <div *ngIf="date_technical_review.errors?.['required']">
                             La fecha de la revisión técnica es requerida.
+                        </div>
+                        <div *ngIf="invalidDate.technical_review">
+                            La fecha de la revisión técnica no debe ser mayor a la actual.
                         </div>
                     </div>
                 </div>
@@ -80,10 +83,13 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="mb-3">
                     <label class="form-label">Fecha de vencimiento</label>
-                    <input type="date" formControlName="date_gas_review" class="form-control ps-2 mudy-input-outline">
+                    <input type="date" formControlName="date_gas_review" class="form-control ps-2 mudy-input-outline" (change)="validDate(date_gas_review.value, 'date_gas_review')">
                     <div *ngIf="date_gas_review.touched" class="pt-2 text-danger">
                         <div *ngIf="date_gas_review.errors?.['required']">
                             La fecha de la revisión de gases es requerida.
+                        </div>
+                        <div *ngIf="invalidDate.gas_review">
+                            La fecha de la revisión de gases no debe ser mayor a la actual.
                         </div>
                     </div>
                 </div>
@@ -122,11 +128,14 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="mb-3">
                     <label class="form-label">Fecha de vencimiento</label>
-                    <input type="date" formControlName="date_circulation_permit"
+                    <input type="date" formControlName="date_circulation_permit" (change)="validDate(date_circulation_permit.value, 'date_circulation_permit')"
                         class="form-control ps-2 mudy-input-outline">
                     <div *ngIf="date_circulation_permit.touched" class="pt-2 text-danger">
                         <div *ngIf="date_circulation_permit.errors?.['required']">
                             La fecha del permiso de circulación es requerida.
+                        </div>
+                        <div *ngIf="invalidDate.circulation_permit">
+                            La fecha del permiso de circulación no debe ser mayor a la actual.
                         </div>
                     </div>
                 </div>
@@ -161,10 +170,13 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="mb-3">
                     <label class="form-label">Fecha de vencimiento</label>
-                    <input formControlName="date_soap" type="date" class="form-control ps-2 mudy-input-outline">
+                    <input formControlName="date_soap" type="date" class="form-control ps-2 mudy-input-outline" (change)="validDate(date_soap.value, 'date_soap')">
                     <div *ngIf="date_soap.touched" class="pt-2 text-danger">
                         <div *ngIf="date_soap.errors?.['required']">
                             La fecha del soap es requerida.
+                        </div>
+                        <div *ngIf="invalidDate.soap">
+                            La fecha del soap no debe ser mayor a la actual.
                         </div>
                     </div>
                 </div>
@@ -206,7 +218,7 @@
                 <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
             </div>
             <div class="col-6">
-                <button (click)="next()" [disabled]="form.invalid" class="btn btn-blue mudy-btn p-2"><span
+                <button (click)="next()" [disabled]="form.invalid  || !isValidDate" class="btn btn-blue mudy-btn p-2"><span
                         class="px-4">Siguiente</span></button>
             </div>
         </div>
