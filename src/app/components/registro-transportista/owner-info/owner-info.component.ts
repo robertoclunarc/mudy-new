@@ -11,7 +11,7 @@ import { TransportistaMainComponent } from '../transportista-main/transportista-
 export class OwnerInfoComponent implements OnInit {
   isValidRut: Rut = Rut.incomplete;
   form: FormGroup;
-  checkboxValue: any;
+  checkboxValue: any=true;
 
   constructor(
     private formBuilder: FormBuilder,

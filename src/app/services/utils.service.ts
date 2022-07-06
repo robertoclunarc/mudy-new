@@ -34,7 +34,7 @@ export class UtilsService {
     const dateForm = new Date(fecha);
     // Compara solo las fechas => no las horas!!
     toDate.setHours(0,0,0,0);
-    return toDate <= dateForm;    
+    return toDate >= dateForm;    
   }
 
   /**

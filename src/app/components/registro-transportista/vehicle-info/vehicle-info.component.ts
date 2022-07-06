@@ -68,7 +68,7 @@ export class VehicleInfoComponent implements OnInit {
   getVehicleTypes() {
     this.selectService.getVehicleTypes().subscribe((res: any) => {
       this.vehicleTypes = res.data;
-      console.log(res.data);
+      
     })
   }
 

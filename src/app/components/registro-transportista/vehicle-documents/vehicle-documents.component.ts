@@ -116,6 +116,7 @@ export class VehicleDocumentsComponent implements OnInit {
     this.main.vehicle.date_circulation_permit = this.date_circulation_permit?.value
     this.main.vehicle.padron = this.padron?.value
     this.main.vehicle.soap = this.soap?.value
+    this.main.vehicle.date_soap = this.date_soap?.value
     this.main.carrier.vehicles.push(this.main.vehicle);
     this.main.step$.next(6);
     this.main.vehicle = {} as Vehicle;       
