@@ -11,6 +11,7 @@ import { TransportistaMainComponent } from '../transportista-main/transportista-
 export class OwnerInfoComponent implements OnInit {
   isValidRut: Rut = Rut.incomplete;
   form: FormGroup;
+  checkboxValue: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,6 +30,11 @@ export class OwnerInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.extraerRepresentante();
+    
+  }
+
+  extraerRepresentante(){
     let firstName: string;
     let lastName: string;
     
@@ -42,8 +48,6 @@ export class OwnerInfoComponent implements OnInit {
     this.legal_rut?.setValue(this.main.carrier.company_rut);
     this.legal_email?.setValue(this.main.carrier.company_email);
     this.legal_phone ?.setValue(this.main.carrier.company_phone);
-
-    
   }
 
   back() {
@@ -81,6 +85,18 @@ export class OwnerInfoComponent implements OnInit {
     }
   }
 
+  changeEvent(event: any) {
+    if(event){
+      this.extraerRepresentante()
+    }
+    else{
+      this.legal_first_name?.setValue('');
+      this.legal_last_name?.setValue('');
+      this.legal_rut?.setValue('');
+      this.legal_email?.setValue('');
+      this.legal_phone ?.setValue('');
+    }
+  }
 
   get legal_first_name() {
     return this.form.get('legal_first_name');

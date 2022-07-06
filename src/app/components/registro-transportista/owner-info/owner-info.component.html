@@ -92,12 +92,19 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>            
 
         </div>
     </form>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" [ngModel]="checkboxValue" (ngModelChange)="changeEvent($event)"  id="flexSwitchCheckChecked" checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Los datos de la empresa son los mismo del representante legal?</label>
+        </div>
+    </div>
 
-    <div class="row py-3">
+    <div class="row py-3">        
+        
         <div class="col-6 text-end">
             <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
         </div>

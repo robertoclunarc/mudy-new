@@ -14,6 +14,9 @@ export class VehicleInfoComponent implements OnInit {
   brands: any[] = [];
   vehicleTypes: any[] = [];
   vehicleType = 1;
+  labelComplement: boolean=false;
+  warnIdTypeVehicle= [2,3];
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,7 +48,11 @@ export class VehicleInfoComponent implements OnInit {
   }
 
   changeVehicleType() {
-    this.vehicle_type_id?.setValue(this.vehicleType);   
+    this.vehicle_type_id?.setValue(this.vehicleType); 
+    if (this.warnIdTypeVehicle.indexOf(this.vehicleType)>=0) 
+        this.labelComplement=true;
+    else
+        this.labelComplement=false;     
   }
 
   changeHidraulic() {
@@ -61,6 +68,7 @@ export class VehicleInfoComponent implements OnInit {
   getVehicleTypes() {
     this.selectService.getVehicleTypes().subscribe((res: any) => {
       this.vehicleTypes = res.data;
+      console.log(res.data);
     })
   }
 

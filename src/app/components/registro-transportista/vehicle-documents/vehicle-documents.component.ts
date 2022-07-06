@@ -121,7 +121,7 @@ export class VehicleDocumentsComponent implements OnInit {
   }
 
   validDate(date: any, event: string){
-    console.log(event)
+    
     if (event=='date_technical_review')
       this.invalidDate.technical_review = this.utilsService.validDate(date);
     if (event=='date_gas_review')
@@ -134,8 +134,6 @@ export class VehicleDocumentsComponent implements OnInit {
       this.isValidDate=false;
     else
       this.isValidDate=true;
-    console.log(this.invalidDate);
-    console.log(this.isValidDate);
   }
 
   get technical_review() {
