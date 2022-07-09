@@ -11,13 +11,21 @@ import { Vehicle } from 'src/app/models/vehicle.model';
 export class ResumeComponent implements OnInit {
 
   carrier;
-
+  disableReg: boolean=false;
   constructor(
     public main: TransportistaMainComponent,
     private postService: PostRequestService  
   ) { 
     this.carrier = this.main.carrier;
   }
+
+  /*
+  this.main.carrier.account_holder = this.account_holder?.value
+    this.main.carrier.account_type = this.account_type?.value
+    this.main.carrier.account_rut = this.account_rut?.value
+    this.main.carrier.bank_id = this.bank_id?.value
+    this.main.carrier.account_number = this.account_number?.value.toString();
+  */ 
 
   ngOnInit(): void {    
   }
@@ -45,6 +53,7 @@ export class ResumeComponent implements OnInit {
       keyboard: false
     })
     submitedModal?.show();
+    this.disableReg=true
   }
 
   openTermsAndConditionsModal(){
@@ -55,9 +64,11 @@ export class ResumeComponent implements OnInit {
   }
 
   submit() {
+    
     this.postService.saveCarrierData(this.carrier).subscribe((res: any) => {
       console.log(res);
       this.openSubmitedModal();
+      
     })
   }
 }
