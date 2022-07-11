@@ -74,7 +74,7 @@
         <div class="col-lg-3 col-md-6 col-sm-12 col-12">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Banco</li>
-                <li class="list-group-item sm-text-gray">{{carrier.bank_id}}</li>
+                <li class="list-group-item sm-text-gray">{{banks}}</li>
             </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 col-12">
@@ -101,20 +101,19 @@
         <div class="col-6 subtitle">
             <button type="button" class="btn btn-blue round-bt" data-bs-dismiss="modal" (click)="newVehicle()">Agregar <i class="bi bi-plus-circle text-light ps-1"></i></button>  
         </div>
-    </div>
-  
+    </div>  
 
-    <div *ngFor="let v of carrier.vehicles; index as i" class="row">
+    <div *ngFor="let v of carrierView.vehicles; index as i" class="row">
         <div class="col-lg-2 col-md-6 col-sm-6 col-12">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item vehicle-type">Tipo de Vehículo</li>
-                <li class="list-group-item sm-text-gray">{{v.vehicle_type_id}}</li>
+                <li class="list-group-item sm-text-gray">{{v.tipoName}}</li>
             </ul>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-6 col-6">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Marca</li>
-                <li class="list-group-item sm-text-gray">{{v.vehicle_brand_id}}</li>
+                <li class="list-group-item sm-text-gray">{{v.name}}</li>
             </ul>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-6 col-6">
@@ -183,4 +182,25 @@
 
 <div class="modal fade" id="submitedModal" #submitedModal tabindex="-1">
     <app-register-success></app-register-success>
+</div>
+
+<div class="modal fade" id="registerError" #registerError tabindex="-1">
+    <div class="modal-dialog">        
+        <div class="modal-content">
+            <div *ngIf="msjRegisterError.length>0" class="modal-header">Error: {{msjRegisterError[0]}}               
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            <div class="modal-body">
+                
+                <ul *ngFor="let er of msjRegisterError; index as i" class="list-group list-group-flush">
+                    
+                    <li *ngIf="i>0" class="list-group-item sm-text-gray">{{er}}</li>
+                </ul>               
+            </div>
+            <div class="modal-footer d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-secondary round-bt" data-bs-dismiss="modal">Cerrar</button>
+                
+            </div>
+        </div>
+    </div>
 </div>
