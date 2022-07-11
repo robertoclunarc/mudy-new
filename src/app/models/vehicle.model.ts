@@ -13,8 +13,7 @@ export interface Vehicle {
     date_gas_review: string;
     circulation_permit: any; //JPG, PNG, PDF
     date_circulation_permit: string;
-    soap: any; //JPG, PNG, PDF
-    date_soap: string;
+    soa: any; //JPG, PNG, PDF
+    date_soa: string;
     padron: any; //JPG, PNG, PDF 
 }
-
