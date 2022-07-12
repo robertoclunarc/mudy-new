@@ -76,15 +76,21 @@ export class PostRequestService {
       });
   }
 
-  payment() {        
+  pagar(stripePayment: {return_url: string}) {        
     return this.http.post<any>(
-      environment.baseUrl + environment.payment, {},
+      environment.baseUrl + environment.payment, stripePayment,
       {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'       
         }
       });
+  }
+
+  async payment(stripePayment: {return_url: string}): Promise<any> {
+    
+    return await this.http.post<any>(environment.baseUrl + environment.payment, stripePayment).toPromise();    
+    
   }
  
 }

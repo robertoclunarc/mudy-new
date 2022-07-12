@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostRequestService } from 'src/app/services/post-request.service';
 
 @Component({
   selector: 'app-payment',
@@ -6,10 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-
-  constructor() { }
+  
+  stripePayment= {return_url: 'https://mudy.netlify.app/quotation/payment'};
+  dataPayment:{ url?: any, token?:any } = {};
+  
+  constructor(private postService: PostRequestService) { }
 
   ngOnInit(): void {
+    this.payment()
   }
 
+  async payment() {
+    
+    await this.postService.payment(this.stripePayment)
+    .then(res => {
+      this.dataPayment={
+        url:res.data.url,
+        token: res.token,
+      }
+    })
+  }
+
+  /*gotoUrl(){
+    location.href=this.dataPayment.url;
+  }*/
 }
