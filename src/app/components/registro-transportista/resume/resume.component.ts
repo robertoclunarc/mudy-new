@@ -49,7 +49,7 @@ export class ResumeComponent implements OnInit {
         }
       }
      }
-     console.log(this.carrierView);
+     //console.log(this.carrierView);
   }
 
   newVehicle() {
@@ -70,8 +70,7 @@ export class ResumeComponent implements OnInit {
     .then(res => {
       for (let tipo of res.data){
         this.vehicleTypes.push({idTipo: tipo.id, nameTipo: tipo.name})
-      }
-      //this.vehicleTypes = res.data;      
+      }      
     })
   }
 
@@ -122,16 +121,23 @@ export class ResumeComponent implements OnInit {
     registerError?.show();
   }
 
+  openPasarelaPagoModal(){
+    let pasarelaPago = new bootstrap.Modal(document.getElementById('pasarelaPagoModal') as any, {
+      keyboard: false
+    })
+    pasarelaPago?.show();
+  }
+
   submit() {
     
     this.postService.saveCarrierData(this.carrier).subscribe((res: any) => {
       console.log(res);
-      this.openSubmitedModal();
+      //this.openSubmitedModal();<-----Activar al terminar la pasarela de pago
       
     }, ((error: HttpErrorResponse ) => {
       console.log(error.error) 
-      this.msjError(error.error);
-      
+      //this.msjError(error.error);<-------- activar al terminar la pasarela de pago
+      this.openSubmitedModal();//<-------- quitar al terminar la pasarela de pago
     }));
   }
 
