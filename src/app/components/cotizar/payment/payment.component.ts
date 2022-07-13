@@ -1,5 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { PostRequestService } from 'src/app/services/post-request.service';
+
 
 @Component({
   selector: 'app-payment',
@@ -10,6 +12,7 @@ export class PaymentComponent implements OnInit {
   
   stripePayment= {return_url: 'https://mudy.netlify.app/quotation/payment'};
   dataPayment:{ url?: any, token?:any } = {};
+
   
   constructor(private postService: PostRequestService) { }
 
@@ -23,7 +26,7 @@ export class PaymentComponent implements OnInit {
     .then(res => {
       this.dataPayment={
         url:res.data.url,
-        token: res.token,
+        token: res.data.token,
       }
     })
   }

@@ -1,13 +1,12 @@
-<form id="formPayment" action="{{dataPayment.url}}" method="POST">
+
+<form id="formPayment" name="formPayment" action="{{dataPayment.url}}" method="post">
     <div>
         {{dataPayment.url}}<br>
         <input type="hidden" id="token_ws" name="token_ws" value="{{dataPayment.token}}"/>
         {{dataPayment.token}}
-    </div>
-    <div class="row d-flex justify-content-center">                        
-        <div class="col-6">
-            <button form="formPayment" key="submit" type="submit"> Send </button>                        
-        </div>                       
-    </div>
+    </div>                           
+        
+    <button type="submit">Sent</button>                              
+   
 </form>           
         

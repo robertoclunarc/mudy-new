@@ -7,6 +7,7 @@ import { PoliciesAndPrivacyComponent } from './components/landing-page/policies-
 import { ServiceTypeComponent } from './components/landing-page/service-type/service-type.component';
 import { PromotorMainComponent } from './components/registro-promotor/promotor-main/promotor-main.component';
 import { TransportistaMainComponent } from './components/registro-transportista/transportista-main/transportista-main.component';
+import { PaymentComponent } from './components/cotizar/payment/payment.component'
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'service',
     component: ServiceTypeComponent
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent
   },
   {
     path: 'partners',
