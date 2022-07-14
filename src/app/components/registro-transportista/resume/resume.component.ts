@@ -19,7 +19,7 @@ export class ResumeComponent implements OnInit {
   vehicleTypes: any[] = [];
   banks: string="";
   disableReg: boolean=false;
-  msjRegisterError: string[]=[];
+  msjRegisterError: any[]=[];
   constructor(
     public main: TransportistaMainComponent,
     private postService: PostRequestService ,
@@ -121,23 +121,16 @@ export class ResumeComponent implements OnInit {
     registerError?.show();
   }
 
-  openPasarelaPagoModal(){
-    let pasarelaPago = new bootstrap.Modal(document.getElementById('pasarelaPagoModal') as any, {
-      keyboard: false
-    })
-    pasarelaPago?.show();
-  }
-
   submit() {
     
     this.postService.saveCarrierData(this.carrier).subscribe((res: any) => {
       console.log(res);
-      //this.openSubmitedModal();<-----Activar al terminar la pasarela de pago
+      this.openSubmitedModal();
       
     }, ((error: HttpErrorResponse ) => {
       console.log(error.error) 
-      //this.msjError(error.error);<-------- activar al terminar la pasarela de pago
-      this.openSubmitedModal();//<-------- quitar al terminar la pasarela de pago
+      this.msjError(error.error);
+      
     }));
   }
 
@@ -160,6 +153,9 @@ export class ResumeComponent implements OnInit {
     }
     if (msjRegisterError.errors.legal_email!=undefined){
       msj.push(msjRegisterError.errors.legal_rut[0]);
+    }
+    if (msjRegisterError.errors.account_type!=undefined){
+      msj.push(msjRegisterError.errors.account_type[0]);
     }
     this.msjRegisterError=msj;
     this.openMsjErrorModal();

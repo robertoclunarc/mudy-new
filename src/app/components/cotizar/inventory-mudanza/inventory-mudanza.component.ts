@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { SelectsService } from 'src/app/services/selects.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { ServiceMainComponent } from '../service-main/service-main.component';
-import * as bootstrap from 'bootstrap'
+import * as bootstrap from 'bootstrap';
 import { BehaviorSubject } from 'rxjs';
 import { PostRequestService } from 'src/app/services/post-request.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-inventory-mudanza',
   templateUrl: './inventory-mudanza.component.html',
@@ -19,6 +20,8 @@ export class InventoryMudanzaComponent implements OnInit {
   articlesModal: any;
   isModalOpen = false;
   items: any[] = [];
+  msjRegisterError: any[]=[];
+  disableReg: boolean=false;
 
   roomCounter = 0;
   bathRoomCounter = 0;
@@ -34,10 +37,11 @@ export class InventoryMudanzaComponent implements OnInit {
     this.getArticles();
   }
 
-
+  
   addRooms() {
     this.roomCounter++;
-    this.placesSelected.value.push({ id: 1, roomCounter: this.roomCounter, name: 'Habitación', items: [], itemsId:[] })
+    this.placesSelected.value.push({ id: 1, roomCounter: this.roomCounter, name: 'Habitación', items: [], itemsId:[] });
+    
   }
 
   decreaseRooms() {
@@ -80,8 +84,7 @@ export class InventoryMudanzaComponent implements OnInit {
   getArticles() {
     this.selectService.getArticles().subscribe((res: any) => {
       this.articles = res.data;
-      console.log(res.data);
-      
+      //console.log(res.data);      
     })
   }
 
@@ -127,12 +130,40 @@ export class InventoryMudanzaComponent implements OnInit {
     this.main.mudanza.inventory = inventory;
     this.postService.saveMovingData(this.main.mudanza).subscribe(res => {
       console.log(res);
-    })
+      this.openSubmitedModal();
+      this.disableReg=false;
+    }, ((error: HttpErrorResponse ) => {
+      console.log(error.error) 
+      this.msjError(error.error);
+      this.disableReg=true;
+    }));
   }
 
   back() {
     this.main.step$.next(3);
   }
 
+  openSubmitedModal(){
+    let submitedModal = new bootstrap.Modal(document.getElementById('submitedModal') as any, {
+      keyboard: false
+    })
+    submitedModal?.show();    
+  }
+
+  openMsjErrorModal(){
+    let registerError = new bootstrap.Modal(document.getElementById('registerError') as any, {
+      keyboard: false
+    })
+    registerError?.show();
+  }
+
+  msjError(msjRegisterError: any){
+    let msj: string[]=[];
+
+    msj.push(msjRegisterError.message);    
+    
+    this.msjRegisterError=msj;
+    this.openMsjErrorModal();
+  }
 
 }

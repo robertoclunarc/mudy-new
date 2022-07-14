@@ -11,53 +11,48 @@
 
     <div class="row">
 
-
-
-
         <div class="col-lg-4 col-md-12 col-sm-12 col-12">
             <!-- <p>Agrega las habitaciones que requieras para la mudanza</p> -->
-            <div  class="row py-3">
-                <div class="col-12 text-center">
-                    Habitaciones
-                </div>
-                <div class="col-4 text-center">
-                    <i (click)="decreaseRooms()" class="bi bi-dash-circle-fill icon"></i>
-                </div>
-                <div class="col-4 roomCounter text-center pt-1">
-                  {{roomCounter}}
-                </div>
-                <div class="col-4 text-center">
-                    <i (click)="addRooms()" class="bi bi-plus-circle-fill icon"></i>
-                </div>
-            </div>
-
-            <div  class="row">
-                <div class="col-12 text-center">
-                    Baños
-                </div>
-                <div class="col-4 text-center">
-                    <i (click)="decreaseBathrooms()" class="bi bi-dash-circle-fill icon"></i>
-                </div>
-                <div class="col-4 roomCounter text-center pt-1">
-                  {{bathRoomCounter}}
-                </div>
-                <div class="col-4 text-center">
-                    <i (click)="addBathrooms()" class="bi bi-plus-circle-fill icon"></i>
-                </div>
-            </div>
-<hr>
-            <div class="row">
-
-
-                <div *ngFor="let p of places" class="col-6">
-                    <div class="form-check">
-                        <i (click)="selectPlace(p)" class="bi bi-plus-circle-fill icon"></i>
-                        <label class="form-check-label">
-                            {{p.name}}
-                        </label>
+                <div  class="row py-3">
+                    <div class="col-12 text-center">
+                        Habitaciones
+                    </div>
+                    <div class="col-4 text-center">
+                        <i (click)="decreaseRooms()" class="bi bi-dash-circle-fill icon"></i>
+                    </div>
+                    <div class="col-4 roomCounter text-center pt-1">
+                    {{roomCounter}}
+                    </div>
+                    <div class="col-4 text-center">
+                        <i (click)="addRooms()" class="bi bi-plus-circle-fill icon"></i>
                     </div>
                 </div>
-            </div>
+
+                <div  class="row">
+                    <div class="col-12 text-center">
+                        Baños
+                    </div>
+                    <div class="col-4 text-center">
+                        <i (click)="decreaseBathrooms()" class="bi bi-dash-circle-fill icon"></i>
+                    </div>
+                    <div class="col-4 roomCounter text-center pt-1">
+                    {{bathRoomCounter}}
+                    </div>
+                    <div class="col-4 text-center">
+                        <i (click)="addBathrooms()" class="bi bi-plus-circle-fill icon"></i>
+                    </div>
+                </div>
+            <hr>
+                <div class="row">
+                    <div *ngFor="let p of places" class="col-6">
+                        <div class="form-check">
+                            <i (click)="selectPlace(p)" class="bi bi-plus-circle-fill icon"></i>
+                            <label class="form-check-label">
+                                {{p.name}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
         </div>
 
         <div class="col-lg-8 col-md-12 col-sm-12 col-12">
@@ -98,7 +93,7 @@
             <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
         </div>
         <div class="col-6">
-            <button (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Siguiente</span></button>
+            <button [disabled]="this.placesSelected.value.length == 0 || disableReg" (click)="next()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Registrar</span></button>
         </div>
     </div>
 </div>
@@ -149,6 +144,35 @@
             </div>
             <div class="modal-footer d-flex justify-content-center align-items-center">
                 <button type="button" (click)="closeModal()" class="btn btn-blue round-bt">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="submitedModal" #submitedModal tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <app-payment></app-payment>
+        </div>        
+    </div>    
+</div>
+
+<div class="modal fade" id="registerError" #registerError tabindex="-1">
+    <div class="modal-dialog">        
+        <div class="modal-content">
+            <div class="modal-header">Error:               
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <ul *ngFor="let er of msjRegisterError; index as i" class="list-group list-group-flush">
+                    
+                    <li *ngIf="i>0" class="list-group-item sm-text-gray">{{er}}</li>
+                </ul>               
+            </div>
+            <div class="modal-footer d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-secondary round-bt" data-bs-dismiss="modal">Cerrar</button>
+                
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
-
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostRequestService } from 'src/app/services/post-request.service';
 
 
@@ -12,13 +12,13 @@ export class PaymentComponent implements OnInit {
   
   stripePayment= {return_url: 'https://mudy.netlify.app/quotation/payment'};
   dataPayment:{ url?: any, token?:any } = {};
-
   
-  constructor(private postService: PostRequestService) { }
+  
+  constructor(private postService: PostRequestService) { this.payment() }  
 
   ngOnInit(): void {
-    this.payment()
-  }
+    
+  }  
 
   async payment() {
     
@@ -29,9 +29,5 @@ export class PaymentComponent implements OnInit {
         token: res.data.token,
       }
     })
-  }
-
-  /*gotoUrl(){
-    location.href=this.dataPayment.url;
-  }*/
+  }  
 }

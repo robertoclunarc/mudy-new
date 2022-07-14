@@ -4,7 +4,7 @@ import { PostRequestService } from 'src/app/services/post-request.service';
 import { SelectsService } from 'src/app/services/selects.service';
 import SwiperCore, { SwiperOptions, Autoplay } from 'swiper';
 import { ServiceMainComponent } from '../service-main/service-main.component';
-
+import * as bootstrap from 'bootstrap';
 
 
 @Component({
@@ -124,13 +124,20 @@ export class InventoryFleteComponent implements OnInit {
     }
 
     this.postService.saveFreightData(this.main.flete).subscribe({
-      next: (v) => {console.log(v)},
+      next: (v) => {console.log(v); this.openSubmitedModal()},
       error: (e) => {console.error(e)}
     })
   }
 
   back() {
     this.main.step$.next(3);
+  }
+
+  openSubmitedModal(){
+    let submitedModal = new bootstrap.Modal(document.getElementById('submitedModal') as any, {
+      keyboard: false
+    })
+    submitedModal?.show();    
   }
 
   validator() {

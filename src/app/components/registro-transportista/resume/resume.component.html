@@ -160,18 +160,7 @@
             </button>
         </div>
 
-    </div>
-    <div *ngIf="disableReg" class="row py-3">
-        <div  class="col-6">
-        </div>
-        <div class="col-6 align-items-center">
-            <button (click)="openPasarelaPagoModal()" class="btn btn-blue mudy-btn p-2"><span
-                    class="px-4"> Pagar </span>
-            </button>
-        </div>
-        <div  class="col-6">
-        </div>
-    </div>
+    </div>    
 
 </div>
 
@@ -194,19 +183,6 @@
 
 <div class="modal fade" id="submitedModal" #submitedModal tabindex="-1">
     <app-register-success></app-register-success>
-</div>
-
-<div class="modal fade" id="pasarelaPagoModal" #pasarelaPagoModal tabindex="-1">    
-    <div class="modal-dialog">        
-        <div class="modal-content">
-            <div class="modal-header"><h4>Payment</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <app-payment></app-payment>
-            </div>            
-        </div>
-    </div>
 </div>
 
 <div class="modal fade" id="registerError" #registerError tabindex="-1">
