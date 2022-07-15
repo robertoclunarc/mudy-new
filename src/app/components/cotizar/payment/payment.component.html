@@ -1,11 +1,7 @@
-<form id="formPayment" name="formPayment" action="{{dataPayment.url}}" method="post">
-    <div>
-        {{dataPayment.url}}<br>
-        <input type="hidden" id="token_ws" name="token_ws" value="{{dataPayment.token}}"/>
-        {{dataPayment.token}}
+<form method="post" [formGroup]="formPayment" (ngSubmit)="onSubmit($event)">
+    <div>       
+        <input type="hidden" formControlName="token_ws"  />       
     </div>                           
-        
-    <button type="submit">Sent</button>                              
-   
-</form>
-   
+    <button class="btn btn-blue mudy-btn p-2" data-bs-dismiss="modal"><span class="px-4">Sent</span></button>   
+    
+</form>  
