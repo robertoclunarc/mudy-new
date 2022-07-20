@@ -127,16 +127,9 @@ export class InventoryMudanzaComponent implements OnInit {
     })
     this.main.mudanza.origin = this.main.origin;
     this.main.mudanza.destination = this.main.destination;
-    this.main.mudanza.inventory = inventory;
-    this.postService.saveMovingData(this.main.mudanza).subscribe(res => {
-      console.log(res);
-      this.openSubmitedModal();
-      this.disableReg=false;
-    }, ((error: HttpErrorResponse ) => {
-      console.log(error.error) 
-      this.msjError(error.error);
-      this.disableReg=true;
-    }));
+    this.main.mudanza.inventory = inventory; 
+        
+    this.main.step$.next(5);
   }
 
   back() {

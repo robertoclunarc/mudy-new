@@ -1,0 +1,123 @@
+<div class="card-form shadow animate__animated animate__fadeIn">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <h1>Cotización de Mudanza</h1>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-end">
+            <h5 class="text-blue pt-3">Resumen</h5>
+        </div>
+    </div>
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Informacion Personal
+    </h5>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Nombre </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.first_name}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Apellido</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.last_name}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Rut</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.rut}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Email </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.email}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Telefono</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.phone}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Whatsapp</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.whatsapp}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Código de Referido </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.referral_code}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Fecha</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.date}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Hora</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.hour}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">        
+        <div  class="col-6 subtitle">
+            <button type="button" class="btn btn-blue round-bt"  (click)="goTo(1)">Editar <i class="bi bi-plus-circle text-light ps-1"></i></button>  
+        </div>
+    </div>  
+    
+    <div class="row py-3">
+        <div class="col-6 text-end">
+            <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
+        </div>
+        <div class="col-6">
+            <button  (click)="submit()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Registrar</span></button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="submitedModal" #submitedModal tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="text-blue pt-3">Pagar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-payment></app-payment>       
+            </div>            
+        </div>        
+    </div>    
+</div>
+
+<div class="modal fade" id="registerError" #registerError tabindex="-1">
+    <div class="modal-dialog">        
+        <div class="modal-content">
+            <div class="modal-header">Error:               
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <ul *ngFor="let er of msjRegisterError; index as i" class="list-group list-group-flush">
+                    
+                    <li *ngIf="i>0" class="list-group-item sm-text-gray">{{er}}</li>
+                </ul>               
+            </div>
+            <div class="modal-footer d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-secondary round-bt" data-bs-dismiss="modal">Cerrar</button>
+                
+            </div>
+        </div>
+    </div>
+</div>

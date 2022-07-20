@@ -29,6 +29,7 @@ import { ToAddressComponent } from './components/cotizar/to-address/to-address.c
 import { PaymentComponent } from './components/cotizar/payment/payment.component';
 import { InventoryMudanzaComponent } from './components/cotizar/inventory-mudanza/inventory-mudanza.component';
 import { InventoryFleteComponent } from './components/cotizar/inventory-flete/inventory-flete.component';
+import { ResumeMudanzaComponent } from './components/cotizar/resume-mudanza/resume-mudanza.component';
 
 
 //==============Registro de Transportista======================
@@ -95,7 +96,8 @@ const maskConfig: Partial<IConfig> = {
     RegisterSuccessComponent,
     TransportistTermsConditionsComponent,
     UpdateVehicleInfoComponent,
-    UpdateVehicleDocumentsComponent,  
+    UpdateVehicleDocumentsComponent, 
+    ResumeMudanzaComponent
   ],
   imports: [
     BrowserModule,

@@ -6,5 +6,6 @@
     <app-to-address *ngIf="step$.value == 3"></app-to-address>
     <app-inventory-flete *ngIf="step$.value == 4 && serviceType == 'flete'"></app-inventory-flete>
     <app-inventory-mudanza *ngIf="step$.value == 4 && serviceType == 'mudanza'"></app-inventory-mudanza>
+    <app-resume-mudanza *ngIf="step$.value == 5 && serviceType == 'mudanza'"></app-resume-mudanza>
 
 </div>
