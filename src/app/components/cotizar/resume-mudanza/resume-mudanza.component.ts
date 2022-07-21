@@ -15,9 +15,8 @@ export class ResumeMudanzaComponent implements OnInit {
 
   mudanza: any;
   mudanzaView: any;
-  brands: any[] = [];
-  vehicleTypes: any[] = [];
-  banks: string="";
+  places: any[] = [];
+  articles: any[] = [];
   disableReg: boolean=false;
   msjRegisterError: any[]=[];
   constructor(
@@ -30,8 +29,53 @@ export class ResumeMudanzaComponent implements OnInit {
   }  
 
   async ngOnInit() { 
-    console.log(this.main.mudanza)
+    console.log(this.main.mudanza);
+    await this.ensambleInventaryPlacesArticle();
    
+  }
+
+  async ensambleInventaryPlacesArticle(){
+    await this.getPlaces();
+    await this.getArticles();
+    for await (const [index, value] of this.mudanzaView.inventory.entries()){
+      for await (const p of this.places){
+        //console.log(value.place_id);
+        if (p.id ==value.place_id){          
+          this.mudanzaView.inventory[index]= Object.assign(value, {plaza: p.name} )
+        }        
+      }
+      for await (const [j, it] of value.items.entries()){
+          for await (const ar of this.articles){
+           // console.log(it);
+            if (ar.id==it){              
+              this.mudanzaView.inventory[index].items[j]= Object.assign(it, {articulo: ar.name} )
+            }
+          }
+      }    
+    }
+     console.log(this.mudanzaView.inventory);
+  }
+
+  async getPlaces() {
+    await this.selectService.getPlaces()
+    .toPromise()
+    .then(async (res: any) => {
+      for await (const p of res.data)
+        if (p.id !== 1 && p.id !== 8){
+          this.places.push(p)
+        }
+      //this.places = res.data.filter((p: any) => { return p.id !== 1 && p.id !== 8 });
+      console.log(res.data);
+    })
+  }
+
+  async getArticles() {
+    await this.selectService.getArticles()
+    .toPromise()
+    .then((res: any) => {
+      this.articles = res.data;
+      console.log(res.data);      
+    })
   }
 
   

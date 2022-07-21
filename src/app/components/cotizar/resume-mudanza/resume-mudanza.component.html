@@ -73,10 +73,164 @@
         </div>        
     </div>
     <div class="row">        
-        <div  class="col-6 subtitle">
-            <button type="button" class="btn btn-blue round-bt"  (click)="goTo(1)">Editar <i class="bi bi-plus-circle text-light ps-1"></i></button>  
+        <div  class="col-12 subtitle">
+            <button type="button" class="btn btn-blue round-bt"  (click)="goTo(1)">Editar Datos<i class="bi bi-pencil-fill text-light ps-1"></i></button>  
         </div>
-    </div>  
+    </div> 
+    
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Direccion de Origen
+    </h5>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Region </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.origin.city}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Comuna</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.origin.comuna}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Calle</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.origin.address}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Urb/Condominio </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.origin.condominium}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Casa/Oficina</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.origin.house}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Tipo Vivienda</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.origin.building_id}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Ascensor Disponible </li>
+                <li *ngIf="mudanzaView.origin.elevator_available" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!mudanzaView.origin.elevator_available" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Estacionamiento Disponible</li>
+                <li *ngIf="mudanzaView.origin.parking_available" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!mudanzaView.origin.parking_available" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 text-end">
+            <button type="button" class="btn btn-blue round-bt"  (click)="goTo(2)">Editar Origen <i class="bi bi-pencil-fill text-light ps-1"></i></button>
+        </div>        
+    </div>
+    
+
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Direccion de Destino
+    </h5>
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Region </li>
+                    <li class="list-group-item sm-text-gray">{{mudanzaView.destination.city}}</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Comuna</li>
+                    <li class="list-group-item sm-text-gray">{{mudanzaView.destination.comuna}}</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Calle</li>
+                    <li class="list-group-item sm-text-gray">{{mudanzaView.destination.address}}</li>
+                </ul>
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Urb/Condominio </li>
+                    <li class="list-group-item sm-text-gray">{{mudanzaView.destination.condominium}}</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Casa/Oficina</li>
+                    <li class="list-group-item sm-text-gray">{{mudanzaView.destination.house}}</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Tipo Vivienda</li>
+                    <li class="list-group-item sm-text-gray">{{mudanzaView.destination.building_id}}</li>
+                </ul>
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Ascensor Disponible </li>
+                    <li *ngIf="mudanzaView.destination.elevator_available" class="list-group-item sm-text-gray">SI</li>
+                    <li *ngIf="!mudanzaView.destination.elevator_available" class="list-group-item sm-text-gray">NO</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Estacionamiento Disponible</li>
+                    <li *ngIf="mudanzaView.destination.parking_available" class="list-group-item sm-text-gray">SI</li>
+                    <li *ngIf="!mudanzaView.destination.parking_available" class="list-group-item sm-text-gray">NO</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12  text-end">
+                <button type="button" class="btn btn-blue round-bt"  (click)="goTo(3)">Editar Destino <i class="bi bi-pencil-fill text-light ps-1"></i></button>
+            </div>        
+        </div>
+    
+
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Inventario
+    </h5>
+    <div class="row">
+        <div *ngFor="let inv of mudanzaView.inventory; index as i" class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{inv.place_id}} </li>
+                <li *ngFor="let item of inv.items; index as j" class="list-group-item sm-text-gray">{{item}}</li>
+            </ul>
+        </div>               
+    </div>    
+    
+    <div class="row">        
+        <div  class="col-12 subtitle">
+            <button type="button" class="btn btn-blue round-bt"  (click)="goTo(4)">Editar Inventario <i class="bi bi-pencil-fill text-light ps-1"></i></button>  
+        </div>
+    </div>
+    <hr style="color: rgb(173, 173, 173);">
     
     <div class="row py-3">
         <div class="col-6 text-end">
