@@ -30,7 +30,7 @@ import { PaymentComponent } from './components/cotizar/payment/payment.component
 import { InventoryMudanzaComponent } from './components/cotizar/inventory-mudanza/inventory-mudanza.component';
 import { InventoryFleteComponent } from './components/cotizar/inventory-flete/inventory-flete.component';
 import { ResumeMudanzaComponent } from './components/cotizar/resume-mudanza/resume-mudanza.component';
-
+import { ResumeFleteComponent } from './components/cotizar/resume-flete/resume-flete.component';
 
 //==============Registro de Transportista======================
 import { TransportistaMainComponent } from './components/registro-transportista/transportista-main/transportista-main.component';
@@ -55,7 +55,6 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { UpdateVehicleInfoComponent } from './components/registro-transportista/update-vehicle-info/update-vehicle-info.component';
 import { UpdateVehicleDocumentsComponent } from './components/registro-transportista/update-vehicle-documents/update-vehicle-documents.component'
-
 
 
 const maskConfig: Partial<IConfig> = {
@@ -97,7 +96,8 @@ const maskConfig: Partial<IConfig> = {
     TransportistTermsConditionsComponent,
     UpdateVehicleInfoComponent,
     UpdateVehicleDocumentsComponent, 
-    ResumeMudanzaComponent
+    ResumeMudanzaComponent,
+    ResumeFleteComponent,
   ],
   imports: [
     BrowserModule,

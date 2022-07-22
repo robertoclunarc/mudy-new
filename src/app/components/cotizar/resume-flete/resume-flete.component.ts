@@ -7,16 +7,15 @@ import { BehaviorSubject } from 'rxjs';
 import { PostRequestService } from 'src/app/services/post-request.service';
 import { HttpErrorResponse } from '@angular/common/http';
 @Component({
-  selector: 'app-resume-mudanza',
-  templateUrl: './resume-mudanza.component.html',
-  styleUrls: ['./resume-mudanza.component.scss']
+  selector: 'app-resume-flete',
+  templateUrl: './resume-flete.component.html',
+  styleUrls: ['./resume-flete.component.scss']
 })
-export class ResumeMudanzaComponent implements OnInit {
+export class ResumeFleteComponent implements OnInit {
 
-  mudanza: any;
-  mudanzaView: any;
-  places: any[] = [];
-  articles: any[] = [];
+  flete: any;
+  fleteView: any;
+  vehicleTypes: any[] = [];
   buildings: any = [];
   disableReg: boolean=false;
   msjRegisterError: any[]=[];
@@ -25,77 +24,39 @@ export class ResumeMudanzaComponent implements OnInit {
     private postService: PostRequestService ,
     private selectService: SelectsService
   ) {  
-    this.mudanzaView = this.main.mudanza;
-    this.mudanza = this.main.mudanza;
+    this.fleteView = this.main.flete
+    this.flete = this.main.flete
     
   }  
 
   async ngOnInit() { 
-    console.log(this.mudanza);
-    await this.getBuildings();    
-    await this.ensambleInventaryPlaces();
-    await this.ensambleInventaryArticles();
+    console.log(this.flete);
+    await this.getBuildings(); 
+    await this.getVehicleTypes();
 
-    this.mudanzaView.destination.building_destin= this.buildings.find((p: any) => { return p.id ==this.mudanza.destination.building_id});
-    this.mudanzaView.origin.building_origin= this.buildings.find((p: any) => { return p.id ==this.mudanza.origin.building_id})
+    //this.fleteView.destination.building_destin=await this.buildings.find((p: any) => { return p.id ==this.flete.destination.building_id});
+    //this.fleteView.origin.building_origin= await this.buildings.find((p: any) => { return p.id ==this.flete.origin.building_id});
+    this.flete.tipoVehiculo= await this.vehicleTypes.find((v: any)=> { return v.id==this.flete.vehicle_type_id}).name;
+    
 
-  }  
-
-  async ensambleInventaryPlaces(){
-    await this.getPlaces();    
-    for await (const [index, value] of this.mudanzaView.inventory.entries()){
-      for await (const p of this.places){
-        
-        if (Number(p.id) == Number(value.place_id)){          
-          this.mudanzaView.inventory[index].place_id =  p.id;
-          this.mudanzaView.inventory[index].place_name =  p.name;
-        }        
-      }         
-    }    
-     
   }
 
-  async ensambleInventaryArticles(){    
-    await this.getArticles();
-    for await (const [index, value] of this.mudanzaView.inventory.entries()){      
-      for await (const [j, val] of value.items.entries()){
-          for await (const ar of this.articles){
-            
-            if (ar.id==val){              
-              this.mudanzaView.inventory[index].items[j]= Object.assign(val, {articulo: ar.name} )
-            }
-          }
-      }    
-    }
-     
-  }
-
-  async getPlaces() {
-    await this.selectService.getPlaces()
-    .toPromise()
-    .then(async (res: any) => {
-      for await (const p of res.data)
-        //if (p.id !== 1 && p.id !== 8){
-          this.places.push(p)
-        //}     
-      
-    })
-  }
-
-  async getArticles() {
-    await this.selectService.getArticles()
+  async getVehicleTypes() {
+   await  this.selectService.getVehicleTypes()
     .toPromise()
     .then((res: any) => {
-      this.articles = res.data;
+      this.vehicleTypes = res.data;
       
     })
   }
 
   async getBuildings() {
-    this.selectService.getBuildings()
+    await this.selectService.getBuildings()
     .toPromise()
-    .then((res: any) => {
-      this.buildings = res.data
+    .then(async (res: any) => {
+      this.buildings = res.data;
+      this.fleteView.destination.building_destin= await this.buildings.find((p: any) => { return p.id ==this.flete.destination.building_id});
+      this.fleteView.origin.building_origin= await  this.buildings.find((p: any) => { return p.id ==this.flete.origin.building_id});
     })
   }
 
@@ -125,7 +86,7 @@ export class ResumeMudanzaComponent implements OnInit {
 
   submit() {
 
-    this.postService.saveMovingData(this.main.mudanza).subscribe(res => {
+    this.postService.saveFreightData(this.main.flete).subscribe(res => {
       console.log(res);
       this.openSubmitedModal();
       this.disableReg=false;

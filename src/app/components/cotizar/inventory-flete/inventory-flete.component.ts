@@ -123,10 +123,8 @@ export class InventoryFleteComponent implements OnInit {
       this.main.flete.round_trip = false;
     }
 
-    this.postService.saveFreightData(this.main.flete).subscribe({
-      next: (v) => {console.log(v); this.openSubmitedModal()},
-      error: (e) => {console.error(e)}
-    })
+    this.main.step$.next(5);
+
   }
 
   back() {
