@@ -119,26 +119,20 @@
         <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Tipo Vivienda</li>
-                <li *ngIf="fleteView.origin.building_origin.name!=undefined" class="list-group-item sm-text-gray">{{fleteView.origin.building_origin.name}}</li>
+                <li *ngIf="fleteView.origin.building_name!=undefined" class="list-group-item sm-text-gray">{{fleteView.origin.building_name}}</li>
             </ul>
         </div>        
     </div>
     <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Ascensor Disponible </li>
-                <li *ngIf="fleteView.origin.elevator_available" class="list-group-item sm-text-gray">SI</li>
-                <li *ngIf="!fleteView.origin.elevator_available" class="list-group-item sm-text-gray">NO</li>
-            </ul>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+        
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Estacionamiento Disponible</li>
                 <li *ngIf="fleteView.origin.parking_available" class="list-group-item sm-text-gray">SI</li>
                 <li *ngIf="!fleteView.origin.parking_available" class="list-group-item sm-text-gray">NO</li>
             </ul>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 col-12 text-end">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-end">
             <button type="button" class="btn btn-blue round-bt"  (click)="goTo(2)">Editar Origen <i class="bi bi-pencil-fill text-light ps-1"></i></button>
         </div>        
     </div>
@@ -186,26 +180,20 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Tipo Vivienda</li>
-                    <li *ngIf="fleteView.destination.building_destin.name!=undefined" class="list-group-item sm-text-gray">{{fleteView.destination.building_destin.name}}</li>
+                    <li *ngIf="fleteView.destination.building_name!=undefined" class="list-group-item sm-text-gray">{{fleteView.destination.building_name}}</li>
                 </ul>
             </div>        
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Ascensor Disponible </li>
-                    <li *ngIf="fleteView.destination.elevator_available" class="list-group-item sm-text-gray">SI</li>
-                    <li *ngIf="!fleteView.destination.elevator_available" class="list-group-item sm-text-gray">NO</li>
-                </ul>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Estacionamiento Disponible</li>
                     <li *ngIf="fleteView.destination.parking_available" class="list-group-item sm-text-gray">SI</li>
                     <li *ngIf="!fleteView.destination.parking_available" class="list-group-item sm-text-gray">NO</li>
                 </ul>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12  text-end">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12  text-end">
                 <button type="button" class="btn btn-blue round-bt"  (click)="goTo(3)">Editar Destino <i class="bi bi-pencil-fill text-light ps-1"></i></button>
             </div>        
         </div>
@@ -232,7 +220,10 @@
         <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Archivo</li>
-                <li class="list-group-item sm-text-gray">{{fleteView.file_path}}</li>
+                
+                <div class="square">
+                    <img [src]="fleteView.file_path" height="150px" width="150px" alt="">
+                </div>
             </ul>
         </div>        
     </div>
@@ -272,22 +263,9 @@
             <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Atrás</span></button>
         </div>
         <div class="col-6">
-            <button  (click)="submit()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Registrar</span></button>
+            <button [disabled]="disableReg"  (click)="submit()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Registrar</span></button>
         </div>
     </div>
-</div>
-
-<div class="modal fade" id="submitedModal" #submitedModal tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header"><h5 class="text-blue pt-3">Pagar</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <app-payment></app-payment>       
-            </div>            
-        </div>        
-    </div>    
 </div>
 
 <div class="modal fade" id="registerError" #registerError tabindex="-1">
@@ -306,6 +284,23 @@
             <div class="modal-footer d-flex justify-content-center align-items-center">
                 <button type="button" class="btn btn-secondary round-bt" data-bs-dismiss="modal">Cerrar</button>
                 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="submitedModal" #submitedModal tabindex="-1">
+    <div class="modal-dialog">        
+        <div class="modal-content">
+            <div class="modal-header">Pagar              
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            <div class="modal-body">
+                <app-payment></app-payment>
+            </div>
+
+            <div class="modal-footer d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-secondary round-bt" data-bs-dismiss="modal">Cancelar</button>                
             </div>
         </div>
     </div>

@@ -26,18 +26,20 @@ export class ResumeMudanzaComponent implements OnInit {
     private selectService: SelectsService
   ) {  
     this.mudanzaView = this.main.mudanza;
-    this.mudanza = this.main.mudanza;
     
+    this.mudanzaView.destination.building_destin= "";
+    this.mudanzaView.origin.building_origin=""
   }  
 
-  async ngOnInit() { 
-    console.log(this.mudanza);
+  async ngOnInit() {
+    this.mudanza = this.main.mudanza; 
+    
     await this.getBuildings();    
     await this.ensambleInventaryPlaces();
     await this.ensambleInventaryArticles();
 
-    this.mudanzaView.destination.building_destin= this.buildings.find((p: any) => { return p.id ==this.mudanza.destination.building_id});
-    this.mudanzaView.origin.building_origin= this.buildings.find((p: any) => { return p.id ==this.mudanza.origin.building_id})
+    this.mudanzaView.destination.building_destin= this.buildings.find((p: any) => { return p.id ==this.mudanza.destination.building_id}).name;
+    this.mudanzaView.origin.building_origin= this.buildings.find((p: any) => { return p.id ==this.mudanza.origin.building_id}),name
 
   }  
 
@@ -124,15 +126,17 @@ export class ResumeMudanzaComponent implements OnInit {
   }
 
   submit() {
-
-    this.postService.saveMovingData(this.main.mudanza).subscribe(res => {
+    delete this.mudanza.origin.building_origin;
+    delete this.mudanza.destination.building_destin
+    
+    this.postService.saveMovingData(this.mudanza).subscribe(res => {
       console.log(res);
       this.openSubmitedModal();
-      this.disableReg=false;
+      this.disableReg=true;
     }, ((error: HttpErrorResponse ) => {
       console.log(error.error) 
       this.msjError(error.error);
-      this.disableReg=true;
+      this.disableReg=false;
     }));   
     
   }
@@ -142,24 +146,10 @@ export class ResumeMudanzaComponent implements OnInit {
 
     msj.push(msjRegisterError.message);
     
-    if (msjRegisterError.errors.company_name!=undefined){
-      msj.push(msjRegisterError.errors.company_name[0]);
+    if (msjRegisterError.errors!=undefined){
+      msj.push(msjRegisterError.errors);
     }
-    if (msjRegisterError.errors.company_rut!=undefined){
-      msj.push(msjRegisterError.errors.company_rut[0]);
-    }
-    if (msjRegisterError.errors.company_rut!=undefined){
-      msj.push(msjRegisterError.errors.company_rut[0]);
-    }
-    if (msjRegisterError.errors.legal_rut!=undefined){
-      msj.push(msjRegisterError.errors.legal_rut[0]);
-    }
-    if (msjRegisterError.errors.legal_email!=undefined){
-      msj.push(msjRegisterError.errors.legal_rut[0]);
-    }
-    if (msjRegisterError.errors.account_type!=undefined){
-      msj.push(msjRegisterError.errors.account_type[0]);
-    }
+    
     this.msjRegisterError=msj;
     this.openMsjErrorModal();
   }

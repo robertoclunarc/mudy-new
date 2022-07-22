@@ -17,7 +17,7 @@ export class PaymentComponent implements OnInit {
   constructor(
     private postService: PostRequestService,
     private http: HttpClient,
-    ) { this.buildForm(); this.payment() }  
+    ) { this.buildForm(); /*this.payment()*/ }  
 
   ngOnInit(): void {    
   }

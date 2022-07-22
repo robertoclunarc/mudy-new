@@ -25,19 +25,17 @@ export class ResumeFleteComponent implements OnInit {
     private selectService: SelectsService
   ) {  
     this.fleteView = this.main.flete
-    this.flete = this.main.flete
+    this.fleteView.origin.building_name='';
+    this.fleteView.destination.building_name='';
     
   }  
 
   async ngOnInit() { 
-    console.log(this.flete);
-    await this.getBuildings(); 
-    await this.getVehicleTypes();
-
-    //this.fleteView.destination.building_destin=await this.buildings.find((p: any) => { return p.id ==this.flete.destination.building_id});
-    //this.fleteView.origin.building_origin= await this.buildings.find((p: any) => { return p.id ==this.flete.origin.building_id});
-    this.flete.tipoVehiculo= await this.vehicleTypes.find((v: any)=> { return v.id==this.flete.vehicle_type_id}).name;
+    this.flete = this.main.flete    
     
+    await this.getBuildings(); 
+    await this.getVehicleTypes();    
+    this.flete.tipoVehiculo= await this.vehicleTypes.find((v: any)=> { return v.id==this.flete.vehicle_type_id}).name;    
 
   }
 
@@ -55,8 +53,9 @@ export class ResumeFleteComponent implements OnInit {
     .toPromise()
     .then(async (res: any) => {
       this.buildings = res.data;
-      this.fleteView.destination.building_destin= await this.buildings.find((p: any) => { return p.id ==this.flete.destination.building_id});
-      this.fleteView.origin.building_origin= await  this.buildings.find((p: any) => { return p.id ==this.flete.origin.building_id});
+      this.fleteView.destination.building_name= await this.buildings.find((p: any) => { return p.id ==this.flete.destination.building_id}).name;
+      this.fleteView.origin.building_name= await  this.buildings.find((p: any) => { return p.id ==this.flete.origin.building_id}).name;
+      
     })
   }
 
@@ -85,15 +84,18 @@ export class ResumeFleteComponent implements OnInit {
   }
 
   submit() {
-
-    this.postService.saveFreightData(this.main.flete).subscribe(res => {
+    delete this.flete.origin.building_name;
+    delete this.flete.destination.building_name;
+    delete this.flete.origin.elevator_available;
+    delete this.flete.destination.elevator_available;
+    this.postService.saveFreightData(this.flete).subscribe(res => {
       console.log(res);
       this.openSubmitedModal();
-      this.disableReg=false;
+      this.disableReg=true;
     }, ((error: HttpErrorResponse ) => {
       console.log(error.error) 
       this.msjError(error.error);
-      this.disableReg=true;
+      this.disableReg=false;
     }));   
     
   }
@@ -103,24 +105,10 @@ export class ResumeFleteComponent implements OnInit {
 
     msj.push(msjRegisterError.message);
     
-    if (msjRegisterError.errors.company_name!=undefined){
-      msj.push(msjRegisterError.errors.company_name[0]);
+    if (msjRegisterError.errors!=undefined){
+      msj.push(msjRegisterError.errors);
     }
-    if (msjRegisterError.errors.company_rut!=undefined){
-      msj.push(msjRegisterError.errors.company_rut[0]);
-    }
-    if (msjRegisterError.errors.company_rut!=undefined){
-      msj.push(msjRegisterError.errors.company_rut[0]);
-    }
-    if (msjRegisterError.errors.legal_rut!=undefined){
-      msj.push(msjRegisterError.errors.legal_rut[0]);
-    }
-    if (msjRegisterError.errors.legal_email!=undefined){
-      msj.push(msjRegisterError.errors.legal_rut[0]);
-    }
-    if (msjRegisterError.errors.account_type!=undefined){
-      msj.push(msjRegisterError.errors.account_type[0]);
-    }
+    
     this.msjRegisterError=msj;
     this.openMsjErrorModal();
   }

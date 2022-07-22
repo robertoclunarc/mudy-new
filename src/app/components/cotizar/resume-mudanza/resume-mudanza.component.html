@@ -119,7 +119,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Tipo Vivienda</li>
-                <li *ngIf="mudanzaView.origin.building_origin.name!=undefined" class="list-group-item sm-text-gray">{{mudanzaView.origin.building_origin.name}}</li>
+                <li *ngIf="mudanzaView.origin.building_origin!=undefined" class="list-group-item sm-text-gray">{{mudanzaView.origin.building_origin}}</li>
             </ul>
         </div>        
     </div>
@@ -186,7 +186,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Tipo Vivienda</li>
-                    <li *ngIf="mudanzaView.destination.building_destin.name!=undefined" class="list-group-item sm-text-gray">{{mudanzaView.destination.building_destin.name}}</li>
+                    <li *ngIf="mudanzaView.destination.building_destin!=undefined" class="list-group-item sm-text-gray">{{mudanzaView.destination.building_destin}}</li>
                 </ul>
             </div>        
         </div>
