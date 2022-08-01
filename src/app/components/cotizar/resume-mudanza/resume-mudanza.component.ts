@@ -32,6 +32,7 @@ export class ResumeMudanzaComponent implements OnInit {
   }  
 
   async ngOnInit() {
+    console.log(this.main.articles)
     this.mudanza = this.main.mudanza; 
     
     await this.getBuildings();    
@@ -39,7 +40,7 @@ export class ResumeMudanzaComponent implements OnInit {
     await this.ensambleInventaryArticles();
 
     this.mudanzaView.destination.building_destin= this.buildings.find((p: any) => { return p.id ==this.mudanza.destination.building_id}).name;
-    this.mudanzaView.origin.building_origin= this.buildings.find((p: any) => { return p.id ==this.mudanza.origin.building_id}),name
+    this.mudanzaView.origin.building_origin= this.buildings.find((p: any) => { return p.id ==this.mudanza.origin.building_id}).name
 
   }  
 
@@ -85,12 +86,13 @@ export class ResumeMudanzaComponent implements OnInit {
   }
 
   async getArticles() {
-    await this.selectService.getArticles()
+    /*await this.selectService.getArticles()
     .toPromise()
     .then((res: any) => {
       this.articles = res.data;
       
-    })
+    })*/
+    this.articles= await this.main.articles
   }
 
   async getBuildings() {

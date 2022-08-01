@@ -19,7 +19,7 @@ export class ServiceMainComponent implements OnInit {
   flete = {} as Freight;
   origin = {} as Location
   destination = {} as Location;
-
+  articles = [] as any;
   constructor(
     public utilsService: UtilsService,
     public actRoute: ActivatedRoute

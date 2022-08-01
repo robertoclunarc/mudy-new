@@ -109,6 +109,7 @@ export class InventoryMudanzaComponent implements OnInit {
       id: article.id,
       name: article.name,
     }
+    this.main.articles.push(articleFormated);
     this.placesSelected.value[this.placeOpenedIndex.value].items.push(articleFormated);
     this.placesSelected.value[this.placeOpenedIndex.value].itemsId.push(article.id);
   }
@@ -116,6 +117,7 @@ export class InventoryMudanzaComponent implements OnInit {
   removeArticle(index: any) {
     this.placesSelected.value[this.placeOpenedIndex.value].items.splice(index, 1);
     this.placesSelected.value[this.placeOpenedIndex.value].itemsId.splice(index, 1);
+    this.main.articles.splice(index, 1);
   }
 
   next() {

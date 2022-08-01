@@ -143,61 +143,60 @@
     <h5 class="text-blue">
         Direccion de Destino
     </h5>
-    <div class="row">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Region </li>
-                    <li class="list-group-item sm-text-gray">{{fleteView.destination.city}}</li>
-                </ul>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Comuna</li>
-                    <li class="list-group-item sm-text-gray">{{fleteView.destination.comuna}}</li>
-                </ul>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Calle</li>
-                    <li class="list-group-item sm-text-gray">{{fleteView.destination.address}}</li>
-                </ul>
-            </div>        
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Urb/Condominio </li>
-                    <li class="list-group-item sm-text-gray">{{fleteView.destination.condominium}}</li>
-                </ul>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Casa/Oficina</li>
-                    <li class="list-group-item sm-text-gray">{{fleteView.destination.house}}</li>
-                </ul>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Tipo Vivienda</li>
-                    <li *ngIf="fleteView.destination.building_name!=undefined" class="list-group-item sm-text-gray">{{fleteView.destination.building_name}}</li>
-                </ul>
-            </div>        
-        </div>
-        <div class="row">
-            
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Estacionamiento Disponible</li>
-                    <li *ngIf="fleteView.destination.parking_available" class="list-group-item sm-text-gray">SI</li>
-                    <li *ngIf="!fleteView.destination.parking_available" class="list-group-item sm-text-gray">NO</li>
-                </ul>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12  text-end">
-                <button type="button" class="btn btn-blue round-bt"  (click)="goTo(3)">Editar Destino <i class="bi bi-pencil-fill text-light ps-1"></i></button>
-            </div>        
-        </div>
     
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Region </li>
+                <li class="list-group-item sm-text-gray">{{fleteView.destination.city}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Comuna</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.destination.comuna}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Calle</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.destination.address}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Urb/Condominio </li>
+                <li class="list-group-item sm-text-gray">{{fleteView.destination.condominium}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Casa/Oficina</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.destination.house}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Tipo Vivienda</li>
+                <li *ngIf="fleteView.destination.building_name!=undefined" class="list-group-item sm-text-gray">{{fleteView.destination.building_name}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Estacionamiento Disponible</li>
+                <li *ngIf="fleteView.destination.parking_available" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!fleteView.destination.parking_available" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12  text-end">
+            <button type="button" class="btn btn-blue round-bt"  (click)="goTo(3)">Editar Destino <i class="bi bi-pencil-fill text-light ps-1"></i></button>
+        </div>        
+    </div>    
 
     <hr style="color: rgb(173, 173, 173);">
 

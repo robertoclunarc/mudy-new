@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostRequestService } from 'src/app/services/post-request.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
@@ -17,7 +17,7 @@ export class PaymentComponent implements OnInit {
   constructor(
     private postService: PostRequestService,
     private http: HttpClient,
-    ) { this.buildForm(); /*this.payment()*/ }  
+    ) { this.buildForm(); this.payment() }  
 
   ngOnInit(): void {    
   }
@@ -46,7 +46,6 @@ export class PaymentComponent implements OnInit {
   }
   
   onSubmit(event: Event){
-
     
     this.formPayment.controls['token_ws'].setValue(this.dataPayment.token_ws)
     event.preventDefault();
@@ -55,7 +54,12 @@ export class PaymentComponent implements OnInit {
     console.log(value);
     this.http.post(this.dataPayment.url, {token_ws: value.token_ws} )
     .subscribe((result)=>{
-      console.warn(`result: ${result}`)
-    })
+      console.warn(`result: ${result}`);
+      
+    }, ((error: HttpErrorResponse ) => {
+      console.log(error.error)       
+      
+    }));
+    window.open(this.dataPayment.url, "_blank");
   }  
 }
