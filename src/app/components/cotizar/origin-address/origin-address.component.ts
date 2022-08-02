@@ -83,7 +83,8 @@ export class OriginAddressComponent implements OnInit {
   }
 
   map() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://maps.google.com/maps?q=chile,${this.city?.value},${this.comuna?.value},${this.address?.value}&t=&z=13&ie=UTF8&iwloc=&output=embed`);
+   let coord= this.sanitizer.bypassSecurityTrustResourceUrl(`https://maps.google.com/maps?q=chile,${this.city?.value},${this.comuna?.value},${this.address?.value}&t=&z=13&ie=UTF8&iwloc=&output=embed`);
+    return coord;
   }
 
   get city() {

@@ -106,7 +106,7 @@ const maskConfig: Partial<IConfig> = {
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
-    FormsModule,
+    FormsModule,    
     NgxMaskModule.forRoot(maskConfig)     
   ],
   providers: [DatePipe],
