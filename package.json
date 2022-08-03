@@ -24,6 +24,8 @@
     "ngx-mask": "^13.1.14",
     "rxjs": "~7.5.0",
     "swiper": "^8.1.1",
+    "transbank-pos-sdk": "^2.1.2",
+    "transbank-sdk": "^3.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

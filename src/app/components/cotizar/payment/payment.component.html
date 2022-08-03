@@ -1,7 +1,8 @@
-<form method="post" [formGroup]="formPayment" (ngSubmit)="onSubmit($event)">
-    <div>       
-        <input type="hidden" formControlName="token_ws"  />       
-    </div>                           
-    <button class="btn btn-blue mudy-btn p-2" data-bs-dismiss="modal"><span class="px-4">Proceder</span></button>   
-    
-</form> 
+<form action="{{dataPayment.url}}" (ngSubmit)="onSubmit($event)" method="POST" #startForm>
+    <div>
+        <input type="hidden" name="token_ws" [(ngModel)]="dataPayment.token_ws">                
+    </div>
+    <div>
+        <button class="btn btn-blue mudy-btn p-2" type="submit">Inscribir</button>
+    </div>
+</form>
