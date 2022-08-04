@@ -89,7 +89,7 @@ export class ResumeFleteComponent implements OnInit {
     delete this.flete.origin.elevator_available;
     delete this.flete.destination.elevator_available;
     this.postService.saveFreightData(this.flete).subscribe(res => {
-      console.log(res);
+      //console.log(res);
       this.openSubmitedModal();
       this.disableReg=true;
     }, ((error: HttpErrorResponse ) => {
