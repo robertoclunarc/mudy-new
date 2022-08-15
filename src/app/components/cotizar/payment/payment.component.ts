@@ -11,7 +11,7 @@ import { Oneclick,Options, IntegrationApiKeys, Environment, IntegrationCommerceC
 })
 export class PaymentComponent implements OnInit {
   
-  stripePayment= {return_url: 'https://mudy.netlify.app/quotation/payment'};
+  stripePayment= {return_url: 'https://mudy-new.vercel.app/'};
   dataPayment:{ url?: any, token_ws?:any } = {};
   
   @ViewChild('startForm') startForm!: ElementRef;
