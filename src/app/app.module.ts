@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AgmCoreModule } from '@agm/core'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -106,7 +106,8 @@ const maskConfig: Partial<IConfig> = {
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
-    FormsModule,    
+    FormsModule, 
+    AgmCoreModule.forRoot({apiKey: "AIzaSyA7lwfqRatEpjjXlIQOKHyrz0QtFMVp338", language: 'es', libraries:['places'] }),
     NgxMaskModule.forRoot(maskConfig)     
   ],
   providers: [DatePipe],
