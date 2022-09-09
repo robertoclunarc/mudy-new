@@ -20,6 +20,7 @@ export class OriginAddressComponent implements OnInit {
     zoom: 13,
     mapType:  "roadmap" 
   }
+  markers: google.maps.Marker[] = [];
 
   label = {
     color:'red',
@@ -32,10 +33,7 @@ export class OriginAddressComponent implements OnInit {
     public main: ServiceMainComponent,
     public selectService: SelectsService,
     
-  ) {
-    
-  }
-  
+  ) { }  
 
   ngOnInit(): void {
     this.main.origin.latitude = this.position.lat;
@@ -109,7 +107,7 @@ export class OriginAddressComponent implements OnInit {
       searchBox.setBounds(map.getBounds() as google.maps.LatLngBounds);
     });
   
-    let markers: google.maps.Marker[] = [];
+    //let markers: google.maps.Marker[] = [];
   
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
@@ -121,10 +119,10 @@ export class OriginAddressComponent implements OnInit {
       }
   
       // Clear out the old markers.
-      markers.forEach((marker) => {
+      this.markers.forEach((marker) => {
         marker.setMap(null);
       });
-      markers = [];
+      this.markers = [];
   
       // For each place, get the icon, name and location.
       const bounds = new google.maps.LatLngBounds();
@@ -146,11 +144,13 @@ export class OriginAddressComponent implements OnInit {
         };
   
         // Create a marker for each place.
-        markers.push(
+        let nombreMarcador: string=place.name;
+        this.markers = [];
+        this.markers.push(
           new google.maps.Marker({
             map,
             icon,
-            title: place.name,
+            title: nombreMarcador,
             position: place.geometry.location,
           })
         );
@@ -163,20 +163,58 @@ export class OriginAddressComponent implements OnInit {
         }
         this.latitude?.setValue(place.geometry.location.lat());
         this.longitud?.setValue(place.geometry.location.lng());
-        console.log(place.geometry.location.lat())
-        console.log(place.geometry.location.lng())
+        
       });
-      
+      console.log(`lat: ${this.markers[0].getPosition()?.lat()}`)
+      console.log(`lng: ${this.markers[0].getPosition()?.lng()}`)
       map.fitBounds(bounds);
     });
+
+  // Create the initial InfoWindow.
+  let infoWindow = new google.maps.InfoWindow({
+    content: "Click the map to get Lat/Lng!",
+    position: { lat: this.position.lat, lng: this.position.lng }
+  });
+
+  //infoWindow.open(map);
+
+  // Configure the click listener.
+    map.addListener("click", (mapsMouseEvent) => {
+      // Close the current InfoWindow.
+      //infoWindow.close();
+
+      // Create a new InfoWindow.
+      infoWindow = new google.maps.InfoWindow({
+        position: mapsMouseEvent.latLng,
+      });
+      infoWindow.setContent(
+        JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+      );
+      
+      console.log(mapsMouseEvent.latLng.toJSON())
+      //infoWindow.open(map);
+      
+      for (let i = 0; i < this.markers.length; i++) {
+        this.markers[i].setMap(null);
+      }
+      this.markers=[];
+      this.addMarker(mapsMouseEvent.latLng, map, '*');
+      
+    });   
+    
   }
 
-  getLocations(spans: any){
-    
-    
+  addMarker(location: google.maps.LatLng | google.maps.LatLngLiteral, map: google.maps.Map, nombreMarcador: string) {
+    const marker = new google.maps.Marker({
+      position: location,
+      map,
+    });
+    this.markers.push(marker);
+  }
+
+  getLocations(spans: any){    
     for(let local of spans)
-    {
-      
+    {      
       if (local.types[0]=='administrative_area_level_1')
         this.city?.setValue(local.long_name);
       if (local.types[0]=='locality')
@@ -185,7 +223,7 @@ export class OriginAddressComponent implements OnInit {
         this.comuna?.setValue(local.long_name);    
     }
   }
-
+  
   get city() {
     return this.form.get('city');
   }
