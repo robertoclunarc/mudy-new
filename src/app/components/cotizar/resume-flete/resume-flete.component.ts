@@ -12,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./resume-flete.component.scss']
 })
 export class ResumeFleteComponent implements OnInit {
-
+  idMoving: string = "-1";
   flete: any;
   fleteView: any;
   vehicleTypes: any[] = [];
@@ -89,7 +89,8 @@ export class ResumeFleteComponent implements OnInit {
     delete this.flete.origin.elevator_available;
     delete this.flete.destination.elevator_available;
     this.postService.saveFreightData(this.flete).subscribe(res => {
-      //console.log(res);
+      console.log(res.data.id);
+      this.idMoving=res.data.id
       this.openSubmitedModal();
       this.disableReg=true;
     }, ((error: HttpErrorResponse ) => {

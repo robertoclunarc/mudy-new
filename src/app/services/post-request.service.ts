@@ -87,9 +87,9 @@ export class PostRequestService {
       });
   }
 
-  async payment(stripePayment: {return_url: string}): Promise<any> {
-    
-    return await this.http.post<any>(environment.baseUrl + environment.payment, stripePayment).toPromise();    
+  async payment(stripePayment: {return_url: string}, id: string): Promise<any> {
+    const url: string = `${environment.baseUrl}${environment.payment}${id}`
+    return await this.http.post<any>(url, stripePayment).toPromise();    
     
   }
  

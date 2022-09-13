@@ -3,6 +3,6 @@
         <input type="hidden" name="token_ws" [(ngModel)]="dataPayment.token_ws">                
     </div>
     <div>
-        <button class="btn btn-blue mudy-btn p-2" type="submit">Pagar</button>
+        <button [disabled]="!goTo" class="btn btn-blue mudy-btn p-2" type="submit">Pagar</button>
     </div>
 </form>

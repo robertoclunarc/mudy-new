@@ -24,7 +24,7 @@ export const environment = {
   freight: '/quotations/freights',
   movings: '/quotations/movings',
   calcule_volume: '/quotations/calculate-volume',
-  payment: '/payments/start/2',//172
+  payment: '/payments/start/',
 
   googleApiKey: 'AIzaSyA7lwfqRatEpjjXlIQOKHyrz0QtFMVp338'
 };
