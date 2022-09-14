@@ -12,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./resume-mudanza.component.scss']
 })
 export class ResumeMudanzaComponent implements OnInit {
-
+  idMoving: string ="-1"
   mudanza: any;
   mudanzaView: any;
   places: any[] = [];
@@ -133,6 +133,7 @@ export class ResumeMudanzaComponent implements OnInit {
     
     this.postService.saveMovingData(this.mudanza).subscribe(res => {
       console.log(res);
+      this.idMoving=res.data.id;
       this.openSubmitedModal();
       this.disableReg=true;
     }, ((error: HttpErrorResponse ) => {

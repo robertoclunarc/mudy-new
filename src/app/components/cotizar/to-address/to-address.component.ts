@@ -150,9 +150,7 @@ export class ToAddressComponent implements OnInit {
           bounds.union(place.geometry.viewport);
         } else {
           bounds.extend(place.geometry.location);
-        }
-        this.latitude?.setValue(place.geometry.location.lat());
-        this.longitud?.setValue(place.geometry.location.lng());
+        }        
         
       });
       console.log(`lat: ${this.markers[0].getPosition()?.lat()}`)
@@ -202,7 +200,8 @@ export class ToAddressComponent implements OnInit {
     this.markers.push(marker);
   }
 
-  getLocations(spans: any){    
+  getLocations(spans: any){ 
+    console.log(spans);  
     for(let local of spans)
     {      
       if (local.types[0]=='administrative_area_level_1')
@@ -210,7 +209,7 @@ export class ToAddressComponent implements OnInit {
       if (local.types[0]=='locality')
         this.comuna?.setValue(local.long_name);
       if (local.types[0]=='route')
-        this.comuna?.setValue(local.long_name);    
+        this.address?.setValue(local.long_name);    
     }
   }
 
