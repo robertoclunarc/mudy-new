@@ -201,7 +201,7 @@ export class ToAddressComponent implements OnInit {
   }
 
   getLocations(spans: any){ 
-    console.log(spans);  
+    //console.log(spans);  
     for(let local of spans)
     {      
       if (local.types[0]=='administrative_area_level_1')
