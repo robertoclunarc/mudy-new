@@ -16,7 +16,7 @@ export const environment = {
   categories: '/categories',
   articles: '/articles',
   places: '/places',
-  confirm: '/payments/confirmation/172',
+  confirm: '/payments/confirmation/',
 
   //============POST=====================  
   carrier: '/applications/carrier',

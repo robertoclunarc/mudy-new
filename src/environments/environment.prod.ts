@@ -11,14 +11,14 @@ export const environment = {
   categories: '/categories',
   articles: '/articles',
   places: '/places',
-  confirm: '/payments/confirmation/172',
+  confirm: '/payments/confirmation/',
   //============POST=====================  
   carrier: '/applications/carrier',
   promoter: '/applications/promoter',
   freight: '/quotations/freights',
   movings: '/quotations/movings',
   calcule_volume: '/quotations/calculate-volume',
-  payment: '/payments/start/172',
+  payment: '/payments/start/',
 
   googleApiKey: 'AIzaSyA7lwfqRatEpjjXlIQOKHyrz0QtFMVp338'
 };
