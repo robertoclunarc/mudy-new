@@ -1,0 +1,246 @@
+<div class="card-form shadow animate__animated animate__fadeIn">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <h1>Cotización de Mudanza</h1>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-end">
+            <h5 class="text-blue pt-3">Resumen</h5>
+        </div>
+    </div>
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Informacion Personal
+    </h5>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Nombre </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.first_name}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Apellido</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.last_name}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Rut</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.rut}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Email </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.email}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Telefono</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.phone}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Whatsapp</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.whatsapp}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Código de Referido </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.referral_code}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Fecha</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.date}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Hora</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.hour}}</li>
+            </ul>
+        </div>        
+    </div>    
+    
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Direccion de Origen
+    </h5>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Region </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.origin.city}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Comuna</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.origin.comuna}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Calle</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.origin.address}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Urb/Condominio </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.origin.condominium}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Casa/Oficina</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.origin.house}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Tipo Vivienda</li>
+                <li *ngIf="mudanzaView.origin.building_origin!=undefined" class="list-group-item sm-text-gray">{{mudanzaView.origin.building_origin}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Ascensor Disponible </li>
+                <li *ngIf="mudanzaView.origin.elevator_available" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!mudanzaView.origin.elevator_available" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Estacionamiento Disponible</li>
+                <li *ngIf="mudanzaView.origin.parking_available" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!mudanzaView.origin.parking_available" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>       
+    </div>    
+
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Direccion de Destino
+    </h5>
+    
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Region </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.destination.city}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Comuna</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.destination.comuna}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Calle</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.destination.address}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Urb/Condominio </li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.destination.condominium}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Casa/Oficina</li>
+                <li class="list-group-item sm-text-gray">{{mudanzaView.destination.house}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Tipo Vivienda</li>
+                <li *ngIf="mudanzaView.destination.building_destin!=undefined" class="list-group-item sm-text-gray">{{mudanzaView.destination.building_destin}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Ascensor Disponible </li>
+                <li *ngIf="mudanzaView.destination.elevator_available" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!mudanzaView.destination.elevator_available" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Estacionamiento Disponible</li>
+                <li *ngIf="mudanzaView.destination.parking_available" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!mudanzaView.destination.parking_available" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>        
+    </div>    
+
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Inventario
+    </h5>
+    <div class="row">
+        <div *ngFor="let inv of mudanzaView.inventory; index as i" class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{inv.place_name }} </li>
+                <li *ngFor="let item of inv.items; index as j" class="list-group-item sm-text-gray">{{item.articulo}}</li>
+            </ul>
+        </div>               
+    </div>    
+    
+    <hr style="color: rgb(173, 173, 173);">
+    
+    <div class="row py-3">
+        <div class="col-6 text-end">
+            <button (click)="back()" class="btn btn-secondary mudy-btn p-2"><span class="px-4">Volver a Cotizar</span></button>
+        </div>
+        <div class="col-6">
+            <button  (click)="goTo()" class="btn btn-blue mudy-btn p-2"><span class="px-4">Ir al Inicio</span></button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerError" #registerError tabindex="-1">
+    <div class="modal-dialog">        
+        <div class="modal-content">
+            <div class="modal-header">Error:               
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <ul *ngFor="let er of msjRegisterError; index as i" class="list-group list-group-flush">
+                    
+                    <li *ngIf="i>0" class="list-group-item sm-text-gray">{{er}}</li>
+                </ul>               
+            </div>
+            <div class="modal-footer d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-secondary round-bt" data-bs-dismiss="modal">Cerrar</button>
+                
+            </div>
+        </div>
+    </div>
+</div>

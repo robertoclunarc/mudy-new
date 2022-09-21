@@ -1,50 +1,51 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectsService } from 'src/app/services/selects.service';
-import { UtilsService } from 'src/app/services/utils.service';
+//import { UtilsService } from 'src/app/services/utils.service';
 import { ServiceMainComponent } from '../service-main/service-main.component';
 import * as bootstrap from 'bootstrap';
-import { BehaviorSubject } from 'rxjs';
+//import { BehaviorSubject } from 'rxjs';
 import { PostRequestService } from 'src/app/services/post-request.service';
-import { HttpErrorResponse } from '@angular/common/http';
+//import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
-  selector: 'app-resume-flete',
-  templateUrl: './resume-flete.component.html',
-  styleUrls: ['./resume-flete.component.scss']
+  selector: 'app-cotizacion-flete',
+  templateUrl: './cotizacion-flete.component.html',
+  styleUrls: ['./cotizacion-flete.component.scss']
 })
-export class ResumeFleteComponent implements OnInit {
-  idMoving: string = "-1";
+export class CotizacionFleteComponent implements OnInit {  
+  
   flete: any;
   fleteView: any;
   vehicleTypes: any[] = [];
   buildings: any = [];
   disableReg: boolean=false;
-  msjRegisterError: any[]=[];
+  msjRegisterError: any[]=[];  
+
   constructor(
+    private router: Router,
     public main: ServiceMainComponent,
     private postService: PostRequestService ,
     private selectService: SelectsService
   ) {  
-    this.fleteView = this.main.flete
+    this.fleteView = JSON.parse(sessionStorage.getItem('fleteView')  || '{}');    
     this.fleteView.origin.building_name='';
-    this.fleteView.destination.building_name='';
-    
+    this.fleteView.destination.building_name='';    
   }  
 
   async ngOnInit() { 
-    this.flete = this.main.flete    
-    
+    sessionStorage.removeItem('fleteView');    
+    this.flete=this.fleteView;
     await this.getBuildings(); 
     await this.getVehicleTypes();    
     this.flete.tipoVehiculo= await this.vehicleTypes.find((v: any)=> { return v.id==this.flete.vehicle_type_id}).name;    
 
-  }
+  }  
 
   async getVehicleTypes() {
    await  this.selectService.getVehicleTypes()
     .toPromise()
     .then((res: any) => {
-      this.vehicleTypes = res.data;
-      
+      this.vehicleTypes = res.data;      
     })
   }
 
@@ -58,15 +59,14 @@ export class ResumeFleteComponent implements OnInit {
       
     })
   }
-
   
   back() {
-    this.main.step$.next(3);
+    this.router.navigate([`service`]);
   }
-
-  goTo(pag: number) {
-    this.main.step$.next(pag);
-  }
+  
+  goTo() {
+    this.router.navigate([`/`]);
+  }  
 
   openSubmitedModal(){
     let submitedModal = new bootstrap.Modal(document.getElementById('submitedModal') as any, {
@@ -81,29 +81,7 @@ export class ResumeFleteComponent implements OnInit {
       keyboard: false
     })
     registerError?.show();
-  }
-
-  submit() {
-    sessionStorage.removeItem('fleteView');
-    //sessionStorage.clear();
-    delete this.flete.origin.building_name;
-    delete this.flete.destination.building_name;
-    delete this.flete.origin.elevator_available;
-    delete this.flete.destination.elevator_available;
-    this.postService.saveFreightData(this.flete).subscribe(res => {
-      //console.log(res.data.id);
-      sessionStorage.setItem('fleteView', JSON.stringify(this.fleteView) );
-      
-      this.idMoving=res.data.id
-      this.openSubmitedModal();
-      this.disableReg=true;
-    }, ((error: HttpErrorResponse ) => {
-      console.log(error.error) 
-      this.msjError(error.error);
-      this.disableReg=false;
-    }));   
-    
-  }
+  }  
 
   msjError(msjRegisterError: any){
     let msj: string[]=[];

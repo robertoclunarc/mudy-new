@@ -163,8 +163,10 @@ export class OriginAddressComponent implements OnInit {
         }        
         
       });
-      console.log(`lat: ${this.markers[0].getPosition()?.lat()}`)
-      console.log(`lng: ${this.markers[0].getPosition()?.lng()}`)
+      console.log(`lat: ${this.markers[0].getPosition()?.lat()}`);
+      console.log(`lng: ${this.markers[0].getPosition()?.lng()}`);
+      this.latitude?.setValue(this.markers[0].getPosition()?.lat());
+      this.longitud?.setValue(this.markers[0].getPosition()?.lng());
       map.fitBounds(bounds);
     });
 
@@ -191,6 +193,8 @@ export class OriginAddressComponent implements OnInit {
       
       console.log(mapsMouseEvent.latLng.toJSON())
       //infoWindow.open(map);
+      this.latitude?.setValue(mapsMouseEvent.latLng.lat());
+      this.longitud?.setValue(mapsMouseEvent.latLng.lng());
       
       for (let i = 0; i < this.markers.length; i++) {
         this.markers[i].setMap(null);
@@ -208,6 +212,7 @@ export class OriginAddressComponent implements OnInit {
       map,
     });
     this.markers.push(marker);
+    
   }
 
   getLocations(spans: any){  

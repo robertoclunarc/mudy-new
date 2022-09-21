@@ -20,12 +20,15 @@ export class ServiceMainComponent implements OnInit {
   origin = {} as Location
   destination = {} as Location;
   articles = [] as any;
+  resumen: boolean= false;
   constructor(
     public utilsService: UtilsService,
     public actRoute: ActivatedRoute
     ) {
-
-    this.serviceType = this.actRoute.snapshot.paramMap.get('serviceType'); //Tipo de servicio (Mudanza o Flete)
+      let fleteView=JSON.parse(sessionStorage.getItem('fleteView') || '{}');
+      let mudanzaView=JSON.parse(sessionStorage.getItem('mudanzaView') || '{}');
+      if (mudanzaView.date){ this.resumen=true }      
+      this.serviceType = this.actRoute.snapshot.paramMap.get('serviceType'); //Tipo de servicio (Mudanza o Flete)
   }
 
   ngOnInit(): void {  

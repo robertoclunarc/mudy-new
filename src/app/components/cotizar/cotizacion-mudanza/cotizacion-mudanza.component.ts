@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectsService } from 'src/app/services/selects.service';
-import { UtilsService } from 'src/app/services/utils.service';
+import { SelectsService } from '../../../services/selects.service';
+//import { UtilsService } from '../../../services/utils.service';
 import { ServiceMainComponent } from '../service-main/service-main.component';
 import * as bootstrap from 'bootstrap';
-import { BehaviorSubject } from 'rxjs';
-import { PostRequestService } from 'src/app/services/post-request.service';
-import { HttpErrorResponse } from '@angular/common/http';
+//import { BehaviorSubject } from 'rxjs';
+import { PostRequestService } from '../../../services/post-request.service';
+//import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-resume-mudanza',
-  templateUrl: './resume-mudanza.component.html',
-  styleUrls: ['./resume-mudanza.component.scss']
+  selector: 'app-cotizacion-mudanza',
+  templateUrl: './cotizacion-mudanza.component.html',
+  styleUrls: ['./cotizacion-mudanza.component.scss']
 })
-export class ResumeMudanzaComponent implements OnInit {
-  idMoving: string ="-1"
+
+export class CotizacionMudanzaComponent implements OnInit {
+  
   mudanza: any;
   mudanzaView: any;
   places: any[] = [];
@@ -21,19 +24,20 @@ export class ResumeMudanzaComponent implements OnInit {
   disableReg: boolean=false;
   msjRegisterError: any[]=[];
   constructor(
+    private router: Router,
     public main: ServiceMainComponent,
     private postService: PostRequestService ,
     private selectService: SelectsService
   ) {  
-    this.mudanzaView = this.main.mudanza;
+    this.mudanzaView = JSON.parse(sessionStorage.getItem('mudanzaView')  || '{}');
     
     this.mudanzaView.destination.building_destin= "";
     this.mudanzaView.origin.building_origin=""
   }  
 
   async ngOnInit() {
-    
-    this.mudanza = this.main.mudanza; 
+    sessionStorage.removeItem('mudanzaView');
+    this.mudanza = this.mudanzaView; 
     
     await this.getBuildings();    
     await this.ensambleInventaryPlaces();
@@ -54,8 +58,7 @@ export class ResumeMudanzaComponent implements OnInit {
           this.mudanzaView.inventory[index].place_name =  p.name;
         }        
       }         
-    }    
-     
+    }     
   }
 
   async ensambleInventaryArticles(){    
@@ -69,29 +72,19 @@ export class ResumeMudanzaComponent implements OnInit {
             }
           }
       }    
-    }
-     
+    }     
   }
 
   async getPlaces() {
     await this.selectService.getPlaces()
     .toPromise()
     .then(async (res: any) => {
-      for await (const p of res.data)
-        //if (p.id !== 1 && p.id !== 8){
-          this.places.push(p)
-        //}     
-      
+      for await (const p of res.data)        
+          this.places.push(p)      
     })
   }
 
-  async getArticles() {
-    /*await this.selectService.getArticles()
-    .toPromise()
-    .then((res: any) => {
-      this.articles = res.data;
-      
-    })*/
+  async getArticles() {    
     this.articles= await this.main.articles
   }
 
@@ -102,14 +95,13 @@ export class ResumeMudanzaComponent implements OnInit {
       this.buildings = res.data
     })
   }
-
   
   back() {
-    this.main.step$.next(3);
+    this.router.navigate([`service`]);
   }
 
-  goTo(pag: number) {
-    this.main.step$.next(pag);
+  goTo() {
+    this.router.navigate([`/`]);
   }
 
   openSubmitedModal(){
@@ -125,25 +117,7 @@ export class ResumeMudanzaComponent implements OnInit {
       keyboard: false
     })
     registerError?.show();
-  }
-
-  submit() {
-    sessionStorage.removeItem('mudanzaView');
-    delete this.mudanza.origin.building_origin;
-    delete this.mudanza.destination.building_destin
-    
-    this.postService.saveMovingData(this.mudanza).subscribe(res => {
-      sessionStorage.setItem('mudanzaView', JSON.stringify(this.mudanzaView) );
-      this.idMoving=res.data.id;
-      this.openSubmitedModal();
-      this.disableReg=true;
-    }, ((error: HttpErrorResponse ) => {
-      console.log(error.error) 
-      this.msjError(error.error);
-      this.disableReg=false;
-    }));   
-    
-  }
+  }  
 
   msjError(msjRegisterError: any){
     let msj: string[]=[];

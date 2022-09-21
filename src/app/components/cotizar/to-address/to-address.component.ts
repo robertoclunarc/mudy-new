@@ -153,8 +153,10 @@ export class ToAddressComponent implements OnInit {
         }        
         
       });
-      console.log(`lat: ${this.markers[0].getPosition()?.lat()}`)
-      console.log(`lng: ${this.markers[0].getPosition()?.lng()}`)
+      console.log(`lat: ${this.markers[0].getPosition()?.lat()}`);
+      console.log(`lng: ${this.markers[0].getPosition()?.lng()}`);
+      this.latitude?.setValue(this.markers[0].getPosition()?.lat());
+      this.longitud?.setValue(this.markers[0].getPosition()?.lng());
       map.fitBounds(bounds);
     });
 
@@ -179,7 +181,9 @@ export class ToAddressComponent implements OnInit {
         JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
       );
       
-      console.log(mapsMouseEvent.latLng.toJSON())
+      console.log(mapsMouseEvent.latLng.toJSON());
+      this.latitude?.setValue(mapsMouseEvent.latLng.lat());
+      this.longitud?.setValue(mapsMouseEvent.latLng.lng());
       //infoWindow.open(map);
       
       for (let i = 0; i < this.markers.length; i++) {
