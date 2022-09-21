@@ -31,6 +31,8 @@ import { InventoryMudanzaComponent } from './components/cotizar/inventory-mudanz
 import { InventoryFleteComponent } from './components/cotizar/inventory-flete/inventory-flete.component';
 import { ResumeMudanzaComponent } from './components/cotizar/resume-mudanza/resume-mudanza.component';
 import { ResumeFleteComponent } from './components/cotizar/resume-flete/resume-flete.component';
+import { CotizacionFleteComponent } from './components/cotizar/cotizacion-flete/cotizacion-flete.component';
+import { CotizacionMudanzaComponent } from './components/cotizar/cotizacion-mudanza/cotizacion-mudanza.component';
 
 //==============Registro de Transportista======================
 import { TransportistaMainComponent } from './components/registro-transportista/transportista-main/transportista-main.component';
@@ -98,6 +100,8 @@ const maskConfig: Partial<IConfig> = {
     UpdateVehicleDocumentsComponent, 
     ResumeMudanzaComponent,
     ResumeFleteComponent,
+    CotizacionFleteComponent,
+    CotizacionMudanzaComponent,
   ],
   imports: [
     BrowserModule,

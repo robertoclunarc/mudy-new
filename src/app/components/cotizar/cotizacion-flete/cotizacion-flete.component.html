@@ -1,0 +1,276 @@
+<div class="card-form shadow animate__animated animate__fadeIn">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <h1>Cotización de Flete</h1>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-end">
+            <h5 class="text-blue pt-3">Resumen</h5>
+        </div>
+    </div>
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Informacion Personal
+    </h5>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Nombre </li>
+                <li class="list-group-item sm-text-gray">{{fleteView.first_name}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Apellido</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.last_name}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Rut</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.rut}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Email </li>
+                <li class="list-group-item sm-text-gray">{{fleteView.email}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Telefono</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.phone}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Whatsapp</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.whatsapp}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Código de Referido </li>
+                <li class="list-group-item sm-text-gray">{{fleteView.referral_code}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Fecha</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.date}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Hora</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.hour}}</li>
+            </ul>
+        </div>        
+    </div>     
+    
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Direccion de Origen
+    </h5>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Region </li>
+                <li class="list-group-item sm-text-gray">{{fleteView.origin.city}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Comuna</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.origin.comuna}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Calle</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.origin.address}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Urb/Condominio </li>
+                <li class="list-group-item sm-text-gray">{{fleteView.origin.condominium}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Casa/Oficina</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.origin.house}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Tipo Vivienda</li>
+                <li *ngIf="fleteView.origin.building_name!=undefined" class="list-group-item sm-text-gray">{{fleteView.origin.building_name}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Estacionamiento Disponible</li>
+                <li *ngIf="fleteView.origin.parking_available" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!fleteView.origin.parking_available" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>
+               
+    </div>
+    
+
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Direccion de Destino
+    </h5>
+    
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Region </li>
+                <li class="list-group-item sm-text-gray">{{fleteView.destination.city}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Comuna</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.destination.comuna}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Calle</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.destination.address}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Urb/Condominio </li>
+                <li class="list-group-item sm-text-gray">{{fleteView.destination.condominium}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Casa/Oficina</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.destination.house}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Tipo Vivienda</li>
+                <li *ngIf="fleteView.destination.building_name!=undefined" class="list-group-item sm-text-gray">{{fleteView.destination.building_name}}</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Estacionamiento Disponible</li>
+                <li *ngIf="fleteView.destination.parking_available" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!fleteView.destination.parking_available" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>
+                
+    </div>    
+
+    <hr style="color: rgb(173, 173, 173);">
+
+    <h5 class="text-blue">
+        Inventario
+    </h5>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Tipo Vehiculo </li>
+                <li *ngIf="fleteView.tipoVehiculo!=undefined" class="list-group-item sm-text-gray">{{fleteView.tipoVehiculo}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Descripción de Carga</li>
+                <li class="list-group-item sm-text-gray">{{fleteView.cargo_description}}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 ">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Archivo</li>
+                
+                <div class="square">
+                    <img [src]="fleteView.file_path" height="150px" width="150px" alt="">
+                </div>
+            </ul>
+        </div>        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">¿El traslado es ida y vuelta? </li>
+                <li *ngIf="fleteView.round_trip" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!fleteView.round_trip" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">¿Requiere ayudante?</li>
+                <li *ngIf="fleteView.need_helper" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!fleteView.need_helper" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Acepta recibir comunicación por WhatsApp</li>
+                <li *ngIf="fleteView.whatsApp_communication" class="list-group-item sm-text-gray">SI</li>
+                <li *ngIf="!fleteView.whatsApp_communication" class="list-group-item sm-text-gray">NO</li>
+            </ul>
+        </div>              
+    </div>
+    
+    
+    <hr style="color: rgb(173, 173, 173);">
+    
+    <div class="row py-3">
+        <div class="col-6 text-end">
+            <button class="btn btn-secondary mudy-btn p-2" (click)="back()"><span class="px-4">Volver a Cotizar</span></button>
+        </div>
+        <div class="col-6">
+            <button  class="btn btn-blue mudy-btn p-2" (click)="goTo()"><span class="px-4">Ir a Inicio</span></button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerError" #registerError tabindex="-1">
+    <div class="modal-dialog">        
+        <div class="modal-content">
+            <div class="modal-header">Error:               
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <ul *ngFor="let er of msjRegisterError; index as i" class="list-group list-group-flush">
+                    
+                    <li *ngIf="i>0" class="list-group-item sm-text-gray">{{er}}</li>
+                </ul>               
+            </div>
+            <div class="modal-footer d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-secondary round-bt" data-bs-dismiss="modal">Cerrar</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
