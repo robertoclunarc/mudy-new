@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SelectsService } from 'src/app/services/selects.service';
 //import { UtilsService } from 'src/app/services/utils.service';
 import { ServiceMainComponent } from '../service-main/service-main.component';
@@ -19,7 +19,9 @@ export class CotizacionFleteComponent implements OnInit {
   vehicleTypes: any[] = [];
   buildings: any = [];
   disableReg: boolean=false;
-  msjRegisterError: any[]=[];  
+  msjRegisterError: any[]=[];
+  @Input() idCotizacion?: string;
+  @Input() mensaje?: string  
 
   constructor(
     private router: Router,
@@ -37,7 +39,9 @@ export class CotizacionFleteComponent implements OnInit {
     this.flete=this.fleteView;
     await this.getBuildings(); 
     await this.getVehicleTypes();    
-    this.flete.tipoVehiculo= await this.vehicleTypes.find((v: any)=> { return v.id==this.flete.vehicle_type_id}).name;    
+    this.flete.tipoVehiculo= await this.vehicleTypes.find((v: any)=> { return v.id==this.flete.vehicle_type_id}).name;
+    
+    this.msjError();
 
   }  
 
@@ -68,14 +72,6 @@ export class CotizacionFleteComponent implements OnInit {
     this.router.navigate([`/`]);
   }  
 
-  openSubmitedModal(){
-    let submitedModal = new bootstrap.Modal(document.getElementById('submitedModal') as any, {
-      keyboard: false
-    })
-    submitedModal?.show();
-    this.disableReg=true
-  }  
-
   openMsjErrorModal(){
     let registerError = new bootstrap.Modal(document.getElementById('registerError') as any, {
       keyboard: false
@@ -83,16 +79,19 @@ export class CotizacionFleteComponent implements OnInit {
     registerError?.show();
   }  
 
-  msjError(msjRegisterError: any){
+  msjError(){
     let msj: string[]=[];
+    /*
+    http://www.mudy.itsirius.com/6/successful
+    http://www.mudy.itsirius.com/6/failed
 
-    msj.push(msjRegisterError.message);
-    
-    if (msjRegisterError.errors!=undefined){
-      msj.push(msjRegisterError.errors);
+    */
+    if (this.mensaje=='successful'){
+      this.msjRegisterError.push('Operación Exitosa!');
     }
-    
-    this.msjRegisterError=msj;
+    else{
+      this.msjRegisterError.push('No se Completó la Operación!');
+    }    
     this.openMsjErrorModal();
   }
 }
