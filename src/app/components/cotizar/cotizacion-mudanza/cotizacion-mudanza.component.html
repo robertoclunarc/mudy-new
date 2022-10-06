@@ -227,14 +227,14 @@
 <div class="modal fade" id="registerError" #registerError tabindex="-1">
     <div class="modal-dialog">        
         <div class="modal-content">
-            <div class="modal-header">Error:               
+            <div class="modal-header"><h5 class="text-blue pt-3">{{mensaje}}:</h5>              
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 
                 <ul *ngFor="let er of msjRegisterError; index as i" class="list-group list-group-flush">
                     
-                    <li *ngIf="i>0" class="list-group-item sm-text-gray">{{er}}</li>
+                    <li *ngIf="i>=0" class="list-group-item sm-text-gray"><h6 class="text-blue pt-3">{{er}}</h6></li>
                 </ul>               
             </div>
             <div class="modal-footer d-flex justify-content-center align-items-center">

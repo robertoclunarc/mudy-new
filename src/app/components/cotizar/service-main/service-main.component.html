@@ -1,7 +1,7 @@
 <div class="main-container">
 
-    <app-cotizacion-flete *ngIf="resumen && serviceType == 'flete'" ></app-cotizacion-flete>
-    <app-cotizacion-mudanza *ngIf="resumen && serviceType == 'mudanza'" ></app-cotizacion-mudanza>
+    <app-cotizacion-flete *ngIf="resumen && serviceType == 'flete'" [idCotizacion]="idCotizacion" [mensaje]="mensaje"></app-cotizacion-flete>
+    <app-cotizacion-mudanza *ngIf="resumen && serviceType == 'mudanza'" [idCotizacion]="idCotizacion" [mensaje]="mensaje" ></app-cotizacion-mudanza>
     <app-personal-info *ngIf="!resumen && step$.value == 1"></app-personal-info>   
     <app-origin-address *ngIf="step$.value == 2"></app-origin-address>
     <app-to-address *ngIf="step$.value == 3"></app-to-address>
